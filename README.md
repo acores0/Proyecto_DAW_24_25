@@ -18,6 +18,8 @@
 
 > *EXPLICACIÓN:* neste punto indica se o proyecto está en fase de desenrolo ou finalizado.
 
+Proxecto en fase de desenrolo.
+
 ## Descrición
 
 > *EXPLICACIÓN*: Realiza unha breve descrición do proxecto. Non menos de 100 palabras e non máis de 300. Resalta o fundamental *coas túas propias palabras**. Utiliza unha linguaxe correcta, *pero natural**, que o entenda todo o mundo, mesmo e en especial, as persoas que non teñan un coñecemento técnico avanzado. Pode ser un estracto ou resumo de apartados que xa contemples noutros ficheiros.
@@ -45,13 +47,13 @@
 
 > *EXPLICACIÓN*: Simplemente indexa ordenadamente todo o tey proxecto.
 
-1. [Anteproyecto](./Documentación/1_Anteproxecto.md)
-2. [Análise](./Documentación//2_Analise.md)
-3. [Deseño](./Documentación//3_Deseño.md)
-4. [Codificación e probas](./Documentación/4_Codificacion_e_probas.md)
-5. [Implantación](./Documentación/5_Implantación.md)
-6. [Referencias](./Documentación/6_Referencias.md)
-7. [Incidencias](./Documentación/7_Incidencias.md)
+1. [Anteproxecto](Documentación/1_Anteproxecto.md)
+2. [Análise](Documentación//2_Analise.md)
+3. [Deseño](Documentación//3_Deseño.md)
+4. [Codificación e probas](Documentación/4_Codificacion_e_probas.md)
+5. [Implantación](Documentación/5_Implantación.md)
+6. [Referencias](Documentación/6_Referencias.md)
+7. [Incidencias](Documentación/7_Incidencias.md)
 
 ## Guía de contribución
 

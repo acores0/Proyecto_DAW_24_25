@@ -32,30 +32,24 @@
 >
 > - ¿En que consiste o noso proxecto? ¿Cal é o propósito principal da aplicación a desenvolver? ¿Cales son os obxectivos?
 >
-
-Este proxecto consiste na realización dunha aplicación web que, utilizando a base de datos dunha empresa vitivinícola, mostra, a través da súa páxina web, a información que a bodega ten dos proveedores de uva.
-
-O propósito principal da aplicación é ser unha vía de comunicación entre a bodega e os proveedores de uva onde estes poden consultar a información relacionada coa empresa e realizar pequenos trámites a través da aplicación.
-
-Os obxetivos da aplicación son:
-- Manter informado ao proveedor de uva en todo momento dos datos de facturación coa bodega.
-- Consulta de información.
-- Descarga de documentos.
-- Realización de pequenas xestións.
-
-
-
 > - ¿O desenvolvemento da aplicación abre unha oportunidade de negocio? ¿É posible comercializala? Como?
-
-Esta aplicación da servizo ás empresas vitivinícolas que non teñen un software específico que intercambie información cos proveedores de uva.
-
-A súa comercialización realizarase mediante unha licenza basada en suscripción no que o cliente paga polo dereito de uso do software durante un período de tempo, neste caso un ano, pero non ten a propiedade do software nin pode seguir utilizándoo se non renova a suscripción.
-
-
-
 > - ¿Que tecnoloxías son as máis axeitadas para a realización do proxecto?
 
-As tecnoloxías utilizadas para a realización do proxecto son PHP, JavaScript, HTML e CSS.
+O proxecto consiste na creación dunha aplicación web para xestionar a información relativa aos proveedores de uva dunha empresa vitivinícola dando servizo a aquelas que non teñen un software específico que intercambie información cos seus proveedores, sendo o propósito principal ser unha vía de comunicación de consulta de información e realización de pequenos trámites.
+
+Os principais obxectivos son:
+- Manter ao proveedor informado en todo momento dos datos de facturación coa empresa.
+- Consultar información relacionada coa rendibilidade productiva das parcelas. 
+- Acceder ás facturas pendentes de pago e cobro, así como descargar as mesmas.
+- Realización de pequenos trámites como a solicitude dos días de entrega de uva e a descarga do modelo de liquidación do IRPF daqueles proveedores que estean suxeitos.
+
+Para comercializar a aplicación necesitamos os seguintes recursos: 
+- Un hosting que aloxará a aplicación, no que se instalará un servidor web, unha linguaxe de servidor e unha base de datos. 
+- Un subdominio no dominio web da empresa. Se a empresa non ten un dominio propio proporcionarase o servizo para contratar un.
+
+Ademáis, para que o cliente poida utilizar a aplicación será necesario que pague unha licenza baseada en suscripción na que pode utilizar o software durante un período de tempo, neste caso dun ano, pero non ten a propiedade do software nin pode seguir utilizándoo se non renova a suscripción.
+ 
+As tecnoloxías que se utilizarán para a realización do proxecto son PHP, JavaScript, HTML e CSS.
 
 
 
@@ -68,8 +62,7 @@ As tecnoloxías utilizadas para a realización do proxecto son PHP, JavaScript, 
 
 > _EXPLICACIÓN_: Define o producto central, o valor engadido e a utilidade. Se se ofrecen productos aumentados, indicalo tamén.
 
-O producto central da empresa é unha aplicación web que mostra información referente aos proveedores de uva dunha empresa vitivinícola utilizando a base de datos da empresa a través da súa páxina web.
-
+O producto central da empresa é unha aplicación web que mostra información referente aos proveedores de uva dunha empresa vitivinícola a través da súa páxina web.
 
 
 
@@ -85,9 +78,7 @@ A idea xorde da necesidade do intercambio de datos entre as empresas vitiviníco
 >
 > - ¿Cal é a necesidade ou necesidades que se pretenden cubrir ou satisfacer?
 
-Esta aplicación pretende solventar a necesidade de poder consultar datos e realizar pequenas xestións sen ter que ir os proveedores de uva presencialmente á bodega para pedir a información e realizar eses trámites.
-
-Ademáis de que resolve a necesidade dos proveedores de uva de estar informados a tempo real dos datos de facturación coa bodega.
+A aplicación pretende solventar a necesidade de poder consultar os datos de facturación coa bodega a tempo real e realizar pequenas xestións como a descarga das facturas pendentes de pago e cobro ou consultar a información referente á campaña da vendima sen ter que ir os proveedores de uva presencialmente á bodega para pedir a información e realizar eses trámites.
 
 
 > - ¿Existen na actualidade aplicacións ou productos que tenten dar resposta a esa(s) necesidade(s)? ¿En que medida o conseguen?
@@ -110,9 +101,8 @@ Análise DAFO
 
 | Fortalezas |  | Oportunidades |
 | --- | --- | --- |
-| Custos baixos de implantación do software para o cliente| | Posibilidade de expandir a aplicación cara outros sectores
-| Personalización do software | | O noso software cubre unha necesidade sen cubrir das empresas
-| 
+| Custos baixos de implantación do software para o cliente| | Posibilidade de expandir a aplicación cara outros sectores |
+| Personalización do software | | A aplicación cubre unha necesidade sen cubrir das empresas | 
 
 
 
@@ -132,7 +122,9 @@ Análise DAFO
 > - Indicar o segmento ou segmentos cos rasgos principais e cuantificar o mercado.
 > - E se é o caso, diferenciar entre usuario e cliente.
 
-A aplicación está dirixida a aquelas empresas vitivinícolas que non teñen un servizo de comunicación dixital entre a súa empresa e os proveedores de uva. Segundo datos do "Directorio Central de Empresas (DIRCE)" do "Instituto Nacional de Estadística (INE)", en España, no ano 2022 había un total de 4.078 bodegas, sendo estas os clientes da aplicación e os seus proveedores de uva os usuarios da mesma.
+A aplicación está dirixida a aquelas empresas vitivinícolas que non teñen un servizo de comunicación dixital entre a súa empresa e os proveedores de uva. 
+
+Segundo datos do "Directorio Central de Empresas (DIRCE)" do "Instituto Nacional de Estadística (INE)", en España, no ano 2022 había un total de 4.078 bodegas, sendo estas os clientes da aplicación e os seus proveedores de uva os usuarios da mesma.
 
 ![Número de bodegas en España](./img/Numero-bodegas-de-vino.webp)
 
@@ -165,7 +157,7 @@ As pequenas e medianas empresas soen ter software máis sinxelo que non soen ofe
 
 O principal obxectivo das empresas é a comunicación cos seus clientes mentres que o principal obxectivo desta aplicación é mellorar a comunicación das empresas vitivinícolas cos seus proveedores de uva.
 
-A través da nosa aplicación os proveedores de uva poderán estar informados en todo momento dos seus datos financeiros e da vendima que teñen coa bodega, además de que poderán realizar pequenas xestións como descargar facturas, consultar información doutros anos, ... entre outros, sen ter que ir persoalmente ás instalacións da mesma.
+A través da nosa aplicación os proveedores de uva poderán estar informados en todo momento dos seus datos financeiros e da vendima que teñen coa bodega, ademáis de que poderán realizar pequenas xestións como descargar facturas, consultar información doutros anos, ... entre outros, sen ter que ir persoalmente ás instalacións da mesma.
 
 
 
@@ -186,13 +178,13 @@ O viveiro de empresas inclúe servizos como a luz, auga, mobiliario, equipos inf
 
 Ademáis, aínda que non é obrigatorio, decidíuse contratar un seguro de responsabilidade civil para autónomos que cubre os posibles danos tanto persoais como materiais que poida causar a actividade a terceiras persoas de xeito involuntario que ten un custe duns 120€ ao ano.
 
-Ademáis, para poder traballar fóra da oficina decidiuse adquirir un [ordenador portátil](./img/Prezo_portatil.png) valorado en 199€.
+Ademáis, para poder traballar fóra da oficina decidiuse adquirir un [ordenador portátil](img/Prezo_portatil.png) valorado en 199€.
 
-Para aloxar a nosa páxina web optouse por contratar un [hosting](./img/Prezo_servidor.png) que custa uns 12€ ao ano. Este hosting non inclúe [dominio](./img/Prezo_dominio.png), que custaría uns 6.95€ ano ano (dominio .es).
+Entre os tipos de hosting ofertados, decidiuse contratar un [hosting de servidor privado virtual](img/Prezo_hosting.png) que aloxará a páxina web da empresa e a aplicación que custa 6,64€ ao mes e un [dominio](img/Prezo_dominio.png), que custa uns 6.95€ ao ano (dominio .es).
 
-Para a comunicación entre a empresa e os seus clientes, ademáis de medios dixitais, optouse por contratar un [liña de teléfono](./img/Prezo_tarifa_telefono.png) para empresas cun custo de 12'40€ ao mes e a compra dun [teléfono móvil](./img/Prezo_smartphone.png) cun custo de 99€.
+Para a comunicación entre a empresa e os seus clientes, ademáis de medios dixitais, optouse por contratar un [liña de teléfono](img/Prezo_tarifa_telefono.png) para empresas cun custo de 12'40€ ao mes e a compra dun [teléfono móvil](img/Prezo_smartphone.png) cun custo de 99€.
 
-Para a xestión administrativa optouse por contratar os servizos dunha [asesoría](./img/Prezo_asesoria.png) online que ten un custo de 29'95€ ao mes.
+Para a xestión administrativa optouse por contratar os servizos dunha [asesoría](img/Prezo_asesoria.png) online que ten un custo de 29'95€ ao mes.
 
 Ademáis, como a nosa empresa garda datos dos clientes, é obrigatorio ter un servizo de protección de datos que ten un custo de 60€ ao ano.
 
@@ -208,34 +200,48 @@ Por último, para a xestión dos pagos e cobros da empresa contratouse unha cont
 > - Computando impostos e custos sociais.
 
 
-Custos fixos anuais:
-- Dominio web
-- Servizo de protección de datos
-
-Custos fixos mensuais:
-- Servidor web
-- Liña de teléfono
-- Asesoría
-
-Custos variables:  
-Non hai.
-
-Custos sociais:
-- Soldos
-- Cotización á Seguridade Social
+| Investimentos: | | |
+| --- | --- | ---: |
+| Equipo informático | | 199€
+| Teléfono móvil | | 99€
 
 
+
+| Custos fixos (prezo anual): | | |
+| --- | --- | ---: |
+| Dominio web | | 6,95€
+| Servizo de protección de datos | | 60€
+| Seguro responsabilidade civil de autónomos | | 120€
+| Gastos bancarios | |  60€
+| Hosting | | 79,71€
+| Liña de teléfono | | 108€
+| Asesoría | | 359,40€
+| Cotización á Seguridade Social | | 960€
+| Soldos | | 15.876€
+
+
+| Custos variables:  | | |
+| --- | --- | --- |
+| Non hai | |
+
+
+
+En total a empresa, o primeiro ano, ten uns gastos anuais de 17.928,06€.
 
 #### 2.7.2- Ingresos
 
 > _EXPLICACIÓN_: Neste apartado indicarase unha previsión de ventas e unha política de prezos. Isto implicar apuntar unha previsión de ventas e unha política de prezos.
 
-A comercialización da aplicación realizarase mediante unha licenza basada en suscripción no que o cliente paga polo dereito de uso do software e as actualizacións e soporte da mesma por un período anual renovable, pero non ten a propiedade do software nin pode seguir utilizándoo se non renova a suscripción.
+A comercialización da aplicación realizarase mediante unha licenza basada en suscripción por un período anual renovable que inclúe o o uso do software, as actualizacións e o soporte da mesma, pero se o cliente non renova a suscripción, non pode seguir utilizándoa.
 
-A suscripción da aplicación ten un prezo de 21€ ao mes durante un ano, sendo o custe total para o cliente duns 252€.
+A empresa fíxase como obxectivo ter 6 novos clientes ao mes, de xeito que ao ano tería uns 72 clientes.
 
-A empresa fíxase como obxectivo ter 6 novos clientes ao mes, de xeito que cada mes ten uns ingresos de 1.512€ (252€ * 6 clientes).
+Para calcular o prezo da aplicación utilizouse a seguinte fórmula:
+$$\text{Prezo} = \frac{\text{total custos}} {\text{número de clientes obxectivo dun ano}} + 5\% \text{de ganancias} = \frac{\text{17.928,06}}{\text{72}} \times 5\%  \approx 22€$$
 
+Polo tanto, o prezo da suscripción á aplicación ten un prezo de 22€ ao mes sendo o custe total para o cliente duns 264€ ao ano.
+
+A este prezo, no caso de que o cliente non tivera un dominio propio, sumaríaselle o prezo do dominio.
 
 
 ### 2.8- Viabilidade
@@ -249,12 +255,14 @@ A empresa fíxase como obxectivo ter 6 novos clientes ao mes, de xeito que cada 
 > - Existe algún impedimento técnico que dificulte o proceso produtivo?
 
 Para poñer en marcha este proxecto son necesarios os seguintes recursos:
-- Instalacións: local de oficina
-- Equipos para procesos de información
-- Mobiliario de oficina
-- Recursos humanos: técnico en desenvolvemento de aplicacións web
+ 1. Tecnoloxías utilizadas: PHP, JavaScript, HTML, CSS e MySQL.
+ 2. Recursos dispoñibles: técnico en desenvolvemento de aplicacións web, hosting, ferramentas de entorno de desenrolo integrado como VSCode, equipo informático, hosting, servidor web, servidor de base de datos, local e mobiliario de oficina.
+ 3. Integración con sistemas existentes como APIs.
+ 4. Prazos de desenrolo: 240 horas.
+ 5. Seguridade: copias de seguridade, tanto do sistema como da base de datos, control de incidencias mediante o acceso aos log do sistema e do servidor web.
 
-Según a lista anterior, o proxecto é viable dende o punto de vista técnico xa que conta cos recursos necesarios para o correcto funcionamento da actividade.
+
+O proxecto é viable dende o punto de vista técnico xa que conta cos recursos necesarios para o correcto funcionamento da actividade.
 
 
 
@@ -294,9 +302,21 @@ Polo tanto a empresa é viable técnicamente, xa que conta cos recursos necesari
 
 > _EXPLICACIÓN_: Descrición dos medios materiais e das tecnoloxías necesarias que se usarán para desenvolver o proxecto incluíndo as linguaxes de programación frontend e backend, técnicas, librerías, bases de datos, servizos usados, servidores, API’s, etc.
 
-- **Infraestructura:** dominio web, servidor web dedicado, servidor de base de datos, almacenamento, memoria, ...
-- **Backend:** PHP.
-- **Frontend:** JavaScript, HTML e CSS.
+>- **Infraestructura:** dominio web, servidor web dedicado, servidor de base de datos, almacenamento, memoria, ...
+
+- **Infraestructura:** 
+  - Dominio web.
+  - Hosting de servidor privado virtual (VPS):
+    - Almacenamento: 50 GB de espazo en disco.
+    - Memoria: 4GB RAM.
+  - Servidor web Apache.
+  - Servidor de base de datos MySQL.
+- **Backend:** 
+  - PHP.
+- **Frontend:** 
+  - JavaScript
+  - HTML
+  - CSS.
 
 ## 4- Planificación
 
@@ -311,23 +331,4 @@ Polo tanto a empresa é viable técnicamente, xa que conta cos recursos necesari
 >
 > Debe facerse un calendario ou un diagrama de Gantt indicando, para cada fase, a data de inicio, a súa duración e breve descrición das tarefas a realizar.
 
-1. Estudo preliminar --> 23/09/24 - 29/09/24  
-   Realización das seguintes tarefas:
-   - Definición da idea do proxecto.
-   - Investigación da competencia.
-   - Investigación da viabilidade ecónomica e técnica do proxecto.
-
-2. Análise --> 30/09/24 - 02/10/24  
-   Realización das seguintes tarefas:
-   - Definición das funcionalidades e usuarios da aplicación.
-   - Investigación da normativa aplicable ao software.
-
-3. Deseño --> 03/10/24 - 16/10/24  
-   Realización das seguintes tarefas:
-   - Realización dos diagramas de arquitectura, casos de uso e bases de datos da aplicación.
-   - Realización do deseño das interfaces de usuario da aplicación.
-   
-
-4. Codificación e probas --> 17/10/24 - 09/12/24  
-   Realización da codificación do proxecto e as probas necesarias para comprobar o seu correcto funcionamento.
-
+![Diagrama de Gant](img/Diagrama_Gantt.png)
