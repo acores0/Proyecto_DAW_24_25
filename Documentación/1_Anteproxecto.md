@@ -38,9 +38,6 @@ Ademáis, para que o cliente poida utilizar a aplicación será necesario que pa
  
 As tecnoloxías que se utilizarán para a realización do proxecto son PHP, JavaScript, HTML e CSS.
 
-
-
-
 ## 2- Empresa
 
 
@@ -49,9 +46,8 @@ O producto central da empresa é unha aplicación web que mostra información re
 
 O valor engadido da aplicación radica nas seguintes características:
 - Accesibilidade e flexibilidade: os usuarios poden acceder á aplicación dende calquer lugar con conexión a internet e mediante calquer dispositivo como unha tableta, un móvil ou unha computadora.
-- Custos reducidos: 
-- Facilidade de uso e distribución: non require instalación
-- 
+- Custos reducidos. 
+- Facilidade de uso e distribución: non require instalación.
 
 
 ### 2.2- Xustificación da idea
@@ -82,7 +78,9 @@ Análise DAFO
 ### 2.3- Segmento de clientes
 A aplicación está dirixida a aquelas empresas vitivinícolas que non teñen un servizo de comunicación dixital entre a súa empresa e os proveedores de uva. 
 
-Segundo datos do "Directorio Central de Empresas (DIRCE)" do "Instituto Nacional de Estadística (INE)", en España, no ano 2022 había un total de [4.078 bodegas](./img/Numero-bodegas-de-vino.webp). Para a aplicación, centrarémonos nas empresas pertencentes á denominación de orixe Rias Baixas que comprende un total de x bodegas, sendo estas os clientes da aplicación e os seus proveedores de uva os usuarios da mesma.
+Segundo datos do "Directorio Central de Empresas (DIRCE)" do "Instituto Nacional de Estadística (INE)", en España, no ano 2022 había un total de [4.078 bodegas](./img/Numero-bodegas-de-vino-españa.webp), das cales 411 pertencen ás denominacións de orixe de Galicia. 
+
+Para esta aplicación, centrarémonos nas pertencentes á denominación de orixe Rias Baixas que comprende un total de 173 bodegas, sendo estas os clientes da aplicación e os seus proveedores de uva os usuarios da mesma.
 
 
 ### 2.4- Competencia
@@ -97,12 +95,10 @@ Os principais ERPs que hai no mercado son: SAP, Oracle, Microsoft e Odoo, aínda
 As pequenas e medianas empresas soen ter software máis sinxelo que non soen ofertar servizos de intercambio de información entre a empresa e os proveedores.
 
 
-
 ### 2.5- Proposta de valor
 O principal obxectivo das empresas é a comunicación cos seus clientes mentres que o principal obxectivo desta aplicación é mellorar a comunicación das empresas vitivinícolas cos seus proveedores de uva.
 
 A través da nosa aplicación os proveedores de uva poderán estar informados en todo momento dos seus datos financeiros e da vendima que teñen coa bodega, ademáis de que poderán realizar pequenas xestións como descargar facturas, consultar información doutros anos, ... entre outros, sen ter que ir persoalmente ás instalacións da mesma.
-
 
 
 ### 2.6- Forma xurídica
@@ -132,14 +128,11 @@ Ademáis, como a nosa empresa garda datos dos clientes, é obrigatorio ter un se
 Por último, para a xestión dos pagos e cobros da empresa contratouse unha conta corrente de autónomos cun custe de mantemento de 30€ cada seis meses.
 
 
-
 #### 2.7.1- Custos
 | Investimentos: | | |
 | --- | --- | ---: |
 | Equipo informático | | 199€
 | Teléfono móvil | | 99€
-
-
 
 | Custos fixos (prezo anual): | | |
 | --- | --- | ---: |
@@ -161,7 +154,7 @@ Por último, para a xestión dos pagos e cobros da empresa contratouse unha cont
 
 
 
-En total a empresa, o primeiro ano, ten uns gastos anuais de 20.187,46€.
+En total a empresa, o primeiro ano, ten uns gastos anuais de 20.227,46€.
 
 #### 2.7.2- Ingresos
 A comercialización da aplicación realizarase mediante unha licenza basada en suscripción por un período anual renovable que inclúe o o uso do software, as actualizacións e o soporte da mesma, pero se o cliente non renova a suscripción, non pode seguir utilizándoa.
@@ -169,12 +162,11 @@ A comercialización da aplicación realizarase mediante unha licenza basada en s
 A empresa fíxase como obxectivo ter 6 novos clientes ao mes, de xeito que ao ano tería uns 72 clientes.
 
 Para calcular o prezo da aplicación utilizouse a seguinte fórmula:
-$$\text{Prezo} = \frac{\text{total custos}} {\text{número de clientes obxectivo dun ano}} + 5\% \text{de ganancias} = \frac{\text{120.187,46 €}}{\text{72}} \times 5\%  \equal 22€$$
+$$\text{Prezo} = \frac{\text{total custos}} {\text{número de clientes obxectivo dun ano}} + 5\% \text{de ganancias} = \frac{\text{20.227,46 €}}{\text{72}} \times 5\%  = 24,11€$$
 
-Polo tanto, o prezo da suscripción á aplicación ten un prezo de 22€ ao mes sendo o custe total para o cliente duns 264€ ao ano.
+Polo tanto, o prezo da suscripción á aplicación ten un prezo de 24,11€ ao mes sendo o custe total para o cliente duns 289,37€ ao ano.
 
 A este prezo, no caso de que o cliente non tivera un dominio propio, sumaríaselle o prezo do dominio.
-
 
 ### 2.8- Viabilidade
 
@@ -184,35 +176,27 @@ Para poñer en marcha este proxecto son necesarios os seguintes recursos:
  2. Recursos dispoñibles: técnico en desenvolvemento de aplicacións web, hosting, ferramentas de entorno de desenrolo integrado como VSCode, equipo informático, hosting, servidor web, servidor de base de datos, local e mobiliario de oficina.
  3. Integración con sistemas existentes como APIs.
  4. Prazos de desenrolo: 240 horas.
- 5. Seguridade: copias de seguridade, tanto do sistema como da base de datos, control de incidencias mediante o acceso aos log do sistema e do servidor web.
-
+ 5. Seguridade: copias de seguridade, tanto do sistema como da base de datos, control de incidencias mediante o acceso aos logs do sistema e do servidor web.
 
 O proxecto é viable dende o punto de vista técnico xa que conta cos recursos necesarios para o correcto funcionamento da actividade.
-
-
 
 #### 2.8.2 - Viabilidade económica
 Según os datos aportados nos apartados anteriores, podemos realizar a seguinte táboa:
 ![Imaxe dos custos e ingresos](./img/Prevision_gastos_ingresos.png)
 
 Dos datos anteriores pódese deducir o seguinte:
-- A inversión inicial da empresa é de 1.927,90€.
-- A empresa, todos os meses ten os gastos fixos do servidor, asesoría, liña de teléfono, soldos e cotización á seguridade social que ten un custo dus 1.445,95€ ao mes, excepto nos meses de xuño e decembro no que se engade o custo da comisión de mantemento da conta bancaria.
-- Durante o primeiro ano a empresa ten uns custos totais de 17.860,35€.
-- As cifras de vendas son estables durante todo o ano debido a que a empresa marcouse un obxectivo de 6 novos clientes cada mes.
-- Durante o primeiro ano a empresa ten uns ingresos totais de 18.144€.
-- Os ingresos da empresa son maiores que os gastos en todos os meses do primeiro ano, excepto no primeiro mes debido á inversión inicial da empresa, de xeito que non hai problemas de liquidez que motiven a utilizar fontes de financiación externa.
+A inversión inicial da empresa é de 2.582,34€.
 
+Durante o primeiro ano a empresa ten uns gastos fixos duns 1.597,39€ ao mes que corresponden cos gastos do servidor, a asesoría, a liña de teléfono e os soldos, excepto nos meses de xuño e decembro nos que se engade o custo da comisión de mantemento da conta bancaria e uns gastos variables de 3.259,40€ ano ano que corresponden cos gas tos do kilometraxe e da publicidade. 
 
+As cifras de vendas son estables durante todo o ano debido a que a empresa marcouse un obxectivo de 6 novos clientes cada mes, polo tanto a empresa ten uns ingresos totais de 20.834,29€.
 
-
+Polo tanto non hai problemas de liquidez que motiven a utilizar fontes de financiación externa xa que en cada mes do ano, os ingresos son maiores ca os gastos, excepto no primeiro mes debido á inversión inicial da posta en marcha empresa.
 
 #### 2.8.3- Conclusión
-Segun os datos explicados no apartado anterior, a empresa, no primeiro ano, ten uns gastos totais de 17.860,35€ e uns ingresos totais de 18.144€. 
+Segun os datos explicados no apartado anterior, a empresa ao final do primeiro ano, ten uns gastos totais de 20.227,46€ e uns ingresos totais de 20.834,29€. 
 
-Polo tanto a empresa é viable técnicamente, xa que conta cos recursos necesarios para realizar a actividade, e económicamente xa que, ao final do primeiro ano, ten uns beneficios de 286,65€.
-
-
+Polo tanto a empresa é viable técnicamente, xa que conta cos recursos necesarios para realizar a actividade, e económicamente xa que, ao final do primeiro ano, ten uns beneficios de 606,82€.
 
 ## 3- Requirimentos técnicos
 - **Infraestructura:** 
@@ -231,3 +215,22 @@ Polo tanto a empresa é viable técnicamente, xa que conta cos recursos necesari
 
 ## 4- Planificación
 ![Diagrama de Gant](img/Diagrama_Gantt.png)
+
+1. Estudo preliminar --> 23/09/24 - 29/09/24  
+   Realización das seguintes tarefas:
+   - Definición da idea do proxecto.
+   - Investigación da competencia.
+   - Investigación da viabilidade ecónomica e técnica do proxecto.
+   - 
+2. Análise --> 30/09/24 - 02/10/24  
+   Realización das seguintes tarefas:
+   - Definición das funcionalidades e usuarios da aplicación.
+   - Investigación da normativa aplicable ao software.
+   - 
+3. Deseño --> 03/10/24 - 16/10/24  
+   Realización das seguintes tarefas:
+   - Realización dos diagramas de arquitectura, casos de uso e bases de datos da aplicación.
+   - Realización do deseño das interfaces de usuario da aplicación.
+   
+4. Codificación e probas --> 17/10/24 - 09/12/24  
+   Realización da codificación do proxecto e as probas necesarias para comprobar o seu correcto funcionamento.
