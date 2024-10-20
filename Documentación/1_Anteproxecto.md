@@ -38,16 +38,21 @@ Ademáis, para que o cliente poida utilizar a aplicación será necesario que pa
  
 As tecnoloxías que se utilizarán para a realización do proxecto son PHP, JavaScript, HTML e CSS.
 
+
+
 ## 2- Empresa
 
-
 ### 2.1- Idea de negocio
-O producto central da empresa é unha aplicación web que mostra información referente aos proveedores de uva dunha empresa vitivinícola a través da súa páxina web.
+A aplicación web mostra información a tempo real referente aos proveedores de uva dunha empresa vitivinícola a través da súa páxina web proporcionando un medio de comunicación entre a empresa e os seus proveedores de uva sen que estes teñan que ir presencialmente á empresa para pedir información e realizar pequenos trámites.
 
-O valor engadido da aplicación radica nas seguintes características:
-- Accesibilidade e flexibilidade: os usuarios poden acceder á aplicación dende calquer lugar con conexión a internet e mediante calquer dispositivo como unha tableta, un móvil ou unha computadora.
-- Custos reducidos. 
-- Facilidade de uso e distribución: non require instalación.
+O valor engadido da aplicación radica:
+- **Plataforma independente:** os usuarios non necesitan instalación ningunha, podendo acceder á aplicación dende calquer lugar con conexión a internet e mediante calquer dispositivo como unha tableta, un móvil ou unha computadora.
+- **Non require instalación para a súa implantación:** a aplicación non require instalación para o cliente xa que se provee a aplicación xunto coa súa implantación.
+- **Centralización dos datos:** Ao centralizar os datos na aplicación, tódolos usuarios poden acceder á última versión dos datos sen necesidade de que os usuarios estén pendentes de se os datos facilitados na bodega son correctos.
+- **Menores custes de desenrolo:** os custes dun desenrolo específico son afrontados polo cliente que encargou o software, pero neste caso, como a aplicación é un desenrolo que pode aplicarse a moitos clientes, o custe da mesma redúcese ao ser compartido por todos.
+- **Aforro en infraestructura:** se o cliente escolle aloxar a aplicación na nube, póde reducir custes ao non ter un servidor propio e compartir o harware con outras aplicacións.
+- **Acceso simúltáneo:** moitos usuarios poden acceder á aplicación á vez.
+
 
 
 ### 2.2- Xustificación da idea
@@ -75,12 +80,23 @@ Análise DAFO
 | Escasa imaxe de marca | | Dificultade para obter financiación bancaria |
 
 
+
 ### 2.3- Segmento de clientes
-A aplicación está dirixida a aquelas empresas vitivinícolas que non teñen un servizo de comunicación dixital entre a súa empresa e os proveedores de uva. 
+O sector vitivinícola en España representa aproximadamente entre o 1% e o 1,5% do Producto Interno Bruto (PIB), xerando emprego directo e indirecto nas áreas da agricultura, producción, distribución e turismo, xa que as bodegas que operan baixo denominacións de orixe non só producen viño, senón tamén atraen a turistas interesados no enoturismo, o que potencia aínda máis o seu impacto económico.
 
-Segundo datos do "Directorio Central de Empresas (DIRCE)" do "Instituto Nacional de Estadística (INE)", en España, no ano 2022 había un total de [4.078 bodegas](./img/Numero-bodegas-de-vino-españa.webp), das cales 411 pertencen ás denominacións de orixe de Galicia. 
+Segundo datos do "*Ministerio de Agricultura, Pesca y Alimentación*" na [campaña 2022/2023](https://www.mapa.gob.es/es/alimentacion/temas/calidad-diferenciada/informe_dops_2022_2023_tcm30-690956.pdf), en España, hai un total de 4.015 bodegas que pertencen a unha das 68 denominacións de orixe que existen.
 
-Para esta aplicación, centrarémonos nas pertencentes á denominación de orixe Rias Baixas que comprende un total de 173 bodegas, sendo estas os clientes da aplicación e os seus proveedores de uva os usuarios da mesma.
+![Mapa que representa o % de bodegas das denominacións de orixe por comunidade autónoma](img/Mapa_bodegas_CCAA.png)
+
+
+En Galicia, están ubicadas 442 bodegas pertencentes a 5 denominacións de orixe: DO. Rías Baixas, DO. Valdeorras, DO. Ribeiro, DO. Ribeira Sacra e DO. Monterrei.
+
+![Mapa da ubicación xeográfica das denominacións de orixe de Galicia](img/Mapa_DO_Galicia.png)
+
+
+A aplicación está dirixida a aquelas empresas vitivinícolas que non teñen un servizo de comunicación dixital entre a súa empresa e os proveedores de uva centrándose nas bodegas pertencentes á denominación de orixe Rias Baixas que comprende un total de 178 bodegas, sendo estas os clientes da aplicación e os seus proveedores de uva os usuarios da mesma.
+![Mapa do número de bodegas de Galicia por concellos](img/Mapa_bodegas_Galicia_concellos.png)
+
 
 
 ### 2.4- Competencia
@@ -95,10 +111,12 @@ Os principais ERPs que hai no mercado son: SAP, Oracle, Microsoft e Odoo, aínda
 As pequenas e medianas empresas soen ter software máis sinxelo que non soen ofertar servizos de intercambio de información entre a empresa e os proveedores.
 
 
+
 ### 2.5- Proposta de valor
 O principal obxectivo das empresas é a comunicación cos seus clientes mentres que o principal obxectivo desta aplicación é mellorar a comunicación das empresas vitivinícolas cos seus proveedores de uva.
 
 A través da nosa aplicación os proveedores de uva poderán estar informados en todo momento dos seus datos financeiros e da vendima que teñen coa bodega, ademáis de que poderán realizar pequenas xestións como descargar facturas, consultar información doutros anos, ... entre outros, sen ter que ir persoalmente ás instalacións da mesma.
+
 
 
 ### 2.6- Forma xurídica
@@ -126,6 +144,7 @@ Para a xestión administrativa optouse por contratar os servizos dunha [asesorí
 Ademáis, como a nosa empresa garda datos dos clientes, é obrigatorio ter un servizo de protección de datos que ten un custo de 60€ ao ano.
 
 Por último, para a xestión dos pagos e cobros da empresa contratouse unha conta corrente de autónomos cun custe de mantemento de 30€ cada seis meses.
+
 
 
 #### 2.7.1- Custos
@@ -156,6 +175,8 @@ Por último, para a xestión dos pagos e cobros da empresa contratouse unha cont
 
 En total a empresa, o primeiro ano, ten uns gastos anuais de 20.227,46€.
 
+
+
 #### 2.7.2- Ingresos
 A comercialización da aplicación realizarase mediante unha licenza basada en suscripción por un período anual renovable que inclúe o o uso do software, as actualizacións e o soporte da mesma, pero se o cliente non renova a suscripción, non pode seguir utilizándoa.
 
@@ -168,6 +189,8 @@ Polo tanto, o prezo da suscripción á aplicación ten un prezo de 24,11€ ao m
 
 A este prezo, no caso de que o cliente non tivera un dominio propio, sumaríaselle o prezo do dominio.
 
+
+
 ### 2.8- Viabilidade
 
 #### 2.8.1- Viabilidade técnica
@@ -179,6 +202,8 @@ Para poñer en marcha este proxecto son necesarios os seguintes recursos:
  5. Seguridade: copias de seguridade, tanto do sistema como da base de datos, control de incidencias mediante o acceso aos logs do sistema e do servidor web.
 
 O proxecto é viable dende o punto de vista técnico xa que conta cos recursos necesarios para o correcto funcionamento da actividade.
+
+
 
 #### 2.8.2 - Viabilidade económica
 Según os datos aportados nos apartados anteriores, podemos realizar a seguinte táboa:
@@ -193,10 +218,14 @@ As cifras de vendas son estables durante todo o ano debido a que a empresa marco
 
 Polo tanto non hai problemas de liquidez que motiven a utilizar fontes de financiación externa xa que en cada mes do ano, os ingresos son maiores ca os gastos, excepto no primeiro mes debido á inversión inicial da posta en marcha empresa.
 
+
+
 #### 2.8.3- Conclusión
 Segun os datos explicados no apartado anterior, a empresa ao final do primeiro ano, ten uns gastos totais de 20.227,46€ e uns ingresos totais de 20.834,29€. 
 
 Polo tanto a empresa é viable técnicamente, xa que conta cos recursos necesarios para realizar a actividade, e económicamente xa que, ao final do primeiro ano, ten uns beneficios de 606,82€.
+
+
 
 ## 3- Requirimentos técnicos
 - **Infraestructura:** 
@@ -212,6 +241,8 @@ Polo tanto a empresa é viable técnicamente, xa que conta cos recursos necesari
   - JavaScript
   - HTML
   - CSS.
+
+
 
 ## 4- Planificación
 ![Diagrama de Gant](img/Diagrama_Gantt.png)
