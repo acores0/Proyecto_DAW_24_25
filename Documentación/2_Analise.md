@@ -23,9 +23,7 @@ As funcionalidades da aplicación son as seguintes:
 | Acción   |  Descrición        |
 |----------|--------------------|
 | **Modificar datos**   | Modificación dos seus datos persoais. |
-| **Alta de parcelas** | Dar de alta as súas parcelas. |
-| **Modificar parcelas** | Modificación dos datos das súas parcelas. |
-| **Baixa de parcelas** | Eliminación das súas parcelas. |
+| **Consulta de parcelas** | Consulta dos datos das súas parcelas. |
 | **Consulta dos saldos** | Consulta do saldo das débedas e abonos coa empresa vitivinícola. |
 | **Consulta do rendemento da parcela** | Consulta do número de kg entregados na campaña de vendima por ano. |
 | **Descarga de facturas**  | Descarga das facturas de pago e cobro. |
@@ -41,9 +39,11 @@ As funcionalidades da aplicación son as seguintes:
 | **Alta de usuarios** | Dar de alta ós usuarios na base de datos. |
 | **Modificar os usuarios** | Modificación dos datos dos usuarios na base de datos. |
 | **Baixa de usuarios** | Eliminación de usuarios na base de datos. |
+| **Consultar usuarios** | Consulta dos datos dos usuarios |
 | **Alta de parcelas** | Dar de alta as parcelas pertencentes a cada usuario. |
 | **Modificar parcelas** | Modificación dos datos das parcelas de cada usuario. |
 | **Baixa de parcelas** | Eliminación de parcelas pertencentes aos usuarios. |
+| **Consultar parcelas** | Consulta dos datos das parcelas |
 | **Consultar os usuarios** | Consulta dos usuarios rexistrados na base de datos. |
 | **Consultar débedas** | Consulta da cantidade que ten pendente de pagar cada usuario. |
 | **Consultar pagos a proveedores** | Consulta da cantidade que hai que pagar a cada usuario. |
@@ -79,7 +79,7 @@ Para cumprir coas leis anteriores, incluirase na web os seguintes apartados:
 
   - **Aviso legal:** neste apartado recóllense os datos identificativos do titular da web co obxectivo de informar aos usuarios do propietario da páxina e mostrar as actividades da empresa.
 
-  - **Política de privacidade:** neste apartado indícase quén é a persoa responsable do tratamento dos datos e para que fins se van utilizar
+  - **Política de privacidade:** neste apartado indícase quén é a persoa responsable do tratamento dos datos, neste caso a empresa vitivinícola, e para que fins se van utilizar. Tamén indicarase un apartado no que se informa ao usuario dos seus dereitos en materia de protección de datos (acceso, rectificación, cancelación e oposición), que neste caso os usuarios poderán exercer estes dereitos enviando un correo electrónico á empresa vitivinicola.
 
   - **Política de cookies:** neste apartado infórmarase aos usuarios de todas as cookies que se utilizan para recoller información.
 
