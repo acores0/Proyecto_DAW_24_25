@@ -1,0 +1,121 @@
+/*-------------------- * * * --------------------
+
+  Archivo que contiene los estilos generales de todo el proyecto
+  
+  Autor: Arancha Cores López
+  Fecha: 12-10-2024
+  Nombre: _estilosGenerales.scss
+
+-------------------- * * * --------------------*/
+//Archivo de las variables
+@use "variables";
+
+//Archivo que contiene los mixins
+@use "mixins";
+
+//Archivo que contiene las animaciones
+@use "animaciones";
+
+//Archivo de los estilos de las tablas
+@use "tablas";
+
+//Archivo de los estilos de las ventanas modales
+@use "ventanasModales";
+
+//Archivo de los estilos de los formularios
+@use "formularios";
+
+/*-------------------- Estilos generales ---------------------*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background-color: variables.$color-mas-claro;
+    display: flex;
+
+    font-family: variables.$fuente-texto;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1vw;
+
+    @include mixins.mediaQueries(1300px){
+        font-size: 1.3vw;
+    }
+
+    @include mixins.mediaQueries(800px){
+        font-size: 2vw;
+    }
+
+    @include mixins.mediaQueries(550px){
+        font-size: 3vw;
+        flex-direction: column;
+    }
+}
+
+h2 {
+    font-family: variables.$fuente-titulos;
+    font-weight: 900;
+    font-style: normal;
+    font-size: 4vw;
+
+    @include mixins.mediaQueries(550px) {
+        font-size: 8vw;
+        text-align: center;
+    }
+}
+
+h3 {
+    font-family: variables.$fuente-subtitulos;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 2vw;
+
+    @include mixins.mediaQueries(800px){
+        font-size: 3dvw;
+    }
+
+    @include mixins.mediaQueries(550px) {
+        font-size: 5vw;
+    }
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+button {
+    cursor: pointer;
+}
+
+.negrita {
+    font-weight: bold;
+}
+
+.colorOscuro {
+    color: variables.$color-oscuro;
+}
+
+.btnOscuro {
+    @include mixins.boton(variables.$color-oscuro);
+    color: variables.$color-blanco;
+}
+
+.btnClaro {
+    @include mixins.boton(variables.$color-claro);
+}
+
+.download-rounded{
+    cursor: pointer;
+}
+
+
+

@@ -1,0 +1,172 @@
+//-------------------- * * * --------------------controlador/controladorConsultaUsuarios.php
+//
+//  Archivo css que contiene los estilos de la cabecera
+//
+//  Autor: Arancha Cores López
+//  Fecha: 19-10-2024
+//  Nombre: _cabecera.scss
+//
+//-------------------- * * * --------------------
+
+//Archivo de las variables
+@use "variables";
+
+//Archivo de mixins
+@use "mixins";
+
+/*---------- Estilos de la cabecera ----------*/
+#cabeceraPrincipal {
+    width: 15%;
+    background-color: variables.$color-mas-oscuro;
+    color: variables.$color-blanco;
+    @include mixins.flex(column, flex-start, center);
+    padding: 2rem;
+    gap: 2rem;
+
+    @include mixins.mediaQueries(1000px) {
+        padding: 1rem;
+    }
+
+    @include mixins.mediaQueries(550px) {
+        width: 100%;
+        background-color: variables.$color-mas-claro;
+    }
+
+    > div {
+        &:first-child {
+            @include mixins.mediaQueries(550px) {
+                display: flex;
+                gap: 8rem;
+            }
+
+            a {
+                @include mixins.mediaQueries(550px){
+                    order: 1
+                }
+
+                picture {
+                    width: 100%;
+
+                    @include mixins.mediaQueries(550px) {
+                        order: 1;
+                    }
+
+                    img {
+                        width: 100%;
+
+                        @include mixins.mediaQueries(550px) {
+                            width: 40%;
+                        }
+                    }
+                }
+            }
+
+            #menuHamburguesa {
+                display: none;
+
+                @include mixins.mediaQueries(550px) {
+                    @include mixins.flexJustifyAlign(center, center);
+                    order: 0;
+                }
+
+                p {
+                    span {
+                        cursor: pointer;
+
+                        @include mixins.mediaQueries(550px) {
+                            color: variables.$color-mas-oscuro;
+                            font-size: 2rem;
+                        }
+                    }
+                }
+            }
+        }
+
+        &#menuPrincipal {
+            height: 100%;
+            @include mixins.flex(column, space-between, center);
+
+            @include mixins.mediaQueries(550px) {
+                width: 100%;
+                background-color: variables.$color-mas-oscuro;
+                position: fixed;
+                top: 0;
+                left: 0;
+                z-index: 2;
+                margin-left: -100%;
+                padding: 2rem;
+            }
+
+            &.cerrarMenuPrincipal{
+                margin-left: -100%;
+                transition: all 1s linear;
+            }
+
+            &.abrirMenuPrincipal{
+                margin: 0;
+                transition: margin 1s linear;
+            }
+            
+            #cerrarMenuPrincipal{
+                display: none;
+
+                @include mixins.mediaQueries(550px){
+                    display: block;
+                    width: 100%;
+                }
+
+                p{
+                    span{
+                        font-size: 10vw;
+                        cursor: pointer;
+                    }
+                }
+            }
+
+            nav {
+                @include mixins.mediaQueries(550px){
+                    height: 80%;
+                }
+
+                ul {
+                    @include mixins.flexDirection(column);
+                    gap: 1rem;
+
+                    @include mixins.mediaQueries(550px){
+                        height: 100%;
+                        justify-content: space-evenly;
+                    }
+
+                    li {
+                        a {
+                            font-size: 1.4vw;
+                            color: variables.$color-blanco;
+
+                            @include mixins.mediaQueries(700px) {
+                                font-size: 1.6vw;
+                            }
+
+                            @include mixins.mediaQueries(550px){
+                                font-size: 5vw;
+                            }
+                        }
+                    }
+                }
+            }
+
+            p {
+                a {
+                    color: variables.$color-blanco;
+
+                    span {
+                        font-size: 4vw;
+
+                        @include mixins.mediaQueries(550px){
+                            font-size: 10vw;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

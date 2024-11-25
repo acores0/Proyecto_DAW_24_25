@@ -1,0 +1,468 @@
+//-------------------- * * * --------------------
+//
+//  Archivo css que contiene los estilos de los archivos de login
+//
+//  Autor: Arancha Cores López
+//  Fecha: 11-10-2024
+//  Nombre: _login.scss
+//
+//-------------------- * * * --------------------
+
+//Archivo de las variables
+@use "variables";
+
+//Archivo de mixins
+@use "mixins";
+
+/*---------- Estilos de login ----------*/
+#login {
+  position: relative;
+  height: 100vh;
+
+  @include mixins.mediaQueries(550px) {
+    background-color: variables.$color-mas-oscuro;
+  }
+
+  > div {
+    display: none;
+
+    @include mixins.mediaQueries(550px) {
+      display: block;
+    }
+  }
+
+  section {
+    width: 50%;
+    background-color: variables.$color-mas-oscuro;
+    @include mixins.flex(column, center, flex-start);
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    transition: all 0.6s ease-in-out;
+
+    @include mixins.mediaQueries(700px) {
+      width: 100%;
+      height: 60%;
+      top: auto;
+      bottom: 0;
+      justify-content: flex-start;
+    }
+
+    @include mixins.mediaQueries(550px) {
+      width: 85%;
+      height: 65%;
+      top: auto;
+      left: 0;
+      right: 0;
+      bottom: 5%;
+      margin: auto;
+    }
+
+    .btnIniciarSesion {
+      width: 40%;
+      @include mixins.botonesLogin(variables.$color-mas-claro, variables.$color-mas-oscuro);
+
+      &:hover {
+        background-color: variables.$color-mas-oscuro;
+        color: variables.$color-mas-claro;
+        cursor: pointer;
+      }
+    }
+
+    &[class^="form"] {
+      > div {
+        @include mixins.flex(column, center, center);
+      }
+
+      h2 {
+        color: variables.$color-mas-oscuro;
+      }
+    }
+
+    &.form-login {
+      align-items: flex-end;
+      z-index: 1;
+
+      > div {
+        border-radius: 50px 0 0 50px;
+
+        @include mixins.mediaQueries(700px) {
+          border-radius: 0 0 50px 50px;
+        }
+
+        @include mixins.mediaQueries(550px) {
+          border-radius: 50px;
+        }
+      }
+
+      ul {
+        margin: 1rem 0 5rem;
+        @include mixins.flex(row, center, center);
+        gap: 3rem;
+
+        @include mixins.mediaQueries(700px) {
+          margin: 1rem 0 3rem;
+        }
+
+        li {
+          padding: 1rem;
+          background-color: variables.$color-mas-claro;
+          border-radius: 100%;
+          @include mixins.flex(column, center, center);
+
+          &:hover {
+            background-color: variables.$color-mas-oscuro;
+            cursor: pointer;
+
+            &:hover span {
+              color: variables.$color-mas-claro;
+            }
+          }
+
+          span {
+            font-size: 1.5vw;
+            color: variables.$color-mas-oscuro;
+
+            @include mixins.mediaQueries(1024px) {
+              font-size: 2vw;
+            }
+
+            @include mixins.mediaQueries(700px) {
+              font-size: 4vw;
+            }
+          }
+        }
+      }
+    }
+
+    &.form-passwd {
+      opacity: 0;
+
+      @include mixins.mediaQueries(700px) {
+        transform: translateX(100%);
+      }
+
+      @include mixins.mediaQueries(550px) {
+        transform: translateX(100%);
+      }
+
+      > div {
+        justify-content: space-evenly;
+        border-radius: 0 50px 50px 0;
+
+        @include mixins.mediaQueries(700px) {
+          border-radius: 0 0 50px 50px;
+        }
+
+        @include mixins.mediaQueries(550px) {
+          border-radius: 50px;
+        }
+
+        #btnSesionMovil {
+          display: none;
+          width: 100%;
+          margin-top: 1rem;
+
+          @include mixins.mediaQueries(550px) {
+            display: block;
+          }
+        }
+      }
+    }
+
+    h2 {
+      text-transform: capitalize;
+      text-align: center;
+      font-size: 4rem;
+
+      @include mixins.mediaQueries(1280px) {
+        font-size: 3.5rem;
+      }
+
+      @include mixins.mediaQueries(1024px) {
+        font-size: 2.9rem;
+      }
+
+      /*@include mixins.mediaQueries(){
+
+      }*/
+    }
+
+    > div {
+      width: 90%;
+      height: 74%;
+      background-color: variables.$color-blanco;
+      padding: 5rem;
+      height: 74vh;
+
+      @include mixins.mediaQueries(1536px) {
+        height: 80%;
+      }
+
+      @include mixins.mediaQueries(1280px) {
+        width: 85%;
+        height: 75%;
+        padding: 2rem;
+      }
+
+      @include mixins.mediaQueries(1024px) {
+        width: 80%;
+        height: 70%;
+        padding: 0;
+      }
+
+      @include mixins.mediaQueries(1000px) {
+        width: 90%;
+      }
+
+      @include mixins.mediaQueries(800px) {
+        width: 96%;
+      }
+
+      @include mixins.mediaQueries(700px) {
+        width: 90%;
+        height: 90%;
+        justify-content: flex-start;
+        margin: 0 auto;
+      }
+
+      @include mixins.mediaQueries(550px) {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    form {
+      @include mixins.flex(column, center, center);
+      width: 55%;
+      margin: 0 auto;
+
+      @include mixins.mediaQueries(550px) {
+        width: 67%;
+        gap: 1rem;
+      }
+
+      div:not([class="notificaciones"]) {
+        width: 100%;
+        position: relative;
+
+        input {
+          background-color: variables.$color-mas-claro;
+          width: 100%;
+
+          &:focus,
+          &:valid {
+            border: solid 1px variables.$color-mas-oscuro;
+
+            & ~ label {
+              @include mixins.labelFocus;
+
+              span {
+                display: none;
+              }
+            }
+          }
+        }
+
+        label {
+          @include mixins.label;
+
+          span {
+            font-size: 1.5vw;
+            margin-right: 0.5rem;
+
+            @include mixins.mediaQueries(550px) {
+              font-size: 5.5vw;
+            }
+          }
+        }
+
+        &:has(a) {
+          text-align: center;
+
+          a {
+            font-size: 1.3rem;
+            text-decoration: underline;
+            cursor: pointer;
+
+            &:visited {
+              color: variables.$color-negro;
+            }
+          }
+        }
+
+        #btnMostrarContrasinal {
+          font-size: 2rem;
+          position: absolute;
+          top: 21%;
+          right: 4%;
+        }
+
+        .btnEntrar,
+        .btnPasswd {
+          @include mixins.botonesLogin(variables.$color-mas-oscuro, variables.$color-mas-claro);
+
+          &:hover {
+            background-color: variables.$color-mas-claro;
+            color: variables.$color-mas-oscuro;
+            border: solid 1px variables.$color-mas-oscuro;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+
+    &.toggle {
+      background-color: variables.$color-blanco;
+      align-items: flex-start;
+      width: 50%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transition: all 0.6s ease-in-out;
+
+      @include mixins.mediaQueries(700px) {
+        width: 100%;
+        height: 40%;
+        left: 0;
+        justify-content: flex-end;
+      }
+
+      @include mixins.mediaQueries(550px) {
+        display: none;
+      }
+
+      > div {
+        position: relative;
+        transform: translateX(0);
+        transition: all 0.6s ease-in-out;
+
+        div[class^="toggle"] {
+          background-color: variables.$color-mas-oscuro;
+          @include mixins.flex(column, space-evenly, center);
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          top: 0;
+          padding: 5rem;
+          transform: translateX(0);
+          transition: all 0.6s ease-in-out;
+
+          @include mixins.mediaQueries(1280px) {
+            padding: 2rem;
+          }
+        }
+
+        div.toggle-login {
+          border-radius: 0 50px 50px 0;
+          left: 0;
+          z-index: 1;
+
+          @include mixins.mediaQueries(700px) {
+            border-radius: 50px 50px 0 0;
+          }
+
+          figure {
+            @include mixins.mediaQueries(700px) {
+              width: 100%;
+              text-align: center;
+            }
+
+            img {
+              @include mixins.mediaQueries(700px) {
+                width: 60%;
+              }
+            }
+          }
+
+          h2 {
+            @include mixins.mediaQueries(700px) {
+              font-size: 2.3rem;
+            }
+          }
+        }
+
+        div.toggle-passwd {
+          left: 100%;
+          border-radius: 50px 0 0 50px;
+          opacity: 0;
+
+          @include mixins.mediaQueries(700px) {
+            border-radius: 50px 50px 0 0;
+          }
+        }
+      }
+
+      h2 {
+        color: variables.$color-blanco;
+        font-weight: 900;
+      }
+    }
+  }
+
+  &.cambiarContrasinal {
+    .form-login {
+      transform: translateX(100%);
+
+      @include mixins.mediaQueries(550px) {
+        transform: translateX(110%);
+      }
+    }
+
+    .form-passwd {
+      transform: translateX(100%);
+      opacity: 1;
+      z-index: 1;
+      animation: moverLogin 0.6s;
+
+      @include mixins.mediaQueries(700px) {
+        transform: translateX(0);
+      }
+
+      > div {
+        transition: all 0.6s ease-in-out;
+      }
+    }
+
+    .toggle {
+      transform: translateX(-100%);
+
+      @include mixins.mediaQueries(700px) {
+        transform: none;
+      }
+
+      > div {
+        transform: translateX(11%);
+
+        @include mixins.mediaQueries(1280px) {
+          transform: translateX(17%);
+        }
+
+        @include mixins.mediaQueries(1024px) {
+          transform: translateX(25%);
+        }
+
+        @include mixins.mediaQueries(700px) {
+          transform: none;
+        }
+
+        .toggle-login {
+          z-index: 0;
+          opacity: 0;
+
+          @include mixins.mediaQueries(700px) {
+            transform: translateX(100%);
+          }
+        }
+
+        .toggle-passwd {
+          opacity: 1;
+          z-index: 1;
+          transform: translateX(-100%);
+        }
+      }
+    }
+  }
+}

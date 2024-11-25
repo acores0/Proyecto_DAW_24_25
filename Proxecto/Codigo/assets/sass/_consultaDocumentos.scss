@@ -1,0 +1,164 @@
+//-------------------- * * * --------------------
+//
+//  Archivo css que contiene los estilos de la página de consulta de documentos
+//
+//  Autor: Arancha Cores López
+//  Fecha: 22-11-2024
+//  Nombre: _consultaDocumentos.scss
+//
+//-------------------- * * * --------------------
+
+//Archivo de las variables
+@use "variables";
+
+//Archivo de mixins
+@use "mixins";
+
+/*---------- Estilos de la página ----------*/
+.menuSecciones {
+    margin-bottom: 1rem;
+
+    ul {
+      @include mixins.flexJustify(flex-start);
+      gap: 1.5rem;
+
+      @include mixins.mediaQueries(700px) {
+        gap: 0;
+        justify-content: space-between;
+      }
+
+      @include mixins.mediaQueries(550px) {
+        gap: 0.5rem;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      li {
+        background-color: variables.$color-blanco;
+        border-radius: variables.$border-radius;
+        text-align: center;
+        font-size: 1.9vw;
+        padding: 1.5rem;
+        cursor: pointer;
+
+        @include mixins.mediaQueries(1000px) {
+          padding: 1rem 3rem;
+        }
+
+        @include mixins.mediaQueries(700px) {
+          font-size: 2.3vw;
+        }
+
+        @include mixins.mediaQueries(550px) {
+          width: 49%;
+          font-weight: 900;
+          font-size: 5vw;
+        }
+
+        &.activo {
+          background-color: variables.$color-base;
+        }
+
+        &:last-child {
+          margin-right: 0;
+
+          @include mixins.mediaQueries(550px) {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+
+  .secciones {
+    position: relative;
+    flex-grow: 1;
+    overflow-y: scroll;
+
+    section {
+      width: 100%;
+      background-color: variables.$color-blanco;
+      border-radius: variables.$border-radius;
+      padding: 2rem;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      opacity: 0;
+      transition: all 0.6s ease-in-out;
+
+      @include mixins.mediaQueries(1000px) {
+        padding: 1rem;
+      }
+
+      &.activo {
+        @include mixins.flexDirection(column);
+        gap: 2rem;
+        left: 0;
+        opacity: 1;
+        z-index: 1;
+      }
+
+      > div {
+        &:first-child {
+          @include mixins.flex(row, space-between, center);
+        }
+
+        .flechasNavegacion {
+          @include mixins.flexJustifyAlign(center, center);
+
+          p {
+            @include mixins.flexJustifyAlign(center, center);
+            border: solid 1px transparent;
+            border-radius: 100px;
+            cursor: pointer;
+
+            &:hover {
+              border: solid 1px variables.$color-mas-oscuro;
+            }
+
+            span {
+              font-size: 4vw;
+
+              @include mixins.mediaQueries(550px) {
+                font-size: 6vw;
+              }
+            }
+          }
+        }
+      }
+
+      #facturas, #ingresos{
+        .tabla{
+            flex-grow: 1;
+            height: 55vh;
+        }
+      }
+    }
+  }
+
+
+.consultaDocumentos {
+    form {
+        @include mixins.secciones;
+        flex-direction: row;
+        justify-content: flex-start;
+
+        > div {
+            &:not(.notificaciones) {
+                width: 20%;
+            }
+        }
+    }
+
+    #mostrarDocumentos {
+        display: none;
+        flex-direction: column;
+        flex-grow: 1;
+        overflow-y: scroll;
+
+        .tabla{
+            flex-grow: 1;
+            height: 38vh;
+        }
+    }
+}

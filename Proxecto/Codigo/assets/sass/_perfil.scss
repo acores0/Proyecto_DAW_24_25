@@ -1,0 +1,195 @@
+//-------------------- * * * --------------------
+//
+//  Archivo css que contiene los estilos del perfil
+//
+//  Autor: Arancha Cores López
+//  Fecha: 31-10-2024
+//  Nombre: _perfil.scss
+//
+//-------------------- * * * --------------------
+
+//Archivo de las variables
+@use "variables";
+
+//Archivo de mixins
+@use "mixins";
+
+/*-------------------- CSS Mi perfil -------------------*/
+.datosPerfil {
+  @include mixins.flex(column, flex-start, center);
+  gap: 2rem;
+
+  & > div {
+    width: 100%;
+    @include mixins.flexDirectionJustify(row, space-between);
+    gap: 2rem;
+
+    @include mixins.mediaQueries(800px) {
+      gap: 1rem;
+    }
+
+    &:first-child {
+      min-height: 30vh;
+
+      @include mixins.mediaQueries(800px) {
+        flex-wrap: wrap;
+      }
+
+      @include mixins.mediaQueries(550px) {
+        flex-direction: column;
+      }
+
+      > div {
+        @include mixins.flexJustify(space-between);
+
+        &:first-child {
+          width: 25%;
+          @include mixins.secciones;
+          @include mixins.flex(column, space-between, center);
+          gap: 1rem;
+
+          @include mixins.mediaQueries(800px) {
+            width: 35%;
+          }
+
+          @include mixins.mediaQueries(550px) {
+            width: 100%;
+          }
+
+          figure {
+            width: 100%;
+            text-align: center;
+
+            img {
+              width: 50%;
+              border-radius: 100%;
+
+              @include mixins.mediaQueries(1100px) {
+                width: 80%;
+              }
+
+              @include mixins.mediaQueries(550px) {
+                width: 40%;
+              }
+            }
+          }
+
+          p {
+            font-size: 1.2vw;
+            text-align: center;
+
+            @include mixins.mediaQueries(800px) {
+              font-size: 2.2vw;
+            }
+
+            @include mixins.mediaQueries(550px) {
+              font-size: 4.2vw;
+            }
+          }
+
+          button {
+            width: 90%;
+
+            @include mixins.mediaQueries(550px) {
+              width: 60%;
+            }
+          }
+        }
+
+        &:last-child {
+          width: 75%;
+          gap: 2rem;
+
+          @include mixins.mediaQueries(550px) {
+            gap: 1rem;
+          }
+
+          @include mixins.mediaQueries(800px) {
+            width: 60%;
+            flex-direction: column;
+          }
+
+          @include mixins.mediaQueries(550px) {
+            width: 100%;
+          }
+
+          > div {
+            width: 50%;
+            @include mixins.secciones;
+            @include mixins.flexDirectionJustify(column, flex-start);
+            gap: 0.5rem;
+
+            @include mixins.mediaQueries(800px) {
+              width: 100%;
+            }
+
+            &#direccionUsuario {
+              div {
+                @include mixins.flexJustifyAlign(space-between, center);
+                margin-left: 1rem;
+
+                p {
+                  &:first-child {
+                    color: variables.$color-mas-oscuro;
+                  }
+                }
+              }
+            }
+
+            &#contacto {
+              gap: 2rem;
+
+              @include mixins.mediaQueries(800px) {
+                width: 100%;
+              }
+
+              div {
+                div {
+                  @include mixins.flexJustifyAlign(space-between, center);
+                  margin-left: 1rem;
+
+                  p {
+                    &:first-child {
+                      color: variables.$color-mas-oscuro;
+                      margin: 0.5rem 0;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  #listaParcelas {
+    @include mixins.secciones;
+    flex-direction: column;
+
+    #botones {
+      display: flex;
+      gap: 2rem;
+
+      @include mixins.mediaQueries(550px){
+        flex-wrap: wrap;
+      }
+
+      button {
+        width: 20%;
+
+        @include mixins.mediaQueries(1300px) {
+          width: 30%;
+        }
+
+        @include mixins.mediaQueries(800px){
+          width: 50%;
+        }
+
+        @include mixins.mediaQueries(550px) {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

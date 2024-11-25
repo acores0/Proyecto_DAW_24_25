@@ -1,0 +1,109 @@
+/*-------------------- * * * --------------------
+
+  Archivo css que contiene los estilos de las tablas
+  
+  Autor: Arancha Cores López
+  Fecha: 21-10-2024
+  Nombre: _tablas.scss
+
+-------------------- * * * --------------------*/
+//Archivo de las variables
+@use "variables";
+
+//Archivo de mixins
+@use "mixins";
+
+/*---------- Estilos de las tablas ----------*/
+.tabla {
+    overflow: scroll;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x proximity;
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+
+    @include mixins.mediaQueries(700px) {
+      font-size: 1.5vw;
+    }
+
+    @include mixins.mediaQueries(550px){
+      font-size: 2.5vw;
+    }
+
+    th,
+    td {
+      padding: 1rem;
+
+      @include mixins.mediaQueries(700px){
+        padding: 0.5rem;
+      }
+    }
+
+
+    thead {
+      tr {
+        background-color: variables.$color-base;
+        border-radius: variables.$border-radius;
+      }
+    }
+
+    tbody {
+      tr {
+        &:nth-child(even) {
+          background-color: variables.$color-claro;
+        }
+
+        td {
+          &:last-child {
+            @include mixins.flex(row, center, center);
+            gap: 1rem;
+            margin-top: 0.5rem;
+
+            button, a {
+              display: flex;
+              background-color: transparent;
+              border: solid 1px variables.$color-mas-oscuro;
+              border-radius: 10px;
+
+              &:hover {
+                background-color: variables.$color-mas-claro;
+              }
+
+              span {
+                font-size: 2vw;
+                color: variables.$color-mas-oscuro;
+                cursor: pointer;
+
+                @include mixins.mediaQueries(1300px){
+                  font-size: 2.5vw;
+                }
+
+                @include mixins.mediaQueries(800px){
+                  font-size: 3vw;
+                }
+
+                @include mixins.mediaQueries(550px){
+                  font-size: 5vw;
+                }
+              }
+            }
+          }
+        }
+
+        p {
+          @include mixins.flexJustifyAlign(center, center);
+          border: solid 1px variables.$color-mas-oscuro;
+          border-radius: variables.$border-radius;
+          padding: 0.5rem;
+
+          span {
+            font-size: 2vw;
+            color: variables.$color-mas-oscuro;
+          }
+        }
+      }
+    }
+  }
+}

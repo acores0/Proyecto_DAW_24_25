@@ -1,0 +1,167 @@
+/*----------- Datos del archivo -----------
+    
+  Archivo que contiene los mixinss del proyecto
+
+  Autor: Arancha Cores López
+  Fecha: 09-10-2024
+  Nombre: _iconos.scss
+
+-------------------- * * * --------------------*/
+@use "variables";
+
+@mixin flex($direccion, $justify, $align) {
+  display: flex;
+  flex-direction: $direccion;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin flexWrap($direccion, $justify, $align) {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: $direccion;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin flexDirection($direccion) {
+  display: flex;
+  flex-direction: $direccion;
+}
+
+@mixin flexDirectionJustify($direccion, $justify) {
+  display: flex;
+  flex-direction: $direccion;
+  justify-content: $justify;
+}
+
+@mixin flexJustifyAlign($justify, $align) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin flexAlign($align) {
+  display: flex;
+  align-items: $align;
+}
+
+@mixin flexJustify($justify){
+  display: flex;
+  justify-content: $justify;
+}
+
+@mixin botonesLogin($colorFondo, $colorTexto) {
+  background-color: $colorFondo;
+  color: $colorTexto;
+  border: solid 1px transparent;
+  padding: 1rem 1rem;
+  border-radius: 100px;
+}
+
+@mixin boton($colorFondo) {
+  background-color: $colorFondo;
+  border: none;
+  border-radius: variables.$border-radius;
+  padding: 1rem 2rem;
+  font-size: 1vw;
+  font-family: variables.$fuente-texto;
+  @include flexJustifyAlign(center, center);
+
+  @include mediaQueries(1300px){
+    font-size: 1.3vw;
+  }
+
+  @include mediaQueries(1000px){
+    padding: 1rem;
+  }
+
+  @include mediaQueries(800px){
+    font-size: 2.3vw;
+  }
+
+  @include mediaQueries(700px){
+    padding: 1rem 0.5rem;
+  }
+
+  @include mediaQueries(550px){
+    font-size: 3vw;
+  }
+}
+
+@mixin mediaQueries($px) {
+  @media screen and (max-width: $px) {
+    @content;
+  }
+}
+
+@mixin secciones {
+  background-color: variables.$color-blanco;
+  border-radius: variables.$border-radius;
+  padding: 2rem;
+
+  @include mediaQueries(1100px){
+    padding: 1.5rem;
+  }
+
+  @include mediaQueries(800px){
+    padding: 1rem;
+  }
+}
+
+@mixin labelFocus {
+  top: -3%;
+  left: 3%;
+  font-size: 1vw;
+  padding: 0 0.5rem;
+  background: linear-gradient(180deg, variables.$color-blanco 60%, variables.$color-mas-claro 65%);
+
+  @include mediaQueries(800px){
+    font-size: 1.3vw;
+  }
+
+  @include mediaQueries(550px){
+    font-size: 2.5vw;
+  }
+}
+
+@mixin label {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 3%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  transition: 0.3s;
+}
+
+@mixin input {
+  width: 100%;
+  background-color: variables.$color-mas-claro;
+  font-size: 1vw;
+  outline: none;
+  border: none;
+  border-radius: variables.$border-radius;
+  padding: 1rem;
+
+  @include mediaQueries(800px){
+    font-size: 1.5vw;
+  }
+
+  @include mediaQueries(550px){
+    font-size: 2.5vw;
+  }
+}
+
+@mixin fieldset {
+  width: 100%;
+  gap: 1rem;
+  border: solid 1px variables.$color-mas-oscuro;
+  border-radius: variables.$border-radius;
+  padding: 1rem;
+
+  @include mediaQueries(800px){
+    flex-wrap: wrap;
+  }
+}

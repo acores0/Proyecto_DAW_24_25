@@ -1,0 +1,38 @@
+///-------------------- * * * --------------------
+//
+//  Archivo css que contiene los estilos de la página de alta de usuarios
+//
+//  Autor: Arancha Cores López
+//  Fecha: 13-11-2024
+//  Nombre: _consultaUsuario.scss
+//
+//-------------------- * * * --------------------
+
+//Archivo de las variables
+@use "variables";
+
+//Archivo de mixins
+@use "mixins";
+
+/*---------- Estilos de la página de consulta de usuarios ----------*/
+.consultaUsuarios{
+    justify-content: space-between;
+    
+    #formularioConsultaUsuarios{
+        @include mixins.secciones;
+        flex-direction: row;
+        justify-content: flex-start;
+
+        div:not(.notificaciones):not(.error){
+            width: 20%;
+
+            @include mixins.mediaQueries(800px){
+                width: 30%;
+            }
+
+            @include mixins.mediaQueries(550px){
+                width: 100%;
+            }
+        }
+    }
+}

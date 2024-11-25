@@ -1,0 +1,319 @@
+//-------------------- * * * --------------------
+//
+//  Archivo css que contiene los estilos de los formularios
+//
+//  Autor: Arancha Cores López
+//  Fecha: 1-11-2024
+//  Nombre: _formularios.scss
+//
+//-------------------- * * * --------------------
+
+//Archivo de las variables
+@use "variables";
+
+//Archivo de mixins
+@use "mixins";
+
+/*---------- Estilos de las formularios ----------*/
+form {
+    @include mixins.flex(column, center, center);
+    gap: 2.5rem;
+
+    div {
+        width: 100%;
+        position: relative;
+
+        &:has(> select) {
+            @include mixins.flexJustifyAlign(flex-start, center);
+            gap: 1rem;
+            @include mixins.input;
+            padding: 0.5rem 1rem;
+
+            @include mixins.mediaQueries(1100px) {
+                flex-wrap: wrap;
+            }
+
+            @include mixins.mediaQueries(800px) {
+                padding: 1rem;
+            }
+        }
+
+        &:has(input[type="file"]) {
+            @include mixins.flexAlign(center);
+            flex-wrap: wrap;
+            @include mixins.input;
+
+            label {
+                margin-right: 1rem;
+            }
+
+            p {
+                margin-top: 1rem;
+            }
+        }
+    }
+
+    .zonaArrastreImagen {
+        @include mixins.flexWrap(column, space-between, center);
+        gap: 1rem;
+        border-radius: variables.$border-radius;
+        padding: 1rem;
+
+        @include mixins.mediaQueries(800px) {
+            gap: 0.5rem;
+        }
+
+        p {
+            @include mixins.mediaQueries(800px) {
+                margin: 0;
+            }
+
+            span {
+                font-size: 5rem;
+                color: variables.$color-mas-oscuro;
+
+                @include mixins.mediaQueries(800px) {
+                    font-size: 4rem;
+                }
+            }
+        }
+
+        input[type="file"] {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+
+            & ~ label {
+                display: block;
+                position: static;
+                transform: none;
+                text-align: center;
+                cursor: pointer;
+            }
+        }
+    }
+
+    fieldset {
+        @include mixins.flexJustifyAlign(flex-start, center);
+        @include mixins.fieldset;
+
+        legend {
+            padding: 0 1rem;
+        }
+    }
+
+    input {
+        &:not([type="radio"]):not([type="file"]):not([type="submit"]) {
+            @include mixins.input;
+
+            &:focus,
+            &:valid {
+                border: solid 2px variables.$color-mas-oscuro;
+
+                & ~ label {
+                    @include mixins.labelFocus;
+
+                    span {
+                        display: none;
+                    }
+                }
+            }
+
+            &:disabled {
+                background-color: variables.$color-deshabilitado;
+                color: #000;
+            }
+        }
+
+        &[type="submit"] {
+            width: 100%;
+            cursor: pointer;
+        }
+
+        &[type="file"] {
+            font-size: 1.2vw;
+        }
+
+        &[type="radio"] {
+            accent-color: variables.$color-mas-oscuro;
+        }
+
+        &.campoInvalido {
+            border: solid 4px variables.$color-error !important;
+
+            & ~ label {
+                @include mixins.labelFocus;
+            }
+        }
+    }
+
+    label {
+        @include mixins.label;
+
+        span {
+            font-size: 1.5vw;
+            margin-right: 0.5rem;
+        }
+
+        &:has(~ select),
+        &:has(~ input[type="file"]) {
+            position: static;
+            transform: none;
+
+            @include mixins.mediaQueries(1100px) {
+                font-size: 1.2vw;
+            }
+
+            @include mixins.mediaQueries(800px) {
+                font-size: 2vw;
+            }
+
+            @include mixins.mediaQueries(550px) {
+                font-size: 3vw;
+            }
+        }
+
+        &.inputCubierto {
+            @include mixins.labelFocus;
+        }
+    }
+
+    select {
+        background-color: variables.$color-mas-claro;
+        font-size: 1vw;
+        border: none;
+        border-radius: variables.$border-radius;
+        padding: 1rem;
+
+        @include mixins.mediaQueries(1100px) {
+            padding: 0;
+            font-size: 1.2vw;
+        }
+
+        @include mixins.mediaQueries(800px) {
+            font-size: 2vw;
+        }
+
+        @include mixins.mediaQueries(550px) {
+            font-size: 3vw;
+        }
+
+        option {
+            @include mixins.mediaQueries(1100px) {
+                font-size: 1.5vw;
+            }
+
+            @include mixins.mediaQueries(900px) {
+                font-size: 2vw;
+            }
+        }
+    }
+
+    .iconoMostrarContrasinal {
+        font-size: 2rem;
+        position: absolute;
+        top: 21%;
+        right: 4%;
+    }
+
+    .notificaciones {
+        width: 30%;
+        @include mixins.flexDirection(column);
+        gap: 2rem;
+        background-color: transparent;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        z-index: 1;
+
+        @include mixins.mediaQueries(1500px) {
+            width: 45%;
+        }
+
+        @include mixins.mediaQueries(550px) {
+            width: 55%;
+        }
+
+        .error,
+        .exito {
+            width: 100%;
+            @include mixins.secciones;
+            @include mixins.flex(row, space-between, center);
+            gap: 2rem;
+            box-shadow: 7px 7px 33px 0px rgba(0, 0, 0, 0.5);
+            animation: notificacionError 5s ease;
+            opacity: 0;
+
+            &::before {
+                content: "";
+                width: 0%;
+                height: 3px;
+                background-color: variables.$color-mas-oscuro;
+                box-shadow: 0 0 10px variables.$color-mas-oscuro;
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                animation: moverBarraError 5s linear;
+            }
+
+            div {
+                &:first-child,
+                &:last-child {
+                    width: 10%;
+                }
+
+                &:first-child {
+                    @include mixins.flexJustifyAlign(center, center);
+                }
+
+                &:nth-child(2) {
+                    @include mixins.flexDirection(column);
+                    gap: 1rem;
+
+                    p {
+                        &:first-child {
+                            font-size: 1.2vw;
+                            font-weight: 900;
+
+                            @include mixins.mediaQueries(550px) {
+                                font-size: 3.2vw;
+                            }
+                        }
+                    }
+                }
+
+                span {
+                    &.close-rounded {
+                        color: variables.$color-mas-oscuro;
+                        font-size: 1.5vw;
+                        cursor: pointer;
+
+                        @include mixins.mediaQueries(550px) {
+                            font-size: 3.5vw;
+                        }
+                    }
+
+                    &.close-filled,
+                    &.checkmark-filled {
+                        font-size: 1.8vw;
+
+                        @include mixins.mediaQueries(550px) {
+                            font-size: 3.8vw;
+                        }
+                    }
+
+                    &.close-filled {
+                        color: variables.$color-error;
+                    }
+
+                    &.checkmark-filled {
+                        color: variables.$color-mas-oscuro;
+                    }
+                }
+            }
+        }
+    }
+}

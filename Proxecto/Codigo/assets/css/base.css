@@ -1,0 +1,3255 @@
+@charset "UTF-8";
+/*-------------------- * * * --------------------
+
+  Archivo css que contiene las importaciones de los archivos de estilos que componen el proyecto
+
+  Autor: Arancha Cores López
+  Fecha: 09-10-2024
+  Nombre: base.scss
+
+-------------------- * * * --------------------*/
+@import url("https://fonts.googleapis.com/css2?family=Rokkitt:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Buenard:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Varela&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Martel:wght@200;300;400;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap");
+.apple {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  --svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' d='M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47c-1.34.03-1.77-.79-3.29-.79c-1.53 0-2 .77-3.27.82c-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51c1.28-.02 2.5.87 3.29.87c.78 0 2.26-1.07 3.81-.91c.65.03 2.47.26 3.64 1.98c-.09.06-2.17 1.28-2.15 3.81c.03 3.02 2.65 4.03 2.68 4.04c-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5c.13 1.17-.34 2.35-1.04 3.19c-.69.85-1.83 1.51-2.95 1.42c-.15-1.15.41-2.35 1.05-3.11'/%3E%3C/svg%3E");
+  background-color: currentColor;
+  -webkit-mask-image: var(--svg);
+  mask-image: var(--svg);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+}
+
+.google {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  --svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' d='M21.35 11.1h-9.17v2.73h6.51c-.33 3.81-3.5 5.44-6.5 5.44C8.36 19.27 5 16.25 5 12c0-4.1 3.2-7.27 7.2-7.27c3.09 0 4.9 1.97 4.9 1.97L19 4.72S16.56 2 12.1 2C6.42 2 2.03 6.8 2.03 12c0 5.05 4.13 10 10.22 10c5.35 0 9.25-3.67 9.25-9.09c0-1.15-.15-1.81-.15-1.81'/%3E%3C/svg%3E");
+  background-color: currentColor;
+  -webkit-mask-image: var(--svg);
+  mask-image: var(--svg);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+}
+
+.cloud-arrow-up-outline {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  --svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' d='M4.03 12.03C3.34 12.71 3 13.53 3 14.5s.34 1.79 1.03 2.5c.68.66 1.5 1 2.47 1h6.59c-.05.33-.09.66-.09 1s.04.67.09 1H6.5c-1.5 0-2.81-.5-3.89-1.57C1.54 17.38 1 16.09 1 14.58q0-1.95 1.17-3.48C3.34 9.57 4 9.43 5.25 9.15c.42-1.53 1.25-2.77 2.5-3.72S10.42 4 12 4c1.95 0 3.6.68 4.96 2.04S19 9.05 19 11c1.15.13 2.1.63 2.86 1.5c.51.57.84 1.21 1 1.92A5.9 5.9 0 0 0 19 13h-2v-2c0-1.38-.5-2.56-1.46-3.54C14.56 6.5 13.38 6 12 6s-2.56.5-3.54 1.46C7.5 8.44 7 9.62 7 11h-.5c-.97 0-1.79.34-2.47 1.03M16 18h2v4h2v-4h2l-3-3z'/%3E%3C/svg%3E");
+  background-color: currentColor;
+  -webkit-mask-image: var(--svg);
+  mask-image: var(--svg);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+}
+
+.account-edit-outline {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  --svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' d='M2 17v3h8v-1.89H3.9V17c0-.64 3.13-2.1 6.1-2.1c.96.01 1.91.14 2.83.38l1.52-1.52c-1.4-.47-2.85-.73-4.35-.76c-2.67 0-8 1.33-8 4m8-13C7.79 4 6 5.79 6 8s1.79 4 4 4s4-1.79 4-4s-1.79-4-4-4m0 6c-1.1 0-2-.89-2-2s.9-2 2-2s2 .9 2 2s-.89 2-2 2m11.7 3.35l-1 1l-2.05-2l1-1a.55.55 0 0 1 .77 0l1.28 1.28c.21.21.21.56 0 .77M12 18.94l6.06-6.06l2.05 2l-6 6.07H12z'/%3E%3C/svg%3E");
+  background-color: currentColor;
+  -webkit-mask-image: var(--svg);
+  mask-image: var(--svg);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+}
+
+.cloud-arrow-up-outline {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  --svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' d='M4.03 12.03C3.34 12.71 3 13.53 3 14.5s.34 1.79 1.03 2.5c.68.66 1.5 1 2.47 1h6.59c-.05.33-.09.66-.09 1s.04.67.09 1H6.5c-1.5 0-2.81-.5-3.89-1.57C1.54 17.38 1 16.09 1 14.58q0-1.95 1.17-3.48C3.34 9.57 4 9.43 5.25 9.15c.42-1.53 1.25-2.77 2.5-3.72S10.42 4 12 4c1.95 0 3.6.68 4.96 2.04S19 9.05 19 11c1.15.13 2.1.63 2.86 1.5c.51.57.84 1.21 1 1.92A5.9 5.9 0 0 0 19 13h-2v-2c0-1.38-.5-2.56-1.46-3.54C14.56 6.5 13.38 6 12 6s-2.56.5-3.54 1.46C7.5 8.44 7 9.62 7 11h-.5c-.97 0-1.79.34-2.47 1.03M16 18h2v4h2v-4h2l-3-3z'/%3E%3C/svg%3E");
+  background-color: currentColor;
+  -webkit-mask-image: var(--svg);
+  mask-image: var(--svg);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+}
+
+.users {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  --svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' d='M16 17v2H2v-2s0-4 7-4s7 4 7 4m-3.5-9.5A3.5 3.5 0 1 0 9 11a3.5 3.5 0 0 0 3.5-3.5m3.44 5.5A5.32 5.32 0 0 1 18 17v2h4v-2s0-3.63-6.06-4M15 4a3.4 3.4 0 0 0-1.93.59a5 5 0 0 1 0 5.82A3.4 3.4 0 0 0 15 11a3.5 3.5 0 0 0 0-7'/%3E%3C/svg%3E");
+  background-color: currentColor;
+  -webkit-mask-image: var(--svg);
+  mask-image: var(--svg);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+}
+
+.eye {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  --svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' d='M11.5 18c4 0 7.46-2.22 9.24-5.5C18.96 9.22 15.5 7 11.5 7s-7.46 2.22-9.24 5.5C4.04 15.78 7.5 18 11.5 18m0-12c4.56 0 8.5 2.65 10.36 6.5C20 16.35 16.06 19 11.5 19S3 16.35 1.14 12.5C3 8.65 6.94 6 11.5 6m0 2C14 8 16 10 16 12.5S14 17 11.5 17S7 15 7 12.5S9 8 11.5 8m0 1A3.5 3.5 0 0 0 8 12.5a3.5 3.5 0 0 0 3.5 3.5a3.5 3.5 0 0 0 3.5-3.5A3.5 3.5 0 0 0 11.5 9'/%3E%3C/svg%3E");
+  background-color: currentColor;
+  -webkit-mask-image: var(--svg);
+  mask-image: var(--svg);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+}
+
+.eye-off {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  --svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' d='M2.54 4.71L3.25 4L20 20.75l-.71.71l-3.34-3.35c-1.37.57-2.87.89-4.45.89c-4.56 0-8.5-2.65-10.36-6.5c.97-2 2.49-3.67 4.36-4.82zM11.5 18c1.29 0 2.53-.23 3.67-.66l-1.12-1.13c-.73.5-1.6.79-2.55.79C9 17 7 15 7 12.5c0-.95.29-1.82.79-2.55L6.24 8.41a10.64 10.64 0 0 0-3.98 4.09C4.04 15.78 7.5 18 11.5 18m9.24-5.5C18.96 9.22 15.5 7 11.5 7c-1.15 0-2.27.19-3.31.53l-.78-.78C8.68 6.26 10.06 6 11.5 6c4.56 0 8.5 2.65 10.36 6.5a11.47 11.47 0 0 1-4.07 4.63l-.72-.73c1.53-.96 2.8-2.3 3.67-3.9M11.5 8C14 8 16 10 16 12.5c0 .82-.22 1.58-.6 2.24l-.74-.74c.22-.46.34-.96.34-1.5A3.5 3.5 0 0 0 11.5 9c-.54 0-1.04.12-1.5.34l-.74-.74c.66-.38 1.42-.6 2.24-.6M8 12.5a3.5 3.5 0 0 0 3.5 3.5c.67 0 1.29-.19 1.82-.5L8.5 10.68c-.31.53-.5 1.15-.5 1.82'/%3E%3C/svg%3E");
+  background-color: currentColor;
+  -webkit-mask-image: var(--svg);
+  mask-image: var(--svg);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+}
+
+.lock-open-outline-rounded {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  --svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' d='M6.616 21q-.672 0-1.144-.472T5 19.385v-8.77q0-.67.472-1.143Q5.944 9 6.616 9H15V7q0-1.25-.875-2.125T12 4q-1.127 0-1.963.734q-.835.733-.995 1.818q-.042.196-.191.322T8.5 7q-.213 0-.357-.15t-.107-.352q.178-1.494 1.303-2.496T12 3q1.671 0 2.836 1.165Q16 5.329 16 7v2h1.385q.67 0 1.143.472q.472.472.472 1.144v8.769q0 .67-.472 1.143q-.472.472-1.143.472zm0-1h10.769q.269 0 .442-.173t.173-.442v-8.77q0-.269-.173-.442T17.385 10H6.615q-.269 0-.442.173T6 10.616v8.769q0 .269.173.442t.443.173M12 16.5q.633 0 1.066-.434q.434-.433.434-1.066t-.434-1.066T12 13.5t-1.066.434Q10.5 14.367 10.5 15t.434 1.066q.433.434 1.066.434M6 20V10z'/%3E%3C/svg%3E");
+  background-color: currentColor;
+  -webkit-mask-image: var(--svg);
+  mask-image: var(--svg);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+}
+
+.mail-outline-rounded {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  --svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' d='M4.616 19q-.691 0-1.153-.462T3 17.384V6.616q0-.691.463-1.153T4.615 5h14.77q.69 0 1.152.463T21 6.616v10.769q0 .69-.463 1.153T19.385 19zM20 6.885l-7.552 4.944q-.106.055-.214.093q-.109.037-.234.037t-.234-.037t-.214-.093L4 6.884v10.5q0 .27.173.443t.443.173h14.769q.269 0 .442-.173t.173-.443zM12 11l7.692-5H4.308zM4 6.885v.211v-.811v.034V6v.32v-.052v.828zV18z'/%3E%3C/svg%3E");
+  background-color: currentColor;
+  -webkit-mask-image: var(--svg);
+  mask-image: var(--svg);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+}
+
+.logout-rounded {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  --svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' d='M5.616 20q-.691 0-1.153-.462T4 18.384V5.616q0-.691.463-1.153T5.616 4h5.903q.214 0 .357.143t.143.357t-.143.357t-.357.143H5.616q-.231 0-.424.192T5 5.616v12.769q0 .23.192.423t.423.192h5.904q.214 0 .357.143t.143.357t-.143.357t-.357.143zm12.444-7.5H9.692q-.213 0-.356-.143T9.192 12t.143-.357t.357-.143h8.368l-1.971-1.971q-.141-.14-.15-.338q-.01-.199.15-.364q.159-.165.353-.168q.195-.003.36.162l2.614 2.613q.242.243.242.566t-.243.566l-2.613 2.613q-.146.146-.347.153t-.366-.159q-.16-.165-.157-.357t.162-.35z'/%3E%3C/svg%3E");
+  background-color: currentColor;
+  -webkit-mask-image: var(--svg);
+  mask-image: var(--svg);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+}
+
+.chevron-left-rounded {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  --svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' d='m10.108 12l4.246 4.246q.14.14.15.345q.01.203-.15.363t-.354.16t-.354-.16l-4.388-4.389q-.131-.13-.184-.267q-.053-.136-.053-.298t.053-.298t.184-.267l4.388-4.389q.14-.14.344-.15t.364.15t.16.354t-.16.354z'/%3E%3C/svg%3E");
+  background-color: currentColor;
+  -webkit-mask-image: var(--svg);
+  mask-image: var(--svg);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+}
+
+.chevron-right-rounded {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  --svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' d='M13.292 12L9.046 7.754q-.14-.14-.15-.344t.15-.364t.354-.16t.354.16l4.388 4.389q.131.13.184.267t.053.298t-.053.298t-.184.268l-4.388 4.388q-.14.14-.344.15t-.364-.15t-.16-.354t.16-.354z'/%3E%3C/svg%3E");
+  background-color: currentColor;
+  -webkit-mask-image: var(--svg);
+  mask-image: var(--svg);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+}
+
+.download-rounded {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  --svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' d='M12 15.248q-.161 0-.298-.053t-.267-.184l-2.62-2.619q-.146-.146-.152-.344t.152-.363q.166-.166.357-.169q.192-.003.357.163L11.5 13.65V5.5q0-.213.143-.357T12 5t.357.143t.143.357v8.15l1.971-1.971q.146-.146.347-.153t.366.159q.16.165.163.354t-.162.353l-2.62 2.62q-.13.13-.267.183q-.136.053-.298.053M6.616 19q-.691 0-1.153-.462T5 17.384v-1.923q0-.213.143-.356t.357-.144t.357.144t.143.356v1.923q0 .231.192.424t.423.192h10.77q.23 0 .423-.192t.192-.424v-1.923q0-.213.143-.356t.357-.144t.357.144t.143.356v1.923q0 .691-.462 1.153T17.384 19z'/%3E%3C/svg%3E");
+  background-color: currentColor;
+  -webkit-mask-image: var(--svg);
+  mask-image: var(--svg);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+}
+
+.close-rounded {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  --svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' d='m12 12.708l-5.246 5.246q-.14.14-.344.15t-.364-.15t-.16-.354t.16-.354L11.292 12L6.046 6.754q-.14-.14-.15-.344t.15-.364t.354-.16t.354.16L12 11.292l5.246-5.246q.14-.14.345-.15q.203-.01.363.15t.16.354t-.16.354L12.708 12l5.246 5.246q.14.14.15.345q.01.203-.15.363t-.354.16t-.354-.16z'/%3E%3C/svg%3E");
+  background-color: currentColor;
+  -webkit-mask-image: var(--svg);
+  mask-image: var(--svg);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+}
+
+.weight {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  --svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' d='M12 8q.425 0 .713-.288T13 7t-.288-.712T12 6t-.712.288T11 7t.288.713T12 8m1.71 0h2.346q.615 0 1.06.394q.444.394.53 1.004l1.252 8.77q.106.726-.376 1.279q-.481.553-1.233.553H6.711q-.752 0-1.234-.553t-.376-1.28l1.252-8.769q.087-.61.53-1.004Q7.33 8 7.945 8h2.347q-.133-.212-.212-.468Q10 7.275 10 7q0-.846.577-1.423T12 5t1.423.577T14 7q0 .275-.079.532q-.079.256-.211.468'/%3E%3C/svg%3E");
+  background-color: currentColor;
+  -webkit-mask-image: var(--svg);
+  mask-image: var(--svg);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+}
+
+.menu-rounded {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  --svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' d='M4.5 17.27q-.213 0-.356-.145T4 16.768t.144-.356t.356-.143h15q.213 0 .356.144q.144.144.144.357t-.144.356t-.356.143zm0-4.77q-.213 0-.356-.144T4 11.999t.144-.356t.356-.143h15q.213 0 .356.144t.144.357t-.144.356t-.356.143zm0-4.77q-.213 0-.356-.143Q4 7.443 4 7.23t.144-.356t.356-.143h15q.213 0 .356.144T20 7.23t-.144.356t-.356.144z'/%3E%3C/svg%3E");
+  background-color: currentColor;
+  -webkit-mask-image: var(--svg);
+  mask-image: var(--svg);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+}
+
+.facebook-fill {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  --svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' d='M14 13.5h2.5l1-4H14v-2c0-1.03 0-2 2-2h1.5V2.14c-.326-.043-1.557-.14-2.857-.14C11.928 2 10 3.657 10 6.7v2.8H7v4h3V22h4z'/%3E%3C/svg%3E");
+  background-color: currentColor;
+  -webkit-mask-image: var(--svg);
+  mask-image: var(--svg);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+}
+
+.edit {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  --svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 26 26'%3E%3Cpath fill='%23000' d='M20.094.25a2.25 2.25 0 0 0-1.625.656l-1 1.031l6.593 6.625l1-1.03a2.32 2.32 0 0 0 0-3.282L21.75.937A2.36 2.36 0 0 0 20.094.25m-3.75 2.594l-1.563 1.5l6.875 6.875L23.25 9.75zM13.78 5.438L2.97 16.155a.98.98 0 0 0-.5.625L.156 24.625a.975.975 0 0 0 1.219 1.219l7.844-2.313a.98.98 0 0 0 .781-.656l10.656-10.563l-1.468-1.468L8.25 21.813l-4.406 1.28l-.938-.937l1.344-4.593L15.094 6.75zm2.375 2.406l-10.968 11l1.593.343l.219 1.47l11-10.97z'/%3E%3C/svg%3E");
+  background-color: currentColor;
+  -webkit-mask-image: var(--svg);
+  mask-image: var(--svg);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+}
+
+.pay-money {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  --svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='%23000' d='M298.9 24.31c-14.9.3-25.6 3.2-32.7 8.4l-97.3 52.1l-54.1 73.59c-11.4 17.6-3.3 51.6 32.3 29.8l39-51.4c49.5-42.69 150.5-23.1 102.6 62.6c-23.5 49.6-12.5 73.8 17.8 84l13.8-46.4c23.9-53.8 68.5-63.5 66.7-106.9l107.2 7.7l-1-112.09zM244.8 127.7c-17.4-.3-34.5 6.9-46.9 17.3l-39.1 51.4c10.7 8.5 21.5 3.9 32.2-6.4c12.6 6.4 22.4-3.5 30.4-23.3c3.3-13.5 8.2-23 23.4-39m-79.6 96c-.4 0-.9 0-1.3.1c-3.3.7-7.2 4.2-9.8 12.2c-2.7 8-3.3 19.4-.9 31.6c2.4 12.1 7.4 22.4 13 28.8c5.4 6.3 10.4 8.1 13.7 7.4c3.4-.6 7.2-4.2 9.8-12.1c2.7-8 3.4-19.5 1-31.6c-2.5-12.2-7.5-22.5-13-28.8c-4.8-5.6-9.2-7.6-12.5-7.6m82.6 106.8c-7.9.1-17.8 2.6-27.5 7.3c-11.1 5.5-19.8 13.1-24.5 20.1c-4.7 6.9-5.1 12.1-3.6 15.2c1.5 3 5.9 5.9 14.3 6.3c8.4.5 19.7-1.8 30.8-7.3s19.8-13 24.5-20c4.7-6.9 5.1-12.2 3.6-15.2c-1.5-3.1-5.9-5.9-14.3-6.3c-1.1-.1-2.1-.1-3.3-.1m-97.6 95.6c-4.7.1-9 .8-12.8 1.9c-8.5 2.5-13.4 7-15 12.3c-1.7 5.4 0 11.8 5.7 18.7c5.8 6.8 15.5 13.3 27.5 16.9c11.9 3.6 23.5 3.5 32.1.9c8.6-2.5 13.5-7 15.1-12.3c1.6-5.4 0-11.8-5.8-18.7c-5.7-6.8-15.4-13.3-27.4-16.9c-6.8-2-13.4-2.9-19.4-2.8'/%3E%3C/svg%3E");
+  background-color: currentColor;
+  -webkit-mask-image: var(--svg);
+  mask-image: var(--svg);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+}
+
+.receive-money {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  --svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='%23000' d='M258 21.89c-.5 0-1.2 0-1.8.12c-4.6.85-10.1 5.1-13.7 14.81c-3.8 9.7-4.6 23.53-1.3 38.34c3.4 14.63 10.4 27.24 18.2 34.94c7.6 7.7 14.5 9.8 19.1 9c4.8-.7 10.1-5.1 13.7-14.7c3.8-9.64 4.8-23.66 1.4-38.35c-3.5-14.8-10.4-27.29-18.2-34.94c-6.6-6.8-12.7-9.22-17.4-9.22M373.4 151.4c-11 .3-24.9 3.2-38.4 8.9c-15.6 6.8-27.6 15.9-34.2 24.5c-6.6 8.3-7.2 14.6-5.1 18.3c2.2 3.7 8.3 7.2 20 7.7c11.7.7 27.5-2.2 43-8.8c15.5-6.7 27.7-15.9 34.3-24.3c6.6-8.3 7.1-14.8 5-18.5c-2.1-3.8-8.3-7.1-20-7.5c-1.6-.3-3-.3-4.6-.3m-136.3 92.9c-6.6.1-12.6.9-18 2.3c-11.8 3-18.6 8.4-20.8 14.9c-2.5 6.5 0 14.3 7.8 22.7c8.2 8.2 21.7 16.1 38.5 20.5c16.7 4.4 32.8 4.3 44.8 1.1c12.1-3.1 18.9-8.6 21.1-15c2.3-6.5 0-14.2-8.1-22.7c-7.9-8.2-21.4-16.1-38.2-20.4c-9.5-2.5-18.8-3.5-27.1-3.4m160.7 58.1L336 331.7c4.2.2 14.7.5 14.7.5l6.6 8.7l54.7-28.5zm-54.5.1l-57.4 27.2c5.5.3 18.5.5 23.7.8l49.8-23.6zm92.6 10.8l-70.5 37.4l14.5 18.7l74.5-44.6zm-278.8 9.1a40.3 40.3 0 0 0-9 1c-71.5 16.5-113.7 17.9-126.2 17.9H18v107.5s11.6-1.7 30.9-1.8c37.3 0 103 6.4 167 43.8c3.4 2.1 10.7 2.9 19.8 2.9c24.3 0 61.2-5.8 69.7-9C391 452.6 494 364.5 494 364.5l-32.5-28.4s-79.8 50.9-89.9 55.8c-91.1 44.7-164.9 16.8-164.9 16.8s119.9 3 158.4-27.3l-22.6-34s-82.8-2.3-112.3-6.2c-15.4-2-48.7-18.8-73.1-18.8'/%3E%3C/svg%3E");
+  background-color: currentColor;
+  -webkit-mask-image: var(--svg);
+  mask-image: var(--svg);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+}
+
+.grapes {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  --svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg fill='none' stroke='%23000' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' color='%23000'%3E%3Cpath d='M14.83 18a3 3 0 1 1-5.659 0'/%3E%3Cpath d='M11.236 13a3 3 0 1 1-4.472 0'/%3E%3Cpath d='M17.236 13a3 3 0 1 1-4.472 0'/%3E%3Cpath d='M15 10a3 3 0 1 0 6 0a3 3 0 0 0-6 0m-6 0a3 3 0 1 0 6 0a3 3 0 0 0-6 0m-6 0a3 3 0 1 0 6 0a3 3 0 0 0-6 0'/%3E%3Cpath d='M12 7c0-1.667.8-5 4-5'/%3E%3C/g%3E%3C/svg%3E");
+  background-color: currentColor;
+  -webkit-mask-image: var(--svg);
+  mask-image: var(--svg);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+}
+
+.close-filled {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  --svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath fill='%23000' d='M16 2C8.2 2 2 8.2 2 16s6.2 14 14 14s14-6.2 14-14S23.8 2 16 2m5.4 21L16 17.6L10.6 23L9 21.4l5.4-5.4L9 10.6L10.6 9l5.4 5.4L21.4 9l1.6 1.6l-5.4 5.4l5.4 5.4z'/%3E%3C/svg%3E");
+  background-color: currentColor;
+  -webkit-mask-image: var(--svg);
+  mask-image: var(--svg);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+}
+
+.checkmark-filled {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  --svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath fill='%23000' d='M16 2a14 14 0 1 0 14 14A14 14 0 0 0 16 2m-2 19.59l-5-5L10.59 15L14 18.41L21.41 11l1.596 1.586Z'/%3E%3Cpath fill='none' d='m14 21.591l-5-5L10.591 15L14 18.409L21.41 11l1.595 1.585z'/%3E%3C/svg%3E");
+  background-color: currentColor;
+  -webkit-mask-image: var(--svg);
+  mask-image: var(--svg);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+}
+
+/*-------------------- * * * --------------------
+
+  Archivo que contiene los estilos generales de todo el proyecto
+
+  Autor: Arancha Cores López
+  Fecha: 12-10-2024
+  Nombre: _estilosGenerales.scss
+
+-------------------- * * * --------------------*/
+/*-------------------- * * * --------------------
+
+  Archivo que contiene los estilos generales de todo el proyecto
+
+  Autor: Arancha Cores López
+  Fecha: 12-10-2024
+  Nombre: _estilosGenerales.scss
+
+-------------------- * * * --------------------*/
+/*----------- Datos del archivo -----------
+
+  Archivo que contiene los mixinss del proyecto
+
+  Autor: Arancha Cores López
+  Fecha: 09-10-2024
+  Nombre: _iconos.scss
+
+-------------------- * * * --------------------*/
+@keyframes notificacionError {
+  2% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes moverBarraError {
+  to {
+    width: 100%;
+  }
+}
+@keyframes moverLogin {
+  0%, 49.99% {
+    opacity: 0;
+    z-index: 1;
+  }
+  50%, 100% {
+    opacity: 1;
+    z-index: 5;
+  }
+}
+/*-------------------- * * * --------------------
+
+  Archivo que contiene los estilos generales de todo el proyecto
+
+  Autor: Arancha Cores López
+  Fecha: 12-10-2024
+  Nombre: _estilosGenerales.scss
+
+-------------------- * * * --------------------*/
+/*-------------------- * * * --------------------
+
+  Archivo css que contiene los estilos de las tablas
+
+  Autor: Arancha Cores López
+  Fecha: 21-10-2024
+  Nombre: _tablas.scss
+
+-------------------- * * * --------------------*/
+/*---------- Estilos de las tablas ----------*/
+.tabla {
+  overflow: scroll;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x proximity;
+}
+.tabla table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+}
+@media screen and (max-width: 700px) {
+  .tabla table {
+    font-size: 1.5vw;
+  }
+}
+@media screen and (max-width: 550px) {
+  .tabla table {
+    font-size: 2.5vw;
+  }
+}
+.tabla table th,
+.tabla table td {
+  padding: 1rem;
+}
+@media screen and (max-width: 700px) {
+  .tabla table th,
+  .tabla table td {
+    padding: 0.5rem;
+  }
+}
+.tabla table thead tr {
+  background-color: #93ad8b;
+  border-radius: 10px;
+}
+.tabla table tbody tr:nth-child(even) {
+  background-color: #dee1c2;
+}
+.tabla table tbody tr td:last-child {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+.tabla table tbody tr td:last-child button, .tabla table tbody tr td:last-child a {
+  display: flex;
+  background-color: transparent;
+  border: solid 1px #125e52;
+  border-radius: 10px;
+}
+.tabla table tbody tr td:last-child button:hover, .tabla table tbody tr td:last-child a:hover {
+  background-color: #eaebd7;
+}
+.tabla table tbody tr td:last-child button span, .tabla table tbody tr td:last-child a span {
+  font-size: 2vw;
+  color: #125e52;
+  cursor: pointer;
+}
+@media screen and (max-width: 1300px) {
+  .tabla table tbody tr td:last-child button span, .tabla table tbody tr td:last-child a span {
+    font-size: 2.5vw;
+  }
+}
+@media screen and (max-width: 800px) {
+  .tabla table tbody tr td:last-child button span, .tabla table tbody tr td:last-child a span {
+    font-size: 3vw;
+  }
+}
+@media screen and (max-width: 550px) {
+  .tabla table tbody tr td:last-child button span, .tabla table tbody tr td:last-child a span {
+    font-size: 5vw;
+  }
+}
+.tabla table tbody tr p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: solid 1px #125e52;
+  border-radius: 10px;
+  padding: 0.5rem;
+}
+.tabla table tbody tr p span {
+  font-size: 2vw;
+  color: #125e52;
+}
+
+/*-------------------- * * * --------------------
+
+  Archivo que contiene los estilos generales de todo el proyecto
+
+  Autor: Arancha Cores López
+  Fecha: 12-10-2024
+  Nombre: _estilosGenerales.scss
+
+-------------------- * * * --------------------*/
+/*---------- Estilos de las ventanas modales ----------*/
+dialog {
+  width: 60%;
+  margin: auto;
+  padding: 4rem;
+  border: none;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  border-radius: 10px;
+}
+@media screen and (max-width: 800px) {
+  dialog {
+    width: 75%;
+  }
+}
+@media screen and (max-width: 550px) {
+  dialog {
+    width: 100%;
+  }
+}
+dialog h2 {
+  margin-bottom: 3rem;
+}
+dialog::backdrop {
+  background-color: rgba(234, 235, 215, 0.7019607843);
+}
+dialog .close-rounded {
+  color: #125e52;
+  cursor: pointer;
+}
+dialog form {
+  margin: 0 auto;
+}
+dialog .mapa {
+  width: 35%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 55vh;
+  padding: 1rem;
+  border: solid 1px #125e52;
+  border-radius: 10px;
+}
+@media screen and (max-width: 1700px) {
+  dialog .mapa {
+    width: 35%;
+    height: 52vh;
+  }
+}
+@media screen and (max-width: 1000px) {
+  dialog .mapa {
+    width: 50%;
+    height: 50vh;
+  }
+}
+@media screen and (max-width: 550px) {
+  dialog .mapa {
+    width: 100%;
+    height: 30vh;
+  }
+}
+dialog .tituloVentana {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+dialog .tituloVentana h2 {
+  width: 90%;
+  color: #125e52;
+  text-align: center;
+  font-size: 3vw;
+}
+@media screen and (max-width: 550px) {
+  dialog .tituloVentana h2 {
+    font-size: 5vw;
+  }
+}
+dialog .tituloVentana p {
+  width: 10%;
+  text-align: right;
+}
+dialog .tituloVentana p span {
+  font-size: 5vw;
+  border: solid 1px transparent;
+}
+@media screen and (max-width: 550px) {
+  dialog .tituloVentana p span {
+    font-size: 9vw;
+  }
+}
+dialog .tituloVentana p span:hover {
+  border: solid 1px #125e52;
+  border-radius: 10px;
+}
+dialog .contenidoVentana {
+  display: flex;
+  gap: 2rem;
+}
+@media screen and (max-width: 550px) {
+  dialog .contenidoVentana p {
+    font-size: 3vw;
+  }
+}
+@media screen and (max-width: 550px) {
+  dialog .contenidoVentana a {
+    font-size: 3vw;
+  }
+}
+dialog#modalCambiarContrasinal #formularioCambiarContrasinal {
+  width: 50%;
+  flex-direction: column;
+  margin: 0 auto;
+  gap: 4rem;
+}
+@media screen and (max-width: 1000px) {
+  dialog#modalCambiarContrasinal #formularioCambiarContrasinal {
+    width: 60%;
+  }
+}
+dialog#modalCambiarContrasinal .boton {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+dialog#modalCambiarContrasinal .boton .btnOscuro {
+  padding: 1rem 2rem;
+  font-size: 1.5vw;
+}
+@media screen and (max-width: 800px) {
+  dialog#modalAltaParcela {
+    width: 80%;
+  }
+}
+dialog#modalAltaParcela .contenidoVentana {
+  align-items: center;
+}
+@media screen and (max-width: 550px) {
+  dialog#modalAltaParcela .contenidoVentana {
+    flex-wrap: wrap;
+  }
+}
+dialog#modalAltaParcela .contenidoVentana form {
+  width: 65%;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+@media screen and (max-width: 1700px) {
+  dialog#modalAltaParcela .contenidoVentana form {
+    gap: 1.5rem;
+  }
+}
+@media screen and (max-width: 1300px) {
+  dialog#modalAltaParcela .contenidoVentana form {
+    gap: 1rem;
+  }
+}
+@media screen and (max-width: 1000px) {
+  dialog#modalAltaParcela .contenidoVentana form {
+    width: 50%;
+  }
+}
+@media screen and (max-width: 550px) {
+  dialog#modalAltaParcela .contenidoVentana form {
+    width: 100%;
+  }
+}
+dialog#modalAltaParcela .contenidoVentana form fieldset {
+  width: 47%;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+dialog#modalAltaParcela .contenidoVentana form fieldset div {
+  width: 100%;
+}
+@media screen and (max-width: 1000px) {
+  dialog#modalAltaParcela .contenidoVentana form fieldset {
+    width: 100%;
+  }
+}
+dialog#modalEngadirFacturaIngreso {
+  height: 100%;
+}
+dialog#modalEngadirFacturaIngreso .contenidoVentana {
+  flex-direction: column;
+}
+dialog#modalEngadirFacturaIngreso .contenidoVentana div:first-child fieldset {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 1rem;
+  border: solid 1px #125e52;
+  border-radius: 10px;
+  padding: 1rem;
+}
+@media screen and (max-width: 800px) {
+  dialog#modalEngadirFacturaIngreso .contenidoVentana div:first-child fieldset {
+    flex-wrap: wrap;
+  }
+}
+dialog#modalEngadirFacturaIngreso .contenidoVentana div:first-child fieldset div {
+  width: 30%;
+  display: flex;
+  align-items: center;
+}
+dialog#modalEngadirFacturaIngreso .contenidoVentana div:first-child fieldset div input {
+  margin-right: 1rem;
+}
+dialog#modalEngadirFacturaIngreso .contenidoVentana div:last-of-type {
+  position: relative;
+}
+dialog#modalEngadirFacturaIngreso .contenidoVentana div:last-of-type form {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  opacity: 0;
+  transition: all 0.6s ease-in-out;
+}
+dialog#modalEngadirFacturaIngreso .contenidoVentana div:last-of-type form.activo {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  left: 0;
+  opacity: 1;
+  z-index: 1;
+}
+dialog#modalVerMovimiento, dialog#modalMostrarAlbaran {
+  width: 50%;
+}
+@media screen and (max-width: 900px) {
+  dialog#modalVerMovimiento, dialog#modalMostrarAlbaran {
+    width: 60%;
+  }
+}
+@media screen and (max-width: 550px) {
+  dialog#modalVerMovimiento, dialog#modalMostrarAlbaran {
+    width: 100%;
+  }
+}
+dialog#modalVerMovimiento .contenidoVentana > div, dialog#modalMostrarAlbaran .contenidoVentana > div {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+dialog#modalVerMovimiento .contenidoVentana > div div, dialog#modalMostrarAlbaran .contenidoVentana > div div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+dialog#modalVerMovimiento .contenidoVentana > div div p:first-child, dialog#modalMostrarAlbaran .contenidoVentana > div div p:first-child {
+  color: #306f5b;
+}
+dialog#modalMostrarParcela #datosParcela {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+dialog#modalMostrarParcela #datosParcela div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+dialog#modalMostrarParcela #datosParcela div p:first-child {
+  color: #125e52;
+}
+dialog#modalMostrarParcela .mapa {
+  width: 50%;
+  height: 23vh;
+  display: flex;
+  align-items: center;
+  border: solid 1px #125e52;
+  border-radius: 10px;
+}
+dialog#modalMostrarParcela .mapa p {
+  text-align: center;
+}
+dialog#modalEditarPerfil #formularioEditarPerfil > div:first-child {
+  background-color: #eaebd7;
+  border-radius: 10px;
+  padding: 1rem;
+}
+@media screen and (max-width: 800px) {
+  dialog#modalEditarPerfil #formularioEditarPerfil > div:first-child {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+dialog#modalEditarPerfil #formularioEditarPerfil > div:first-child figure {
+  width: 50%;
+  text-align: center;
+}
+dialog#modalEditarPerfil #formularioEditarPerfil > div:first-child figure img {
+  width: 40%;
+  border-radius: 100%;
+}
+@media screen and (max-width: 1000px) {
+  dialog#modalEditarPerfil #formularioEditarPerfil > div:first-child figure img {
+    width: 55%;
+  }
+}
+@media screen and (max-width: 800px) {
+  dialog#modalEditarPerfil #formularioEditarPerfil > div:first-child figure img {
+    width: 70%;
+  }
+}
+dialog#modalEditarPerfil #formularioEditarPerfil > div:first-child .zonaArrastreImagen {
+  width: 50%;
+}
+@media screen and (max-width: 800px) {
+  dialog#modalEditarPerfil #formularioEditarPerfil > div:first-child .zonaArrastreImagen {
+    width: 100%;
+  }
+}
+dialog#modalEditarPerfil #formularioEditarPerfil > div:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+dialog#modalEditarPerfil #formularioEditarPerfil > div:nth-child(2) fieldset #formaPago {
+  width: 50%;
+}
+dialog#modalEditarPrecio {
+  width: 50%;
+}
+dialog#modalEditarPrecio input {
+  font-size: 1.5vw;
+}
+@media screen and (max-width: 800px) {
+  dialog#modalEditarPrecio input {
+    font-size: 2vw;
+  }
+}
+
+/*-------------------- * * * --------------------
+
+  Archivo que contiene los estilos generales de todo el proyecto
+
+  Autor: Arancha Cores López
+  Fecha: 12-10-2024
+  Nombre: _estilosGenerales.scss
+
+-------------------- * * * --------------------*/
+/*---------- Estilos de las formularios ----------*/
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2.5rem;
+}
+form div {
+  width: 100%;
+  position: relative;
+}
+form div:has(> select) {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  background-color: #eaebd7;
+  font-size: 1vw;
+  outline: none;
+  border: none;
+  border-radius: 10px;
+  padding: 1rem;
+  padding: 0.5rem 1rem;
+}
+@media screen and (max-width: 800px) {
+  form div:has(> select) {
+    font-size: 1.5vw;
+  }
+}
+@media screen and (max-width: 550px) {
+  form div:has(> select) {
+    font-size: 2.5vw;
+  }
+}
+@media screen and (max-width: 1100px) {
+  form div:has(> select) {
+    flex-wrap: wrap;
+  }
+}
+@media screen and (max-width: 800px) {
+  form div:has(> select) {
+    padding: 1rem;
+  }
+}
+form div:has(input[type=file]) {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+  background-color: #eaebd7;
+  font-size: 1vw;
+  outline: none;
+  border: none;
+  border-radius: 10px;
+  padding: 1rem;
+}
+@media screen and (max-width: 800px) {
+  form div:has(input[type=file]) {
+    font-size: 1.5vw;
+  }
+}
+@media screen and (max-width: 550px) {
+  form div:has(input[type=file]) {
+    font-size: 2.5vw;
+  }
+}
+form div:has(input[type=file]) label {
+  margin-right: 1rem;
+}
+form div:has(input[type=file]) p {
+  margin-top: 1rem;
+}
+form .zonaArrastreImagen {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  border-radius: 10px;
+  padding: 1rem;
+}
+@media screen and (max-width: 800px) {
+  form .zonaArrastreImagen {
+    gap: 0.5rem;
+  }
+}
+@media screen and (max-width: 800px) {
+  form .zonaArrastreImagen p {
+    margin: 0;
+  }
+}
+form .zonaArrastreImagen p span {
+  font-size: 5rem;
+  color: #125e52;
+}
+@media screen and (max-width: 800px) {
+  form .zonaArrastreImagen p span {
+    font-size: 4rem;
+  }
+}
+form .zonaArrastreImagen input[type=file] {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+form .zonaArrastreImagen input[type=file] ~ label {
+  display: block;
+  position: static;
+  transform: none;
+  text-align: center;
+  cursor: pointer;
+}
+form fieldset {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  gap: 1rem;
+  border: solid 1px #125e52;
+  border-radius: 10px;
+  padding: 1rem;
+}
+@media screen and (max-width: 800px) {
+  form fieldset {
+    flex-wrap: wrap;
+  }
+}
+form fieldset legend {
+  padding: 0 1rem;
+}
+form input:not([type=radio]):not([type=file]):not([type=submit]) {
+  width: 100%;
+  background-color: #eaebd7;
+  font-size: 1vw;
+  outline: none;
+  border: none;
+  border-radius: 10px;
+  padding: 1rem;
+}
+@media screen and (max-width: 800px) {
+  form input:not([type=radio]):not([type=file]):not([type=submit]) {
+    font-size: 1.5vw;
+  }
+}
+@media screen and (max-width: 550px) {
+  form input:not([type=radio]):not([type=file]):not([type=submit]) {
+    font-size: 2.5vw;
+  }
+}
+form input:not([type=radio]):not([type=file]):not([type=submit]):focus, form input:not([type=radio]):not([type=file]):not([type=submit]):valid {
+  border: solid 2px #125e52;
+}
+form input:not([type=radio]):not([type=file]):not([type=submit]):focus ~ label, form input:not([type=radio]):not([type=file]):not([type=submit]):valid ~ label {
+  top: -3%;
+  left: 3%;
+  font-size: 1vw;
+  padding: 0 0.5rem;
+  background: linear-gradient(180deg, #fffefe 60%, #eaebd7 65%);
+}
+@media screen and (max-width: 800px) {
+  form input:not([type=radio]):not([type=file]):not([type=submit]):focus ~ label, form input:not([type=radio]):not([type=file]):not([type=submit]):valid ~ label {
+    font-size: 1.3vw;
+  }
+}
+@media screen and (max-width: 550px) {
+  form input:not([type=radio]):not([type=file]):not([type=submit]):focus ~ label, form input:not([type=radio]):not([type=file]):not([type=submit]):valid ~ label {
+    font-size: 2.5vw;
+  }
+}
+form input:not([type=radio]):not([type=file]):not([type=submit]):focus ~ label span, form input:not([type=radio]):not([type=file]):not([type=submit]):valid ~ label span {
+  display: none;
+}
+form input:not([type=radio]):not([type=file]):not([type=submit]):disabled {
+  background-color: #e0e5df;
+  color: #000;
+}
+form input[type=submit] {
+  width: 100%;
+  cursor: pointer;
+}
+form input[type=file] {
+  font-size: 1.2vw;
+}
+form input[type=radio] {
+  accent-color: #125e52;
+}
+form input.campoInvalido {
+  border: solid 4px #dd0b0b !important;
+}
+form input.campoInvalido ~ label {
+  top: -3%;
+  left: 3%;
+  font-size: 1vw;
+  padding: 0 0.5rem;
+  background: linear-gradient(180deg, #fffefe 60%, #eaebd7 65%);
+}
+@media screen and (max-width: 800px) {
+  form input.campoInvalido ~ label {
+    font-size: 1.3vw;
+  }
+}
+@media screen and (max-width: 550px) {
+  form input.campoInvalido ~ label {
+    font-size: 2.5vw;
+  }
+}
+form label {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 3%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  transition: 0.3s;
+}
+form label span {
+  font-size: 1.5vw;
+  margin-right: 0.5rem;
+}
+form label:has(~ select), form label:has(~ input[type=file]) {
+  position: static;
+  transform: none;
+}
+@media screen and (max-width: 1100px) {
+  form label:has(~ select), form label:has(~ input[type=file]) {
+    font-size: 1.2vw;
+  }
+}
+@media screen and (max-width: 800px) {
+  form label:has(~ select), form label:has(~ input[type=file]) {
+    font-size: 2vw;
+  }
+}
+@media screen and (max-width: 550px) {
+  form label:has(~ select), form label:has(~ input[type=file]) {
+    font-size: 3vw;
+  }
+}
+form label.inputCubierto {
+  top: -3%;
+  left: 3%;
+  font-size: 1vw;
+  padding: 0 0.5rem;
+  background: linear-gradient(180deg, #fffefe 60%, #eaebd7 65%);
+}
+@media screen and (max-width: 800px) {
+  form label.inputCubierto {
+    font-size: 1.3vw;
+  }
+}
+@media screen and (max-width: 550px) {
+  form label.inputCubierto {
+    font-size: 2.5vw;
+  }
+}
+form select {
+  background-color: #eaebd7;
+  font-size: 1vw;
+  border: none;
+  border-radius: 10px;
+  padding: 1rem;
+}
+@media screen and (max-width: 1100px) {
+  form select {
+    padding: 0;
+    font-size: 1.2vw;
+  }
+}
+@media screen and (max-width: 800px) {
+  form select {
+    font-size: 2vw;
+  }
+}
+@media screen and (max-width: 550px) {
+  form select {
+    font-size: 3vw;
+  }
+}
+@media screen and (max-width: 1100px) {
+  form select option {
+    font-size: 1.5vw;
+  }
+}
+@media screen and (max-width: 900px) {
+  form select option {
+    font-size: 2vw;
+  }
+}
+form .iconoMostrarContrasinal {
+  font-size: 2rem;
+  position: absolute;
+  top: 21%;
+  right: 4%;
+}
+form .notificaciones {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  background-color: transparent;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: 1;
+}
+@media screen and (max-width: 1500px) {
+  form .notificaciones {
+    width: 45%;
+  }
+}
+@media screen and (max-width: 550px) {
+  form .notificaciones {
+    width: 55%;
+  }
+}
+form .notificaciones .error,
+form .notificaciones .exito {
+  width: 100%;
+  background-color: #fffefe;
+  border-radius: 10px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  box-shadow: 7px 7px 33px 0px rgba(0, 0, 0, 0.5);
+  animation: notificacionError 5s ease;
+  opacity: 0;
+}
+@media screen and (max-width: 1100px) {
+  form .notificaciones .error,
+  form .notificaciones .exito {
+    padding: 1.5rem;
+  }
+}
+@media screen and (max-width: 800px) {
+  form .notificaciones .error,
+  form .notificaciones .exito {
+    padding: 1rem;
+  }
+}
+form .notificaciones .error::before,
+form .notificaciones .exito::before {
+  content: "";
+  width: 0%;
+  height: 3px;
+  background-color: #125e52;
+  box-shadow: 0 0 10px #125e52;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  animation: moverBarraError 5s linear;
+}
+form .notificaciones .error div:first-child, form .notificaciones .error div:last-child,
+form .notificaciones .exito div:first-child,
+form .notificaciones .exito div:last-child {
+  width: 10%;
+}
+form .notificaciones .error div:first-child,
+form .notificaciones .exito div:first-child {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+form .notificaciones .error div:nth-child(2),
+form .notificaciones .exito div:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+form .notificaciones .error div:nth-child(2) p:first-child,
+form .notificaciones .exito div:nth-child(2) p:first-child {
+  font-size: 1.2vw;
+  font-weight: 900;
+}
+@media screen and (max-width: 550px) {
+  form .notificaciones .error div:nth-child(2) p:first-child,
+  form .notificaciones .exito div:nth-child(2) p:first-child {
+    font-size: 3.2vw;
+  }
+}
+form .notificaciones .error div span.close-rounded,
+form .notificaciones .exito div span.close-rounded {
+  color: #125e52;
+  font-size: 1.5vw;
+  cursor: pointer;
+}
+@media screen and (max-width: 550px) {
+  form .notificaciones .error div span.close-rounded,
+  form .notificaciones .exito div span.close-rounded {
+    font-size: 3.5vw;
+  }
+}
+form .notificaciones .error div span.close-filled, form .notificaciones .error div span.checkmark-filled,
+form .notificaciones .exito div span.close-filled,
+form .notificaciones .exito div span.checkmark-filled {
+  font-size: 1.8vw;
+}
+@media screen and (max-width: 550px) {
+  form .notificaciones .error div span.close-filled, form .notificaciones .error div span.checkmark-filled,
+  form .notificaciones .exito div span.close-filled,
+  form .notificaciones .exito div span.checkmark-filled {
+    font-size: 3.8vw;
+  }
+}
+form .notificaciones .error div span.close-filled,
+form .notificaciones .exito div span.close-filled {
+  color: #dd0b0b;
+}
+form .notificaciones .error div span.checkmark-filled,
+form .notificaciones .exito div span.checkmark-filled {
+  color: #125e52;
+}
+
+/*-------------------- Estilos generales ---------------------*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  background-color: #eaebd7;
+  display: flex;
+  font-family: "Varela", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1vw;
+}
+@media screen and (max-width: 1300px) {
+  body {
+    font-size: 1.3vw;
+  }
+}
+@media screen and (max-width: 800px) {
+  body {
+    font-size: 2vw;
+  }
+}
+@media screen and (max-width: 550px) {
+  body {
+    font-size: 3vw;
+    flex-direction: column;
+  }
+}
+
+h2 {
+  font-family: "Martel", serif;
+  font-weight: 900;
+  font-style: normal;
+  font-size: 4vw;
+}
+@media screen and (max-width: 550px) {
+  h2 {
+    font-size: 8vw;
+    text-align: center;
+  }
+}
+
+h3 {
+  font-family: "Mulish", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 2vw;
+}
+@media screen and (max-width: 800px) {
+  h3 {
+    font-size: 3dvw;
+  }
+}
+@media screen and (max-width: 550px) {
+  h3 {
+    font-size: 5vw;
+  }
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+.negrita {
+  font-weight: bold;
+}
+
+.colorOscuro {
+  color: #306f5b;
+}
+
+.btnOscuro {
+  background-color: #306f5b;
+  border: none;
+  border-radius: 10px;
+  padding: 1rem 2rem;
+  font-size: 1vw;
+  font-family: "Varela", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fffefe;
+}
+@media screen and (max-width: 1300px) {
+  .btnOscuro {
+    font-size: 1.3vw;
+  }
+}
+@media screen and (max-width: 1000px) {
+  .btnOscuro {
+    padding: 1rem;
+  }
+}
+@media screen and (max-width: 800px) {
+  .btnOscuro {
+    font-size: 2.3vw;
+  }
+}
+@media screen and (max-width: 700px) {
+  .btnOscuro {
+    padding: 1rem 0.5rem;
+  }
+}
+@media screen and (max-width: 550px) {
+  .btnOscuro {
+    font-size: 3vw;
+  }
+}
+
+.btnClaro {
+  background-color: #dee1c2;
+  border: none;
+  border-radius: 10px;
+  padding: 1rem 2rem;
+  font-size: 1vw;
+  font-family: "Varela", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media screen and (max-width: 1300px) {
+  .btnClaro {
+    font-size: 1.3vw;
+  }
+}
+@media screen and (max-width: 1000px) {
+  .btnClaro {
+    padding: 1rem;
+  }
+}
+@media screen and (max-width: 800px) {
+  .btnClaro {
+    font-size: 2.3vw;
+  }
+}
+@media screen and (max-width: 700px) {
+  .btnClaro {
+    padding: 1rem 0.5rem;
+  }
+}
+@media screen and (max-width: 550px) {
+  .btnClaro {
+    font-size: 3vw;
+  }
+}
+
+.download-rounded {
+  cursor: pointer;
+}
+
+/*-------------------- * * * --------------------
+
+  Archivo que contiene los estilos generales de todo el proyecto
+
+  Autor: Arancha Cores López
+  Fecha: 12-10-2024
+  Nombre: _estilosGenerales.scss
+
+-------------------- * * * --------------------*/
+/*---------- Estilos de login ----------*/
+#login {
+  position: relative;
+  height: 100vh;
+}
+@media screen and (max-width: 550px) {
+  #login {
+    background-color: #125e52;
+  }
+}
+#login > div {
+  display: none;
+}
+@media screen and (max-width: 550px) {
+  #login > div {
+    display: block;
+  }
+}
+#login section {
+  width: 50%;
+  background-color: #125e52;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  transition: all 0.6s ease-in-out;
+}
+@media screen and (max-width: 700px) {
+  #login section {
+    width: 100%;
+    height: 60%;
+    top: auto;
+    bottom: 0;
+    justify-content: flex-start;
+  }
+}
+@media screen and (max-width: 550px) {
+  #login section {
+    width: 85%;
+    height: 65%;
+    top: auto;
+    left: 0;
+    right: 0;
+    bottom: 5%;
+    margin: auto;
+  }
+}
+#login section .btnIniciarSesion {
+  width: 40%;
+  background-color: #eaebd7;
+  color: #125e52;
+  border: solid 1px transparent;
+  padding: 1rem 1rem;
+  border-radius: 100px;
+}
+#login section .btnIniciarSesion:hover {
+  background-color: #125e52;
+  color: #eaebd7;
+  cursor: pointer;
+}
+#login section[class^=form] > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#login section[class^=form] h2 {
+  color: #125e52;
+}
+#login section.form-login {
+  align-items: flex-end;
+  z-index: 1;
+}
+#login section.form-login > div {
+  border-radius: 50px 0 0 50px;
+}
+@media screen and (max-width: 700px) {
+  #login section.form-login > div {
+    border-radius: 0 0 50px 50px;
+  }
+}
+@media screen and (max-width: 550px) {
+  #login section.form-login > div {
+    border-radius: 50px;
+  }
+}
+#login section.form-login ul {
+  margin: 1rem 0 5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+}
+@media screen and (max-width: 700px) {
+  #login section.form-login ul {
+    margin: 1rem 0 3rem;
+  }
+}
+#login section.form-login ul li {
+  padding: 1rem;
+  background-color: #eaebd7;
+  border-radius: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#login section.form-login ul li:hover {
+  background-color: #125e52;
+  cursor: pointer;
+}
+#login section.form-login ul li:hover:hover span {
+  color: #eaebd7;
+}
+#login section.form-login ul li span {
+  font-size: 1.5vw;
+  color: #125e52;
+}
+@media screen and (max-width: 1024px) {
+  #login section.form-login ul li span {
+    font-size: 2vw;
+  }
+}
+@media screen and (max-width: 700px) {
+  #login section.form-login ul li span {
+    font-size: 4vw;
+  }
+}
+#login section.form-passwd {
+  opacity: 0;
+}
+@media screen and (max-width: 700px) {
+  #login section.form-passwd {
+    transform: translateX(100%);
+  }
+}
+@media screen and (max-width: 550px) {
+  #login section.form-passwd {
+    transform: translateX(100%);
+  }
+}
+#login section.form-passwd > div {
+  justify-content: space-evenly;
+  border-radius: 0 50px 50px 0;
+}
+@media screen and (max-width: 700px) {
+  #login section.form-passwd > div {
+    border-radius: 0 0 50px 50px;
+  }
+}
+@media screen and (max-width: 550px) {
+  #login section.form-passwd > div {
+    border-radius: 50px;
+  }
+}
+#login section.form-passwd > div #btnSesionMovil {
+  display: none;
+  width: 100%;
+  margin-top: 1rem;
+}
+@media screen and (max-width: 550px) {
+  #login section.form-passwd > div #btnSesionMovil {
+    display: block;
+  }
+}
+#login section h2 {
+  text-transform: capitalize;
+  text-align: center;
+  font-size: 4rem;
+  /*@include mixins.mediaQueries(){
+
+  }*/
+}
+@media screen and (max-width: 1280px) {
+  #login section h2 {
+    font-size: 3.5rem;
+  }
+}
+@media screen and (max-width: 1024px) {
+  #login section h2 {
+    font-size: 2.9rem;
+  }
+}
+#login section > div {
+  width: 90%;
+  height: 74%;
+  background-color: #fffefe;
+  padding: 5rem;
+  height: 74vh;
+}
+@media screen and (max-width: 1536px) {
+  #login section > div {
+    height: 80%;
+  }
+}
+@media screen and (max-width: 1280px) {
+  #login section > div {
+    width: 85%;
+    height: 75%;
+    padding: 2rem;
+  }
+}
+@media screen and (max-width: 1024px) {
+  #login section > div {
+    width: 80%;
+    height: 70%;
+    padding: 0;
+  }
+}
+@media screen and (max-width: 1000px) {
+  #login section > div {
+    width: 90%;
+  }
+}
+@media screen and (max-width: 800px) {
+  #login section > div {
+    width: 96%;
+  }
+}
+@media screen and (max-width: 700px) {
+  #login section > div {
+    width: 90%;
+    height: 90%;
+    justify-content: flex-start;
+    margin: 0 auto;
+  }
+}
+@media screen and (max-width: 550px) {
+  #login section > div {
+    width: 100%;
+    height: 100%;
+  }
+}
+#login section form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 55%;
+  margin: 0 auto;
+}
+@media screen and (max-width: 550px) {
+  #login section form {
+    width: 67%;
+    gap: 1rem;
+  }
+}
+#login section form div:not([class=notificaciones]) {
+  width: 100%;
+  position: relative;
+}
+#login section form div:not([class=notificaciones]) input {
+  background-color: #eaebd7;
+  width: 100%;
+}
+#login section form div:not([class=notificaciones]) input:focus, #login section form div:not([class=notificaciones]) input:valid {
+  border: solid 1px #125e52;
+}
+#login section form div:not([class=notificaciones]) input:focus ~ label, #login section form div:not([class=notificaciones]) input:valid ~ label {
+  top: -3%;
+  left: 3%;
+  font-size: 1vw;
+  padding: 0 0.5rem;
+  background: linear-gradient(180deg, #fffefe 60%, #eaebd7 65%);
+}
+@media screen and (max-width: 800px) {
+  #login section form div:not([class=notificaciones]) input:focus ~ label, #login section form div:not([class=notificaciones]) input:valid ~ label {
+    font-size: 1.3vw;
+  }
+}
+@media screen and (max-width: 550px) {
+  #login section form div:not([class=notificaciones]) input:focus ~ label, #login section form div:not([class=notificaciones]) input:valid ~ label {
+    font-size: 2.5vw;
+  }
+}
+#login section form div:not([class=notificaciones]) input:focus ~ label span, #login section form div:not([class=notificaciones]) input:valid ~ label span {
+  display: none;
+}
+#login section form div:not([class=notificaciones]) label {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 3%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  transition: 0.3s;
+}
+#login section form div:not([class=notificaciones]) label span {
+  font-size: 1.5vw;
+  margin-right: 0.5rem;
+}
+@media screen and (max-width: 550px) {
+  #login section form div:not([class=notificaciones]) label span {
+    font-size: 5.5vw;
+  }
+}
+#login section form div:not([class=notificaciones]):has(a) {
+  text-align: center;
+}
+#login section form div:not([class=notificaciones]):has(a) a {
+  font-size: 1.3rem;
+  text-decoration: underline;
+  cursor: pointer;
+}
+#login section form div:not([class=notificaciones]):has(a) a:visited {
+  color: #333;
+}
+#login section form div:not([class=notificaciones]) #btnMostrarContrasinal {
+  font-size: 2rem;
+  position: absolute;
+  top: 21%;
+  right: 4%;
+}
+#login section form div:not([class=notificaciones]) .btnEntrar,
+#login section form div:not([class=notificaciones]) .btnPasswd {
+  background-color: #125e52;
+  color: #eaebd7;
+  border: solid 1px transparent;
+  padding: 1rem 1rem;
+  border-radius: 100px;
+}
+#login section form div:not([class=notificaciones]) .btnEntrar:hover,
+#login section form div:not([class=notificaciones]) .btnPasswd:hover {
+  background-color: #eaebd7;
+  color: #125e52;
+  border: solid 1px #125e52;
+  cursor: pointer;
+}
+#login section.toggle {
+  background-color: #fffefe;
+  align-items: flex-start;
+  width: 50%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transition: all 0.6s ease-in-out;
+}
+@media screen and (max-width: 700px) {
+  #login section.toggle {
+    width: 100%;
+    height: 40%;
+    left: 0;
+    justify-content: flex-end;
+  }
+}
+@media screen and (max-width: 550px) {
+  #login section.toggle {
+    display: none;
+  }
+}
+#login section.toggle > div {
+  position: relative;
+  transform: translateX(0);
+  transition: all 0.6s ease-in-out;
+}
+#login section.toggle > div div[class^=toggle] {
+  background-color: #125e52;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  padding: 5rem;
+  transform: translateX(0);
+  transition: all 0.6s ease-in-out;
+}
+@media screen and (max-width: 1280px) {
+  #login section.toggle > div div[class^=toggle] {
+    padding: 2rem;
+  }
+}
+#login section.toggle > div div.toggle-login {
+  border-radius: 0 50px 50px 0;
+  left: 0;
+  z-index: 1;
+}
+@media screen and (max-width: 700px) {
+  #login section.toggle > div div.toggle-login {
+    border-radius: 50px 50px 0 0;
+  }
+}
+@media screen and (max-width: 700px) {
+  #login section.toggle > div div.toggle-login figure {
+    width: 100%;
+    text-align: center;
+  }
+}
+@media screen and (max-width: 700px) {
+  #login section.toggle > div div.toggle-login figure img {
+    width: 60%;
+  }
+}
+@media screen and (max-width: 700px) {
+  #login section.toggle > div div.toggle-login h2 {
+    font-size: 2.3rem;
+  }
+}
+#login section.toggle > div div.toggle-passwd {
+  left: 100%;
+  border-radius: 50px 0 0 50px;
+  opacity: 0;
+}
+@media screen and (max-width: 700px) {
+  #login section.toggle > div div.toggle-passwd {
+    border-radius: 50px 50px 0 0;
+  }
+}
+#login section.toggle h2 {
+  color: #fffefe;
+  font-weight: 900;
+}
+#login.cambiarContrasinal .form-login {
+  transform: translateX(100%);
+}
+@media screen and (max-width: 550px) {
+  #login.cambiarContrasinal .form-login {
+    transform: translateX(110%);
+  }
+}
+#login.cambiarContrasinal .form-passwd {
+  transform: translateX(100%);
+  opacity: 1;
+  z-index: 1;
+  animation: moverLogin 0.6s;
+}
+@media screen and (max-width: 700px) {
+  #login.cambiarContrasinal .form-passwd {
+    transform: translateX(0);
+  }
+}
+#login.cambiarContrasinal .form-passwd > div {
+  transition: all 0.6s ease-in-out;
+}
+#login.cambiarContrasinal .toggle {
+  transform: translateX(-100%);
+}
+@media screen and (max-width: 700px) {
+  #login.cambiarContrasinal .toggle {
+    transform: none;
+  }
+}
+#login.cambiarContrasinal .toggle > div {
+  transform: translateX(11%);
+}
+@media screen and (max-width: 1280px) {
+  #login.cambiarContrasinal .toggle > div {
+    transform: translateX(17%);
+  }
+}
+@media screen and (max-width: 1024px) {
+  #login.cambiarContrasinal .toggle > div {
+    transform: translateX(25%);
+  }
+}
+@media screen and (max-width: 700px) {
+  #login.cambiarContrasinal .toggle > div {
+    transform: none;
+  }
+}
+#login.cambiarContrasinal .toggle > div .toggle-login {
+  z-index: 0;
+  opacity: 0;
+}
+@media screen and (max-width: 700px) {
+  #login.cambiarContrasinal .toggle > div .toggle-login {
+    transform: translateX(100%);
+  }
+}
+#login.cambiarContrasinal .toggle > div .toggle-passwd {
+  opacity: 1;
+  z-index: 1;
+  transform: translateX(-100%);
+}
+
+/*-------------------- * * * --------------------
+
+  Archivo que contiene los estilos generales de todo el proyecto
+
+  Autor: Arancha Cores López
+  Fecha: 12-10-2024
+  Nombre: _estilosGenerales.scss
+
+-------------------- * * * --------------------*/
+/*---------- Estilos de la cabecera ----------*/
+#cabeceraPrincipal {
+  width: 15%;
+  background-color: #125e52;
+  color: #fffefe;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 2rem;
+  gap: 2rem;
+}
+@media screen and (max-width: 1000px) {
+  #cabeceraPrincipal {
+    padding: 1rem;
+  }
+}
+@media screen and (max-width: 550px) {
+  #cabeceraPrincipal {
+    width: 100%;
+    background-color: #eaebd7;
+  }
+}
+@media screen and (max-width: 550px) {
+  #cabeceraPrincipal > div:first-child {
+    display: flex;
+    gap: 8rem;
+  }
+}
+@media screen and (max-width: 550px) {
+  #cabeceraPrincipal > div:first-child a {
+    order: 1;
+  }
+}
+#cabeceraPrincipal > div:first-child a picture {
+  width: 100%;
+}
+@media screen and (max-width: 550px) {
+  #cabeceraPrincipal > div:first-child a picture {
+    order: 1;
+  }
+}
+#cabeceraPrincipal > div:first-child a picture img {
+  width: 100%;
+}
+@media screen and (max-width: 550px) {
+  #cabeceraPrincipal > div:first-child a picture img {
+    width: 40%;
+  }
+}
+#cabeceraPrincipal > div:first-child #menuHamburguesa {
+  display: none;
+}
+@media screen and (max-width: 550px) {
+  #cabeceraPrincipal > div:first-child #menuHamburguesa {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    order: 0;
+  }
+}
+#cabeceraPrincipal > div:first-child #menuHamburguesa p span {
+  cursor: pointer;
+}
+@media screen and (max-width: 550px) {
+  #cabeceraPrincipal > div:first-child #menuHamburguesa p span {
+    color: #125e52;
+    font-size: 2rem;
+  }
+}
+#cabeceraPrincipal > div#menuPrincipal {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+@media screen and (max-width: 550px) {
+  #cabeceraPrincipal > div#menuPrincipal {
+    width: 100%;
+    background-color: #125e52;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    margin-left: -100%;
+    padding: 2rem;
+  }
+}
+#cabeceraPrincipal > div#menuPrincipal.cerrarMenuPrincipal {
+  margin-left: -100%;
+  transition: all 1s linear;
+}
+#cabeceraPrincipal > div#menuPrincipal.abrirMenuPrincipal {
+  margin: 0;
+  transition: margin 1s linear;
+}
+#cabeceraPrincipal > div#menuPrincipal #cerrarMenuPrincipal {
+  display: none;
+}
+@media screen and (max-width: 550px) {
+  #cabeceraPrincipal > div#menuPrincipal #cerrarMenuPrincipal {
+    display: block;
+    width: 100%;
+  }
+}
+#cabeceraPrincipal > div#menuPrincipal #cerrarMenuPrincipal p span {
+  font-size: 10vw;
+  cursor: pointer;
+}
+@media screen and (max-width: 550px) {
+  #cabeceraPrincipal > div#menuPrincipal nav {
+    height: 80%;
+  }
+}
+#cabeceraPrincipal > div#menuPrincipal nav ul {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+@media screen and (max-width: 550px) {
+  #cabeceraPrincipal > div#menuPrincipal nav ul {
+    height: 100%;
+    justify-content: space-evenly;
+  }
+}
+#cabeceraPrincipal > div#menuPrincipal nav ul li a {
+  font-size: 1.4vw;
+  color: #fffefe;
+}
+@media screen and (max-width: 700px) {
+  #cabeceraPrincipal > div#menuPrincipal nav ul li a {
+    font-size: 1.6vw;
+  }
+}
+@media screen and (max-width: 550px) {
+  #cabeceraPrincipal > div#menuPrincipal nav ul li a {
+    font-size: 5vw;
+  }
+}
+#cabeceraPrincipal > div#menuPrincipal p a {
+  color: #fffefe;
+}
+#cabeceraPrincipal > div#menuPrincipal p a span {
+  font-size: 4vw;
+}
+@media screen and (max-width: 550px) {
+  #cabeceraPrincipal > div#menuPrincipal p a span {
+    font-size: 10vw;
+  }
+}
+
+/*-------------------- * * * --------------------
+
+  Archivo que contiene los estilos generales de todo el proyecto
+
+  Autor: Arancha Cores López
+  Fecha: 12-10-2024
+  Nombre: _estilosGenerales.scss
+
+-------------------- * * * --------------------*/
+/*-------------------- * * * --------------------
+
+  Archivo que contiene los estilos generales de todo el proyecto
+
+  Autor: Arancha Cores López
+  Fecha: 12-10-2024
+  Nombre: _estilosGenerales.scss
+
+-------------------- * * * --------------------*/
+/*---------- Estilos del dashboard ----------*/
+.dashboard {
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
+  gap: 2rem;
+  overflow-y: scroll;
+}
+.dashboard section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+}
+@media screen and (max-width: 1500px) {
+  .dashboard section {
+    gap: 1rem;
+  }
+}
+@media screen and (max-width: 1300px) {
+  .dashboard section {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+}
+.dashboard section article {
+  width: 20%;
+  background-color: #fffefe;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  border-radius: 10px;
+  padding: 1rem;
+}
+@media screen and (max-width: 1300px) {
+  .dashboard section article {
+    width: 30%;
+  }
+}
+@media screen and (max-width: 700px) {
+  .dashboard section article {
+    width: 48%;
+  }
+}
+@media screen and (max-width: 550px) {
+  .dashboard section article {
+    width: 100%;
+  }
+}
+.dashboard section article p {
+  font-family: "Martel", serif;
+  font-weight: 900;
+}
+.dashboard section article > p {
+  width: 25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #eaebd7;
+  padding: 1rem;
+  border-radius: 10px;
+}
+@media screen and (max-width: 800px) {
+  .dashboard section article > p {
+    width: 35%;
+  }
+}
+.dashboard section article > p span {
+  font-size: 2vw;
+  color: #125e52;
+}
+@media screen and (max-width: 800px) {
+  .dashboard section article > p span {
+    font-size: 3vw;
+  }
+}
+@media screen and (max-width: 550px) {
+  .dashboard section article > p span {
+    font-size: 4vw;
+  }
+}
+.dashboard section article div {
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.dashboard section article div p:first-child {
+  color: #125e52;
+  font-size: 2vw;
+}
+@media screen and (max-width: 700px) {
+  .dashboard section article div p:first-child {
+    font-size: 3vw;
+  }
+}
+@media screen and (max-width: 550px) {
+  .dashboard section article div p:first-child {
+    font-size: 5vw;
+  }
+}
+.dashboard section article div p:last-child {
+  font-size: 0.8vw;
+}
+@media screen and (max-width: 550px) {
+  .dashboard section article div p:last-child {
+    font-size: 2.5vw;
+  }
+}
+.dashboard > div:first-of-type > div:last-child table td:first-child,
+.dashboard > div:first-of-type > div:last-child table th:first-child {
+  text-align: left;
+}
+.dashboard #graficos {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 2rem;
+}
+@media screen and (max-width: 900px) {
+  .dashboard #graficos {
+    flex-wrap: wrap;
+  }
+}
+.dashboard #graficos > div {
+  width: 33%;
+  background-color: #fffefe;
+  border-radius: 10px;
+  padding: 2rem;
+}
+@media screen and (max-width: 1100px) {
+  .dashboard #graficos > div {
+    padding: 1.5rem;
+  }
+}
+@media screen and (max-width: 800px) {
+  .dashboard #graficos > div {
+    padding: 1rem;
+  }
+}
+@media screen and (max-width: 900px) {
+  .dashboard #graficos > div {
+    width: 47%;
+  }
+}
+@media screen and (max-width: 700px) {
+  .dashboard #graficos > div {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 900px) {
+  .dashboard #graficos > div:last-child {
+    width: 100%;
+  }
+}
+.dashboard .grafico {
+  width: 100%;
+  min-height: 40vh;
+}
+
+#dashboardAdmin > div:first-of-type {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 2rem;
+}
+@media screen and (max-width: 800px) {
+  #dashboardAdmin > div:first-of-type {
+    flex-wrap: wrap;
+  }
+}
+#dashboardAdmin > div:first-of-type > div {
+  width: 50%;
+  background-color: #fffefe;
+  border-radius: 10px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 1rem;
+}
+@media screen and (max-width: 1100px) {
+  #dashboardAdmin > div:first-of-type > div {
+    padding: 1.5rem;
+  }
+}
+@media screen and (max-width: 800px) {
+  #dashboardAdmin > div:first-of-type > div {
+    padding: 1rem;
+  }
+}
+@media screen and (max-width: 800px) {
+  #dashboardAdmin > div:first-of-type > div {
+    width: 100%;
+  }
+}
+#dashboardAdmin > div:first-of-type .tabla {
+  height: 20vh;
+  flex-grow: 1;
+}
+#dashboardAdmin .botones {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+}
+#dashboardAdmin .botones button {
+  width: 48%;
+}
+@media screen and (max-width: 1200px) {
+  #dashboardAdmin .botones button {
+    width: 100%;
+  }
+}
+
+#dashboardUsuario > div:last-child {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+}
+@media screen and (max-width: 550px) {
+  #dashboardUsuario > div:last-child {
+    flex-wrap: wrap;
+  }
+}
+#dashboardUsuario > div:last-child > div {
+  background-color: #fffefe;
+  border-radius: 10px;
+  padding: 2rem;
+  width: 50%;
+}
+@media screen and (max-width: 1100px) {
+  #dashboardUsuario > div:last-child > div {
+    padding: 1.5rem;
+  }
+}
+@media screen and (max-width: 800px) {
+  #dashboardUsuario > div:last-child > div {
+    padding: 1rem;
+  }
+}
+@media screen and (max-width: 550px) {
+  #dashboardUsuario > div:last-child > div {
+    width: 100%;
+  }
+}
+#dashboardUsuario > div:last-child > div h3 {
+  margin-bottom: 1rem;
+}
+
+/*-------------------- * * * --------------------
+
+  Archivo que contiene los estilos generales de todo el proyecto
+
+  Autor: Arancha Cores López
+  Fecha: 12-10-2024
+  Nombre: _estilosGenerales.scss
+
+-------------------- * * * --------------------*/
+/*-------------------- CSS Mi perfil -------------------*/
+.datosPerfil {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 2rem;
+}
+.datosPerfil > div {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 2rem;
+}
+@media screen and (max-width: 800px) {
+  .datosPerfil > div {
+    gap: 1rem;
+  }
+}
+.datosPerfil > div:first-child {
+  min-height: 30vh;
+}
+@media screen and (max-width: 800px) {
+  .datosPerfil > div:first-child {
+    flex-wrap: wrap;
+  }
+}
+@media screen and (max-width: 550px) {
+  .datosPerfil > div:first-child {
+    flex-direction: column;
+  }
+}
+.datosPerfil > div:first-child > div {
+  display: flex;
+  justify-content: space-between;
+}
+.datosPerfil > div:first-child > div:first-child {
+  width: 25%;
+  background-color: #fffefe;
+  border-radius: 10px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+@media screen and (max-width: 1100px) {
+  .datosPerfil > div:first-child > div:first-child {
+    padding: 1.5rem;
+  }
+}
+@media screen and (max-width: 800px) {
+  .datosPerfil > div:first-child > div:first-child {
+    padding: 1rem;
+  }
+}
+@media screen and (max-width: 800px) {
+  .datosPerfil > div:first-child > div:first-child {
+    width: 35%;
+  }
+}
+@media screen and (max-width: 550px) {
+  .datosPerfil > div:first-child > div:first-child {
+    width: 100%;
+  }
+}
+.datosPerfil > div:first-child > div:first-child figure {
+  width: 100%;
+  text-align: center;
+}
+.datosPerfil > div:first-child > div:first-child figure img {
+  width: 50%;
+  border-radius: 100%;
+}
+@media screen and (max-width: 1100px) {
+  .datosPerfil > div:first-child > div:first-child figure img {
+    width: 80%;
+  }
+}
+@media screen and (max-width: 550px) {
+  .datosPerfil > div:first-child > div:first-child figure img {
+    width: 40%;
+  }
+}
+.datosPerfil > div:first-child > div:first-child p {
+  font-size: 1.2vw;
+  text-align: center;
+}
+@media screen and (max-width: 800px) {
+  .datosPerfil > div:first-child > div:first-child p {
+    font-size: 2.2vw;
+  }
+}
+@media screen and (max-width: 550px) {
+  .datosPerfil > div:first-child > div:first-child p {
+    font-size: 4.2vw;
+  }
+}
+.datosPerfil > div:first-child > div:first-child button {
+  width: 90%;
+}
+@media screen and (max-width: 550px) {
+  .datosPerfil > div:first-child > div:first-child button {
+    width: 60%;
+  }
+}
+.datosPerfil > div:first-child > div:last-child {
+  width: 75%;
+  gap: 2rem;
+}
+@media screen and (max-width: 550px) {
+  .datosPerfil > div:first-child > div:last-child {
+    gap: 1rem;
+  }
+}
+@media screen and (max-width: 800px) {
+  .datosPerfil > div:first-child > div:last-child {
+    width: 60%;
+    flex-direction: column;
+  }
+}
+@media screen and (max-width: 550px) {
+  .datosPerfil > div:first-child > div:last-child {
+    width: 100%;
+  }
+}
+.datosPerfil > div:first-child > div:last-child > div {
+  width: 50%;
+  background-color: #fffefe;
+  border-radius: 10px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 0.5rem;
+}
+@media screen and (max-width: 1100px) {
+  .datosPerfil > div:first-child > div:last-child > div {
+    padding: 1.5rem;
+  }
+}
+@media screen and (max-width: 800px) {
+  .datosPerfil > div:first-child > div:last-child > div {
+    padding: 1rem;
+  }
+}
+@media screen and (max-width: 800px) {
+  .datosPerfil > div:first-child > div:last-child > div {
+    width: 100%;
+  }
+}
+.datosPerfil > div:first-child > div:last-child > div#direccionUsuario div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 1rem;
+}
+.datosPerfil > div:first-child > div:last-child > div#direccionUsuario div p:first-child {
+  color: #125e52;
+}
+.datosPerfil > div:first-child > div:last-child > div#contacto {
+  gap: 2rem;
+}
+@media screen and (max-width: 800px) {
+  .datosPerfil > div:first-child > div:last-child > div#contacto {
+    width: 100%;
+  }
+}
+.datosPerfil > div:first-child > div:last-child > div#contacto div div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 1rem;
+}
+.datosPerfil > div:first-child > div:last-child > div#contacto div div p:first-child {
+  color: #125e52;
+  margin: 0.5rem 0;
+}
+.datosPerfil #listaParcelas {
+  background-color: #fffefe;
+  border-radius: 10px;
+  padding: 2rem;
+  flex-direction: column;
+}
+@media screen and (max-width: 1100px) {
+  .datosPerfil #listaParcelas {
+    padding: 1.5rem;
+  }
+}
+@media screen and (max-width: 800px) {
+  .datosPerfil #listaParcelas {
+    padding: 1rem;
+  }
+}
+.datosPerfil #listaParcelas #botones {
+  display: flex;
+  gap: 2rem;
+}
+@media screen and (max-width: 550px) {
+  .datosPerfil #listaParcelas #botones {
+    flex-wrap: wrap;
+  }
+}
+.datosPerfil #listaParcelas #botones button {
+  width: 20%;
+}
+@media screen and (max-width: 1300px) {
+  .datosPerfil #listaParcelas #botones button {
+    width: 30%;
+  }
+}
+@media screen and (max-width: 800px) {
+  .datosPerfil #listaParcelas #botones button {
+    width: 50%;
+  }
+}
+@media screen and (max-width: 550px) {
+  .datosPerfil #listaParcelas #botones button {
+    width: 100%;
+  }
+}
+
+/*-------------------- * * * --------------------
+
+  Archivo que contiene los estilos generales de todo el proyecto
+
+  Autor: Arancha Cores López
+  Fecha: 12-10-2024
+  Nombre: _estilosGenerales.scss
+
+-------------------- * * * --------------------*/
+/*---------- Estilos de la página de alta de usuario ----------*/
+.altaUsuario > form {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+  position: relative;
+}
+@media screen and (max-width: 550px) {
+  .altaUsuario > form {
+    flex-wrap: wrap;
+  }
+}
+.altaUsuario > form > *:not(:last-child) {
+  background-color: #fffefe;
+  border-radius: 10px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 2rem;
+}
+@media screen and (max-width: 1100px) {
+  .altaUsuario > form > *:not(:last-child) {
+    padding: 1.5rem;
+  }
+}
+@media screen and (max-width: 800px) {
+  .altaUsuario > form > *:not(:last-child) {
+    padding: 1rem;
+  }
+}
+.altaUsuario > form > div:first-child {
+  width: 25%;
+  align-items: center;
+}
+@media screen and (max-width: 800px) {
+  .altaUsuario > form > div:first-child {
+    width: 50%;
+  }
+}
+@media screen and (max-width: 550px) {
+  .altaUsuario > form > div:first-child {
+    width: 100%;
+  }
+}
+.altaUsuario > form > div:first-child figure {
+  width: 100%;
+  text-align: center;
+}
+.altaUsuario > form > div:first-child figure img {
+  width: 80%;
+  border-radius: 100%;
+}
+@media screen and (max-width: 550px) {
+  .altaUsuario > form > div:first-child figure img {
+    width: 40%;
+  }
+}
+.altaUsuario > form > div:nth-child(2) {
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.altaUsuario > form > div:nth-child(2) div:has(select) {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+}
+.altaUsuario > form > div:nth-child(2) div:has(select) label {
+  position: static;
+}
+.altaUsuario > form > div:nth-child(2) #botonAltaUsuario {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.altaUsuario > form > div:nth-child(2) #botonAltaUsuario #btnGuardarUsuario {
+  width: 100%;
+  cursor: pointer;
+}
+.altaUsuario > div {
+  background-color: #fffefe;
+  border-radius: 10px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 2rem;
+  display: none;
+}
+@media screen and (max-width: 1100px) {
+  .altaUsuario > div {
+    padding: 1.5rem;
+  }
+}
+@media screen and (max-width: 800px) {
+  .altaUsuario > div {
+    padding: 1rem;
+  }
+}
+.altaUsuario > div h3 {
+  margin-bottom: 2rem;
+}
+.altaUsuario > div table td:has(button) {
+  flex-direction: row;
+  gap: 1rem;
+}
+.altaUsuario > div #botones {
+  display: flex;
+  gap: 1rem;
+  margin-top: 5rem;
+}
+@media screen and (max-width: 550px) {
+  .altaUsuario > div #botones {
+    flex-wrap: wrap;
+  }
+}
+.altaUsuario > div #botones button {
+  width: 20%;
+  padding: 1rem;
+  border: none;
+  cursor: pointer;
+}
+@media screen and (max-width: 1300px) {
+  .altaUsuario > div #botones button {
+    width: 30%;
+  }
+}
+@media screen and (max-width: 800px) {
+  .altaUsuario > div #botones button {
+    width: 50%;
+  }
+}
+@media screen and (max-width: 550px) {
+  .altaUsuario > div #botones button {
+    width: 100%;
+  }
+}
+.altaUsuario > div#nuevoUsuario {
+  background-color: transparent;
+  padding: 0;
+}
+.altaUsuario > div#nuevoUsuario #btnNuevoUsuario {
+  width: 30%;
+}
+@media screen and (max-width: 800px) {
+  .altaUsuario > div#nuevoUsuario #btnNuevoUsuario {
+    width: 100%;
+  }
+}
+
+/*-------------------- * * * --------------------
+
+  Archivo que contiene los estilos generales de todo el proyecto
+
+  Autor: Arancha Cores López
+  Fecha: 12-10-2024
+  Nombre: _estilosGenerales.scss
+
+-------------------- * * * --------------------*/
+/*---------- Estilos de la página de consulta de usuarios ----------*/
+.consultaUsuarios {
+  justify-content: space-between;
+}
+.consultaUsuarios #formularioConsultaUsuarios {
+  background-color: #fffefe;
+  border-radius: 10px;
+  padding: 2rem;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+@media screen and (max-width: 1100px) {
+  .consultaUsuarios #formularioConsultaUsuarios {
+    padding: 1.5rem;
+  }
+}
+@media screen and (max-width: 800px) {
+  .consultaUsuarios #formularioConsultaUsuarios {
+    padding: 1rem;
+  }
+}
+.consultaUsuarios #formularioConsultaUsuarios div:not(.notificaciones):not(.error) {
+  width: 20%;
+}
+@media screen and (max-width: 800px) {
+  .consultaUsuarios #formularioConsultaUsuarios div:not(.notificaciones):not(.error) {
+    width: 30%;
+  }
+}
+@media screen and (max-width: 550px) {
+  .consultaUsuarios #formularioConsultaUsuarios div:not(.notificaciones):not(.error) {
+    width: 100%;
+  }
+}
+
+/*-------------------- * * * --------------------
+
+  Archivo que contiene los estilos generales de todo el proyecto
+
+  Autor: Arancha Cores López
+  Fecha: 12-10-2024
+  Nombre: _estilosGenerales.scss
+
+-------------------- * * * --------------------*/
+/*---------- Estilos de la página ----------*/
+.menuSecciones {
+  margin-bottom: 1rem;
+}
+.menuSecciones ul {
+  display: flex;
+  justify-content: flex-start;
+  gap: 1.5rem;
+}
+@media screen and (max-width: 700px) {
+  .menuSecciones ul {
+    gap: 0;
+    justify-content: space-between;
+  }
+}
+@media screen and (max-width: 550px) {
+  .menuSecciones ul {
+    gap: 0.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}
+.menuSecciones ul li {
+  background-color: #fffefe;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 1.9vw;
+  padding: 1.5rem;
+  cursor: pointer;
+}
+@media screen and (max-width: 1000px) {
+  .menuSecciones ul li {
+    padding: 1rem 3rem;
+  }
+}
+@media screen and (max-width: 700px) {
+  .menuSecciones ul li {
+    font-size: 2.3vw;
+  }
+}
+@media screen and (max-width: 550px) {
+  .menuSecciones ul li {
+    width: 49%;
+    font-weight: 900;
+    font-size: 5vw;
+  }
+}
+.menuSecciones ul li.activo {
+  background-color: #93ad8b;
+}
+.menuSecciones ul li:last-child {
+  margin-right: 0;
+}
+@media screen and (max-width: 550px) {
+  .menuSecciones ul li:last-child {
+    width: 100%;
+  }
+}
+
+.secciones {
+  position: relative;
+  flex-grow: 1;
+  overflow-y: scroll;
+}
+.secciones section {
+  width: 100%;
+  background-color: #fffefe;
+  border-radius: 10px;
+  padding: 2rem;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  opacity: 0;
+  transition: all 0.6s ease-in-out;
+}
+@media screen and (max-width: 1000px) {
+  .secciones section {
+    padding: 1rem;
+  }
+}
+.secciones section.activo {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  left: 0;
+  opacity: 1;
+  z-index: 1;
+}
+.secciones section > div:first-child {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.secciones section > div .flechasNavegacion {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.secciones section > div .flechasNavegacion p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: solid 1px transparent;
+  border-radius: 100px;
+  cursor: pointer;
+}
+.secciones section > div .flechasNavegacion p:hover {
+  border: solid 1px #125e52;
+}
+.secciones section > div .flechasNavegacion p span {
+  font-size: 4vw;
+}
+@media screen and (max-width: 550px) {
+  .secciones section > div .flechasNavegacion p span {
+    font-size: 6vw;
+  }
+}
+.secciones section #facturas .tabla, .secciones section #ingresos .tabla {
+  flex-grow: 1;
+  height: 55vh;
+}
+
+.consultaDocumentos form {
+  background-color: #fffefe;
+  border-radius: 10px;
+  padding: 2rem;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+@media screen and (max-width: 1100px) {
+  .consultaDocumentos form {
+    padding: 1.5rem;
+  }
+}
+@media screen and (max-width: 800px) {
+  .consultaDocumentos form {
+    padding: 1rem;
+  }
+}
+.consultaDocumentos form > div:not(.notificaciones) {
+  width: 20%;
+}
+.consultaDocumentos #mostrarDocumentos {
+  display: none;
+  flex-direction: column;
+  flex-grow: 1;
+  overflow-y: scroll;
+}
+.consultaDocumentos #mostrarDocumentos .tabla {
+  flex-grow: 1;
+  height: 38vh;
+}
+
+/*-------------------- * * * --------------------
+
+  Archivo que contiene los estilos generales de todo el proyecto
+
+  Autor: Arancha Cores López
+  Fecha: 12-10-2024
+  Nombre: _estilosGenerales.scss
+
+-------------------- * * * --------------------*/
+/*---------- Estilos de la página vendimia ----------*/
+#contenido.vendimia .secciones section#normativa {
+  background-color: transparent;
+  padding: 0;
+}
+#contenido.vendimia .secciones section#normativa div {
+  max-height: 50vh;
+  overflow-y: scroll;
+}
+#contenido.vendimia .secciones section#normativa .tabla {
+  border-radius: 10px;
+}
+#contenido.vendimia .secciones section#normativa .tabla table tr:first-child {
+  background-color: #93ad8b;
+}
+#contenido.vendimia .secciones section#normativa .tabla table tr:last-child {
+  background-color: #fffefe;
+}
+#contenido.vendimia .secciones section#normativa > div:last-child {
+  background-color: #fffefe;
+  border-radius: 10px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+@media screen and (max-width: 1100px) {
+  #contenido.vendimia .secciones section#normativa > div:last-child {
+    padding: 1.5rem;
+  }
+}
+@media screen and (max-width: 800px) {
+  #contenido.vendimia .secciones section#normativa > div:last-child {
+    padding: 1rem;
+  }
+}
+#contenido.vendimia .secciones section#normativa > div:last-child div {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+#contenido.vendimia .secciones section#normativa > div:last-child div ul {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+#contenido.vendimia .secciones section#mostrarAlbaranes {
+  background-color: transparent;
+  padding: 0;
+}
+#contenido.vendimia .secciones section#mostrarAlbaranes > div {
+  background-color: #fffefe;
+  border-radius: 10px;
+  padding: 2rem;
+}
+@media screen and (max-width: 1100px) {
+  #contenido.vendimia .secciones section#mostrarAlbaranes > div {
+    padding: 1.5rem;
+  }
+}
+@media screen and (max-width: 800px) {
+  #contenido.vendimia .secciones section#mostrarAlbaranes > div {
+    padding: 1rem;
+  }
+}
+#contenido.vendimia .secciones section#mostrarAlbaranes > div:first-child {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+#contenido.vendimia .secciones section#mostrarAlbaranes > div:first-child > div {
+  width: 100%;
+  max-height: 20vh;
+}
+#contenido.vendimia .secciones section#mostrarAlbaranes > div:first-child > div:first-child {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+#contenido.vendimia .secciones section#consultaAlbaranes {
+  background-color: transparent;
+  border-radius: 0;
+  padding: 0;
+}
+#contenido.vendimia .secciones section#consultaAlbaranes > div:first-child {
+  background-color: #fffefe;
+  border-radius: 10px;
+  padding: 2rem;
+}
+@media screen and (max-width: 1100px) {
+  #contenido.vendimia .secciones section#consultaAlbaranes > div:first-child {
+    padding: 1.5rem;
+  }
+}
+@media screen and (max-width: 800px) {
+  #contenido.vendimia .secciones section#consultaAlbaranes > div:first-child {
+    padding: 1rem;
+  }
+}
+@media screen and (max-width: 550px) {
+  #contenido.vendimia .secciones section#consultaAlbaranes > div:first-child {
+    flex-wrap: wrap;
+  }
+}
+#contenido.vendimia .secciones section#consultaAlbaranes > div:first-child #formularioConsultaAlbaranes {
+  flex-direction: row;
+}
+@media screen and (max-width: 550px) {
+  #contenido.vendimia .secciones section#consultaAlbaranes > div:first-child #formularioConsultaAlbaranes {
+    order: 1;
+  }
+}
+#contenido.vendimia .secciones section#consultaAlbaranes > div:first-child button {
+  order: 0;
+  width: 20%;
+}
+@media screen and (max-width: 550px) {
+  #contenido.vendimia .secciones section#consultaAlbaranes > div:first-child button {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+}
+#contenido.vendimia .secciones section#consultaAlbaranes > div#mostrarAlbaranes {
+  display: none;
+  flex-direction: column;
+  gap: 2rem;
+}
+#contenido.vendimia .secciones section#consultaAlbaranes > div#mostrarAlbaranes > div {
+  background-color: #fffefe;
+  border-radius: 10px;
+  padding: 2rem;
+}
+@media screen and (max-width: 1100px) {
+  #contenido.vendimia .secciones section#consultaAlbaranes > div#mostrarAlbaranes > div {
+    padding: 1.5rem;
+  }
+}
+@media screen and (max-width: 800px) {
+  #contenido.vendimia .secciones section#consultaAlbaranes > div#mostrarAlbaranes > div {
+    padding: 1rem;
+  }
+}
+#contenido.vendimia .secciones section#consultaAlbaranes > div#mostrarAlbaranes > div:first-child {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+#contenido.vendimia .secciones section#consultaAlbaranes > div#mostrarAlbaranes > div:first-child > div:first-child {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#contenido.vendimia .secciones section#consultaAlbaranes > div#mostrarAlbaranes > div:first-child .tabla {
+  flex-grow: 1;
+  height: 24vh;
+}
+#contenido.vendimia .secciones section#consultaAlbaranes > div#mostrarAlbaranes > div:first-child #btnBorrarAlbaranes {
+  width: 20%;
+}
+@media screen and (max-width: 1300px) {
+  #contenido.vendimia .secciones section#consultaAlbaranes > div#mostrarAlbaranes > div:first-child #btnBorrarAlbaranes {
+    width: 30%;
+  }
+}
+@media screen and (max-width: 900px) {
+  #contenido.vendimia .secciones section#consultaAlbaranes > div#mostrarAlbaranes > div:first-child #btnBorrarAlbaranes {
+    width: 100%;
+  }
+}
+#contenido.vendimia .secciones section#consultaRecolectas .botones {
+  display: flex;
+  gap: 1rem;
+}
+
+/*---------- Estilos del main ----------*/
+main {
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 2rem;
+  padding-bottom: 0;
+}
+@media screen and (max-width: 1000px) {
+  main {
+    padding: 1rem;
+  }
+}
+@media screen and (max-width: 550px) {
+  main {
+    padding: 2rem;
+  }
+}
+@media screen and (max-width: 1000px) {
+  main .tituloPagina p {
+    font-size: 2vw;
+  }
+}
+@media screen and (max-width: 550px) {
+  main .tituloPagina p {
+    display: none;
+  }
+}
+main #contenido {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+@media screen and (max-width: 1000px) {
+  main #contenido {
+    gap: 1rem;
+  }
+}
+
+/*-------------------- * * * --------------------
+
+  Archivo que contiene los estilos generales de todo el proyecto
+
+  Autor: Arancha Cores López
+  Fecha: 12-10-2024
+  Nombre: _estilosGenerales.scss
+
+-------------------- * * * --------------------*/
+/*-------------------- * * * --------------------
+
+  Archivo css que contiene los estilos del pie de página
+
+  Autor: Arancha Cores López
+  Fecha: 19-10-2024
+  Nombre: _piePagina.scss
+
+-------------------- * * * --------------------*/
+/*---------- Estilos de la cabecera ----------*/
+footer {
+  background-color: #fffefe;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 10px;
+  padding: 1.5rem;
+}
+footer ul {
+  display: flex;
+}
+@media screen and (max-width: 550px) {
+  footer ul {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+footer ul li {
+  margin-right: 1rem;
+}
+footer ul li a {
+  color: #333;
+}
+footer ul li a:hover {
+  text-decoration: underline;
+}
+
+/*# sourceMappingURL=base.css.map */

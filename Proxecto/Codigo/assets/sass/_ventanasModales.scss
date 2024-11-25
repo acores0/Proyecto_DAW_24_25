@@ -1,0 +1,377 @@
+//-------------------- * * * --------------------
+//
+//  Archivo que contiene los estilos de las ventanas modales
+//
+//  Autor: Arancha Cores López
+//  Fecha: 22-10-2024
+//  Nombre: _ventanasModales.scss
+//
+//-------------------- * * * --------------------*/
+
+//Archivo de las variables
+@use "variables";
+
+//Archivo de mixins
+@use "mixins";
+
+/*---------- Estilos de las ventanas modales ----------*/
+dialog {
+    width: 60%;
+    margin: auto;
+    padding: 4rem;
+    border: none;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    border-radius: variables.$border-radius;
+
+    @include mixins.mediaQueries(800px) {
+        width: 75%;
+    }
+
+    @include mixins.mediaQueries(550px) {
+        width: 100%;
+    }
+
+    h2 {
+        margin-bottom: 3rem;
+    }
+
+    &::backdrop {
+        background-color: #eaebd7b3;
+    }
+
+    .close-rounded {
+        color: variables.$color-mas-oscuro;
+        cursor: pointer;
+    }
+
+    form {
+        margin: 0 auto;
+    }
+
+    .mapa {
+        width: 35%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 55vh;
+        padding: 1rem;
+        border: solid 1px variables.$color-mas-oscuro;
+        border-radius: variables.$border-radius;
+
+        @include mixins.mediaQueries(1700px){
+            width: 35%;
+            height: 52vh;
+        }
+
+        @include mixins.mediaQueries(1000px){
+            width: 50%;
+            height: 50vh;
+        }
+
+        @include mixins.mediaQueries(550px){
+            width: 100%;
+            height: 30vh;
+        }
+    }
+
+    .tituloVentana {
+        @include mixins.flexJustifyAlign(space-between, flex-start);
+
+        h2 {
+            width: 90%;
+            color: variables.$color-mas-oscuro;
+            text-align: center;
+            font-size: 3vw;
+
+            @include mixins.mediaQueries(550px) {
+                font-size: 5vw;
+            }
+        }
+
+        p {
+            width: 10%;
+            text-align: right;
+
+            span {
+                font-size: 5vw;
+                border: solid 1px transparent;
+
+                @include mixins.mediaQueries(550px) {
+                    font-size: 9vw;
+                }
+
+                &:hover {
+                    border: solid 1px variables.$color-mas-oscuro;
+                    border-radius: variables.$border-radius;
+                }
+            }
+        }
+    }
+
+    .contenidoVentana {
+        display: flex;
+        gap: 2rem;
+
+        p {
+            @include mixins.mediaQueries(550px) {
+                font-size: 3vw;
+            }
+        }
+
+        a {
+            @include mixins.mediaQueries(550px) {
+                font-size: 3vw;
+            }
+        }
+    }
+
+    &#modalCambiarContrasinal {
+        #formularioCambiarContrasinal {
+            width: 50%;
+            flex-direction: column;
+            margin: 0 auto;
+            gap: 4rem;
+
+            @include mixins.mediaQueries(1000px) {
+                width: 60%;
+            }
+        }
+
+        .boton {
+            @include mixins.flexDirectionJustify(column, center);
+
+            .btnOscuro {
+                padding: 1rem 2rem;
+                font-size: 1.5vw;
+            }
+        }
+    }
+
+    &#modalAltaParcela {
+        @include mixins.mediaQueries(800px){
+            width: 80%;
+        }
+
+        .contenidoVentana {
+            align-items: center;
+
+            @include mixins.mediaQueries(550px){
+                flex-wrap: wrap;
+            }
+
+            form {
+                width: 65%;
+                flex-direction: row;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                gap: 2rem;
+
+                @include mixins.mediaQueries(1700px){
+                    gap: 1.5rem;
+                }
+
+                @include mixins.mediaQueries(1300px){
+                    gap: 1rem;
+                }
+
+                @include mixins.mediaQueries(1000px){
+                    width: 50%;
+                }
+
+                @include mixins.mediaQueries(550px){
+                    width: 100%;
+                }
+
+                fieldset {
+                    width: 47%;
+                    flex-wrap: wrap;
+                    gap: 2rem;
+
+                    div {
+                        width: 100%;
+                    }
+
+                    @include mixins.mediaQueries(1000px){
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+
+    &#modalEngadirFacturaIngreso {
+        height: 100%;
+
+        .contenidoVentana {
+            flex-direction: column;
+
+            div {
+                &:first-child {
+                    fieldset {
+                        @include mixins.flexJustifyAlign(center, center);
+                        @include mixins.fieldset;
+
+                        div {
+                            width: 30%;
+                            @include mixins.flexAlign(center);
+
+                            input {
+                                margin-right: 1rem;
+                            }
+                        }
+                    }
+                }
+
+                &:last-of-type {
+                    position: relative;
+
+                    form {
+                        width: 100%;
+                        position: absolute;
+                        top: 0;
+                        left: 50%;
+                        opacity: 0;
+                        transition: all 0.6s ease-in-out;
+
+                        &.activo {
+                            display: flex;
+                            flex-direction: column;
+                            gap: 2rem;
+                            left: 0;
+                            opacity: 1;
+                            z-index: 1;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &#modalVerMovimiento,
+    &#modalMostrarAlbaran {
+        width: 50%;
+
+        @include mixins.mediaQueries(900px) {
+            width: 60%;
+        }
+
+        @include mixins.mediaQueries(550px) {
+            width: 100%;
+        }
+
+        .contenidoVentana {
+            > div {
+                width: 100%;
+                @include mixins.flexDirection(column);
+                gap: 1rem;
+
+                div {
+                    @include mixins.flexJustifyAlign(space-between, center);
+
+                    p {
+                        &:first-child {
+                            color: variables.$color-oscuro;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &#modalMostrarParcela {
+        #datosParcela {
+            width: 50%;
+            @include mixins.flexDirection(column);
+            gap: 0.5rem;
+
+            div {
+                @include mixins.flexDirectionJustify(row, space-between);
+
+                p {
+                    &:first-child {
+                        color: variables.$color-mas-oscuro;
+                    }
+                }
+            }
+        }
+
+        .mapa {
+            width: 50%;
+            height: 23vh;
+            @include mixins.flexAlign(center);
+            border: solid 1px variables.$color-mas-oscuro;
+            border-radius: variables.$border-radius;
+
+            p {
+                text-align: center;
+            }
+        }
+    }
+
+    &#modalEditarPerfil {
+        #formularioEditarPerfil {
+            > div {
+                &:first-child {
+                    background-color: variables.$color-mas-claro;
+                    border-radius: variables.$border-radius;
+                    padding: 1rem;
+
+                    @include mixins.mediaQueries(800px) {
+                        flex-direction: column;
+                        gap: 1rem;
+                    }
+
+                    figure {
+                        width: 50%;
+                        text-align: center;
+
+                        img {
+                            width: 40%;
+                            border-radius: 100%;
+
+                            @include mixins.mediaQueries(1000px) {
+                                width: 55%;
+                            }
+
+                            @include mixins.mediaQueries(800px) {
+                                width: 70%;
+                            }
+                        }
+                    }
+
+                    .zonaArrastreImagen {
+                        width: 50%;
+
+                        @include mixins.mediaQueries(800px) {
+                            width: 100%;
+                        }
+                    }
+                }
+
+                &:nth-child(2) {
+                    @include mixins.flexDirection(column);
+                    gap: 1rem;
+
+                    fieldset {
+                        #formaPago {
+                            width: 50%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &#modalEditarPrecio {
+        width: 50%;
+
+        input {
+            font-size: 1.5vw;
+
+            @include mixins.mediaQueries(800px) {
+                font-size: 2vw;
+            }
+        }
+    }
+}
