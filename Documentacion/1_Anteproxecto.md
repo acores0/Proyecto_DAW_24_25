@@ -5,7 +5,6 @@
   - [2- Empresa](#2--empresa)
     - [2.1- Idea de negocio](#21--idea-de-negocio)
     - [2.2- Xustificación da idea](#22--xustificación-da-idea)
-  - [Análise DAFO](#análise-dafo)
     - [2.3- Segmento de clientes](#23--segmento-de-clientes)
     - [2.4- Competencia](#24--competencia)
     - [2.5- Proposta de valor](#25--proposta-de-valor)
@@ -22,49 +21,48 @@
 
 
 ## 1- Descrición do proxecto
-O proxecto consiste na creación dunha aplicación web para xestionar a información relativa aos proveedores de uva dunha empresa vitivinícola dando servizo a aquelas que non teñen un software específico que intercambie información cos seus proveedores, sendo o propósito principal ser unha vía de comunicación de consulta de información e realización de pequenos trámites.
+O proxecto consiste na creación dunha aplicación web para xestionar a información relativa aos proveedores de uva dunha empresa vitivinícola dando servizo a aquelas que non contan cun software específico que intercambie información cos seus proveedores, sendo o seu propósito principal establecer unha vía de comunicación e consulta de información.
 
-Os principais obxectivos son:
+Os obxectivos específicos do proxecto son:
 - Manter ao proveedor informado en todo momento dos datos de facturación coa empresa.
 - Consultar información relacionada coa rendibilidade productiva das parcelas. 
-- Acceder ás facturas pendentes de pago e cobro, así como descargar as mesmas.
-- Realización de pequenos trámites como a solicitude dos días de entrega de uva e a descarga do modelo de liquidación do IRPF daqueles proveedores que estean suxeitos.
+- Consultar información sobre as facturas pendentes de pagar dos proveedores e dos ingresos que ten que abonar a empresa, así como a descarga das mesmas.
+- Consultar a nomativa do proceso de entrega de uva xunto cos días asignados de vendima e as caixas que lle corresponden aos proveedores.
 
-Para comercializar a aplicación necesitamos os seguintes recursos: 
-- Un hosting que aloxará a aplicación, no que se instalará un servidor web, unha linguaxe de servidor e unha base de datos. 
+Para a comercialización da aplicación precisarase dos seguintes recursos: 
+- Un servidor capaz de aloxar a aplicación, no que se instalará o servidor web Apache, a base de datos MySQL e a linguaxe de servidor PHP.
 - Un subdominio no dominio web da empresa. Se a empresa non ten un dominio propio proporcionarase o servizo para contratar un.
 
-Ademáis, para que o cliente poida utilizar a aplicación será necesario que pague unha licenza baseada en suscripción na que pode utilizar o software durante un período de tempo, neste caso dun ano, pero non ten a propiedade do software nin pode seguir utilizándoo se non renova a suscripción.
+Ademáis, para que o cliente poida utilizar a aplicación será preciso que conte cunha licenza da aplicación elixindo para elo calquera dos plans que se lle ofertarán: freemium ou suscripción.
  
-As tecnoloxías que se utilizarán para a realización do proxecto son PHP, JavaScript, HTML e CSS.
+As tecnoloxías utilizadas para a realización do proxecto son: PHP, JavaScript, HTML e SASS.
 
 
 
 ## 2- Empresa
 
 ### 2.1- Idea de negocio
-A aplicación web mostra información a tempo real referente aos proveedores de uva dunha empresa vitivinícola a través da súa páxina web proporcionando un medio de comunicación entre a empresa e os seus proveedores de uva sen que estes teñan que ir presencialmente á empresa para pedir información e realizar pequenos trámites.
+A aplicación web mostra información a tempo real referente aos proveedores de uva dunha empresa vitivinícola a través da súa páxina web proporcionando un medio de comunicación entre a empresa e os seus proveedores de uva sen que estes teñan que ir presencialmente á empresa para pedir información.
 
 O valor engadido da aplicación radica:
 - **Plataforma independente:** os usuarios non necesitan instalación ningunha, podendo acceder á aplicación dende calquer lugar con conexión a internet e mediante calquer dispositivo como unha tableta, un móvil ou unha computadora.
 - **Non require instalación para a súa implantación:** a aplicación non require instalación para o cliente xa que se provee a aplicación xunto coa súa implantación.
-- **Centralización dos datos:** Ao centralizar os datos na aplicación, tódolos usuarios poden acceder á última versión dos datos sen necesidade de que os usuarios estén pendentes de se os datos facilitados na bodega son correctos.
-- **Menores custes de desenrolo:** os custes dun desenrolo específico son afrontados polo cliente que encargou o software, pero neste caso, como a aplicación é un desenrolo que pode aplicarse a moitos clientes, o custe da mesma redúcese ao ser compartido por todos.
-- **Aforro en infraestructura:** se o cliente escolle aloxar a aplicación na nube, póde reducir custes ao non ter un servidor propio e compartir o harware con outras aplicacións.
-- **Acceso simúltáneo:** moitos usuarios poden acceder á aplicación á vez.
+- **Centralización de datos:** Ao centralizar os datos na aplicación, tódolos usuarios poden acceder á última versión deles sen necesidade de estar pendentes de se os datos facilitados na bodega son correctos.
+- **Redución dos custes de desenvolvemento:** os custes do desenvolvemento dun software específico son afrontados sempre polo cliente que o encargou, facendo que este software sexa moi caro para o cliente, pero neste caso o desenrolo da aplicación pode ser empregado por moitos clientes permitindo reducir o custe do uso da mesma para eles.
+- **Aforro en infraestructura:** para a utilización da aplicación non é necesario ter un servidor propio poidendo aloxar a aplicación nun servidor na nube compartido con outros clientes.
+- **Acceso simultáneo:** moitos usuarios poden acceder á aplicación á vez.
 
 
 
 ### 2.2- Xustificación da idea
-A idea xorde da necesidade do intercambio de datos entre as empresas vitivinícolas e os seus proveedores de uva e solventar a necesidade de poder consultar os datos de facturación coa bodega a tempo real e realizar pequenas xestións como a descarga das facturas pendentes de pago e cobro ou consultar a información referente á campaña da vendima sen ter que ir os proveedores de uva presencialmente á bodega para pedir a información e realizar eses trámites.
+A idea xorde da necesidade do intercambio de datos entre as empresas vitivinícolas e os seus proveedores de uva facilitando a consulta dos datos de facturación coa bodega a tempo real sen ter que desprazarse presencialmente os proveedores de uva para solicitar esta información. Ademáis, a aplicación, permite realizar pequenas xestións como a descarga das facturas e ingresos ou consultar a información referente á campaña da vendima.
 
-O software que utilizan as grandes empresas vitivinícolas é mais completo de xeito que, de cara ós clientes, soe ter un módulo que conecta a base de datos da empresa cunha páxina web, pero non teñen este servizo de cara aos proveedores e o software das pequenas empresas é mais simple, de xeito que non ofertan estes servizos.
+O software empregado polas grandes empresas vitivinícolas é mais completo de xeito que, para os clientes, adoita ter un módulo que conecta a base de datos da empresa cunha páxina web, pero non teñen este servizo para os proveedores e o software das pequenas empresas é mais modesto, de tal forma que non ofertan estes servizos.
 
-Na actualidade, as aplicacións que existen céntranse en mellorar a comunicación entre a empresa e os seus clientes, pero olvídanse das relacións cos seus proveedores. Esta aplicación pretende mellorar esas relacións aportando un intercambio de información das transaccións económicas dos proveedores coas empresas vitivinícolas, de xeito que éstes poidan consultar esa información en tempo real.
+Na actualidade, as aplicacións que existen céntranse en mellorar a comunicación entre a empresa e os seus clientes, pero esquécense das relacións cos seus proveedores. Esta aplicación pretende mellorar esas relacións mediante o intercambio de información das transaccións económicas dos proveedores coas empresas vitivinícolas permitindo consultar esa información en tempo real.
 
+<u>**Análise DAFO**</u>
 
-Análise DAFO
----
 
 | Fortalezas |  | Oportunidades |
 | --- | --- | --- |
@@ -82,40 +80,43 @@ Análise DAFO
 
 
 ### 2.3- Segmento de clientes
-O sector vitivinícola en España representa aproximadamente entre o 1% e o 1,5% do Producto Interno Bruto (PIB), xerando emprego directo e indirecto nas áreas da agricultura, producción, distribución e turismo, xa que as bodegas que operan baixo denominacións de orixe non só producen viño, senón tamén atraen a turistas interesados no enoturismo, o que potencia aínda máis o seu impacto económico.
+O sector vitivinícola en España representa aproximadamente entre o 1% e o 1,5% do Producto Interior Bruto (PIB), xerando emprego directo e indirecto nas áreas da agricultura, producción, distribución e turismo, xa que as adegas que operan baixo as denominacións de orixe non só producen viño, senón tamén atraen a turistas mediante experiencias gastronómicas que promocionan o viño ofrecendo visitas a viñedos e adegas e consumindo o viño realizado nas mesmas mediante catas, o que potencia aínda máis o seu impacto económico.
 
 Segundo datos do "*Ministerio de Agricultura, Pesca y Alimentación*" na [campaña 2022/2023](https://www.mapa.gob.es/es/alimentacion/temas/calidad-diferenciada/informe_dops_2022_2023_tcm30-690956.pdf), en España, hai un total de 4.015 bodegas que pertencen a unha das 68 denominacións de orixe que existen.
 
-![Mapa que representa o % de bodegas das denominacións de orixe por comunidade autónoma](img/Mapa_bodegas_CCAA.png)
+![Mapa que representa o a porcentaxe de bodegas das denominacións de orixe por comunidades autónomas](img/Mapa_bodegas_CCAA.png)  
+_Figura 1. Mapa da porcentaxe de adegas vitivinícolas das denominacións de orixe por comunidades autónomas en España._  
+_Fonte: Elaboración propia (2024) a partir de datos das DO._
 
 
-En Galicia, están ubicadas 442 bodegas pertencentes a 5 denominacións de orixe: DO. Rías Baixas, DO. Valdeorras, DO. Ribeiro, DO. Ribeira Sacra e DO. Monterrei.
+Do total de bodegas de España, en Galicia están ubicadas 442 bodegas pertencentes a 5 denominacións de orixe: DO. Rías Baixas, DO. Valdeorras, DO. Ribeiro, DO. Ribeira Sacra e DO. Monterrei.
 
-![Mapa da ubicación xeográfica das denominacións de orixe de Galicia](img/Mapa_DO_Galicia.png)
+![Mapa da ubicación xeográfica das denominacións de orixe de Galicia](img/Mapa_DO_Galicia.png)  
+_Figura 2. Mapa da ubicación xeográfica das denominacións de orixe de Galicia._  
+_Fonte: Elaboración propia (2024) a partir de datos do "Ministerio de Agricultura, Pesca y Alimentación"._
 
 
-A aplicación está dirixida a aquelas empresas vitivinícolas que non teñen un servizo de comunicación dixital entre a súa empresa e os proveedores de uva centrándose nas bodegas pertencentes á denominación de orixe Rias Baixas que comprende un total de 178 bodegas, sendo estas os clientes da aplicación e os seus proveedores de uva os usuarios da mesma.
-![Mapa do número de bodegas de Galicia por concellos](img/Mapa_bodegas_Galicia_concellos.png)
+A empresa está ubicada no concello de Vilagarcía de Arousa, que pertence á denominación de orixe Rías Baixas, na que están asociadas un total de 178 adegas. Por este motivo, decidíuse que as adegas localizadas nesta denominación sexan os potenciais clientes da empresa e os seus proveedores de uva os usuarios da aplicación.
+
+![Mapa da porcentaxe de bodegas de Galicia por concellos](img/Mapa_bodegas_Galicia_concellos.png)  
+_Figura 3. Mapa da porcentaxe de bodegas de Galicia das Denominacións de Orixe por concellos._  
+_Fonte: Elaboración propia (2024) a partir de datos da Xunta de Galicia._
 
 
 
 ### 2.4- Competencia
-Actualmente, as grandes empresas vitivinícolas utilizan un ERP, que é un software que permite centralizar nunha única base de datos todos os procesos da empresa de xeito que se permite realizar unha xestión unificada das áreas da empresa.
+Actualmente, as grandes empresas vitivinícolas utilizan un ERP, que é un software que permite centralizar nunha única base de datos todos os procesos da empresa de xeito realízase unha xestión unificada das áreas da empresa.
 
-Un ERP está composto por módulos que xestionan as diferentes áreas da empresa onde cada empresa selecciona os módulos que son necesarios e se adaptan a ela.
-
-Entre os seus módulos soe haber un módulo para comunicar a base de datos cun servidor web para realizar a xestión dunha tenda electrónica. Este tipo de servizo soe estar centrado nos clientes, de xeito que éstes poden consultar información a través da páxina, como os pedidos realizados, as facturas emitidas, a xestión de reclamacións,... etc, pero non soen ter esta comunicación cos proveedores.
+Un ERP está composto por módulos que xestionan as diferentes áreas da empresa onde cada empresa selecciona os módulos que son necesarios e se adaptan a ela. Entre os seus módulos adoita haber un que comunica a base de datos cun servidor web para realizar a xestión dunha tenda electrónica. Este tipo de servizo soe estar centrado nos clientes, de xeito que éstes poden consultar información a través da páxina, como os pedidos realizados, as facturas emitidas, a xestión de reclamacións,... etc, pero non acostuman ter esta comunicación cos proveedores.
 
 Os principais ERPs que hai no mercado son: SAP, Oracle, Microsoft e Odoo, aínda que existen algúns ERP españois como Navision e Axapta.
 
-As pequenas e medianas empresas soen ter software máis sinxelo que non soen ofertar servizos de intercambio de información entre a empresa e os proveedores.
+Nas pequenas e medianas empresas adoian ter software máis sinxelo que non ofertan servizos de intercambio de información entre a empresa e os seus proveedores.
 
 
 
 ### 2.5- Proposta de valor
-O principal obxectivo das empresas é a comunicación cos seus clientes mentres que o principal obxectivo desta aplicación é mellorar a comunicación das empresas vitivinícolas cos seus proveedores de uva.
-
-A través da nosa aplicación os proveedores de uva poderán estar informados en todo momento dos seus datos financeiros e da vendima que teñen coa bodega, ademáis de que poderán realizar pequenas xestións como descargar facturas, consultar información doutros anos, ... entre outros, sen ter que ir persoalmente ás instalacións da mesma.
+O principal obxectivo das empresas é a comunicación cos seus clientes, mentres que o propóstito desta aplicación é mellorar a comunicación das empresas vitivinícolas cos seus proveedores de uva. A través da nosa aplicación, os proveedores de uva poderán estar informados en todo momento sobre os seus datos financeiros e da vendima que teñen coa bodega. Ademáis, a través da aplicación, poderán descargar toda a documentación da bodega como as facturas, os albaráns de entrega da uva,... e consultar información como a normativa da vendima, as datas de comezo e remate da vendima, ... sen ter que acudir persoalmente o proveedor ás instalacións da empresa.
 
 
 
@@ -127,41 +128,35 @@ Ademáis, debido a que se cumpren os requisitos para a subvención "Cuota cero" 
 
 
 ### 2.7- Investimentos
-Debido a que a empresa é de nova creación, decidiuse ubicar no [viveiro de empresas do IES Armando Cotarelo Valledor](https://viveirodeempresas.iescotarelo.es/) porque proporciona unhas instalacións e servizos de xeito gratuíto e, ademáis, conta con asesoramento profesional e personalizado.
+Debido a que a empresa é de nova creación, decidiuse ubicar no viveiro de empresas do IES Armando Cotarelo Valledor porque proporciona unhas instalacións e servizos de carácter gratuíto que, ademáis, conta con asesoramento profesional e personalizado. Ademáis, o viveiro inclúe servizos como a luz, auga, mobiliario, equipos informáticos e internet o que permite aforrar nos gastos de lixo, aluguer do local, seguro de impago do aluguer e seguro da oficina. Ademáis, co fin de poder traballar fóra da oficina decidiuse adquirir un ordenador portátil valorado en 199€.
 
-O viveiro de empresas inclúe servizos como a luz, auga, mobiliario, equipos informáticos e a tarifa de internet e permite aforrarnos os gastos de lixo, aluguer do local, o seguro de impago do aluguer e o seguro da oficina.
+Para a comunicación entre a empresa e os seus clientes, a máis de medios dixitais, optouse por contratar unha liña de teléfono para empresas cun custo de 12'40€ ao mes e adquirir un teléfono móvil cun custo de 99€.
 
-Ademáis, aínda que non é obrigatorio, decidíuse contratar un seguro de responsabilidade civil para autónomos que cubre os posibles danos tanto persoais como materiais que poida causar a actividade a terceiras persoas de xeito involuntario que ten un custe duns 120€ ao ano.
+Para aloxar a páxina web da empresa e as aplicacións dos clientes decidiuse, entre os tipos de aloxamento web ofertados, contratar un hosting de servidor privado virtual (VPS) que custa 7,25€ ao mes (IVA incluído) e un dominio para a empresa, que custa uns 6.95€ ao ano (dominio .es).
 
-Ademáis, para poder traballar fóra da oficina decidiuse adquirir un [ordenador portátil](img/Prezo_portatil.png) valorado en 199€.
+Así mesmo, aínda que non é obrigatorio, decidíuse contratar un seguro de responsabilidade civil para autónomos que cubre os posibles danos tanto persoais como materiais que poida causar a actividade a terceiras persoas de xeito involuntario que ten un custe duns 120€ ao ano.
 
-Entre os tipos de hosting ofertados, decidiuse contratar un [hosting de servidor privado virtual](img/Prezo_hosting.png) que aloxará a páxina web da empresa e a aplicación que custa 6,64€ ao mes e un [dominio](img/Prezo_dominio.png), que custa uns 6.95€ ao ano (dominio .es).
+Para levar a cabo as tarefas de xestión administrativa da empresa, optouse por contratar os servizos dunha asesoría online, que ten un custo de 29'95€ ao mes. Ademáis, como a empresa garda datos dos clientes, é obrigatorio ter un servizo de protección de datos que ten un custo de 60€ ao ano.
 
-Para a comunicación entre a empresa e os seus clientes, ademáis de medios dixitais, optouse por contratar un [liña de teléfono](img/Prezo_tarifa_telefono.png) para empresas cun custo de 12'40€ ao mes e a compra dun [teléfono móvil](img/Prezo_smartphone.png) cun custo de 99€.
-
-Para a xestión administrativa optouse por contratar os servizos dunha [asesoría](img/Prezo_asesoria.png) online que ten un custo de 29'95€ ao mes.
-
-Ademáis, como a nosa empresa garda datos dos clientes, é obrigatorio ter un servizo de protección de datos que ten un custo de 60€ ao ano.
-
-Por último, para a xestión dos pagos e cobros da empresa contratouse unha conta corrente de autónomos cun custe de mantemento de 30€ cada seis meses.
+E por último, para a xestión dos pagos e cobros da empresa contratouse unha conta corrente de autónomos cun custe de mantemento de 30€ cada seis meses.
 
 
 
 #### 2.7.1- Custos
 | Investimentos: | | |
 | --- | --- | ---: |
-| Equipo informático | | 199€
-| Teléfono móvil | | 99€
+| [Equipo informático](img/Prezo_portatil.png)  | | 199€
+| [Teléfono móvil](img/Prezo_smartphone.png) | | 99€
 
 | Custos fixos (prezo anual): | | |
 | --- | --- | ---: |
-| Dominio web | | 6,95 €
+| [Dominio web](img/Prezo_dominio.png) | | 6,95 €
 | Servizo de protección de datos | | 60,00 €
 | Seguro responsabilidade civil de autónomos | | 120,00 €
 | Gastos bancarios | |  60,00 €
-| Hosting | | 79,71 €
-| Liña de teléfono | | 108,00 €
-| Asesoría | | 359,40 €
+| [Hosting](img/Prezo_hosting.png) | | 86,97 €
+| [Liña de teléfono](img/Prezo_tarifa_telefono.png) | | 108,00 €
+| [Asesoría](img/Prezo_asesoria.png) | | 359,40 €
 | Cotización á Seguridade Social | | 0,00 €
 | Soldos | | 15.876,00 €
 
@@ -171,23 +166,23 @@ Por último, para a xestión dos pagos e cobros da empresa contratouse unha cont
 | Kilometraxe | | 2.259,40 € |
 | Márketing e publicidade | | 1.000,00 € |
 
-
-
-En total a empresa, o primeiro ano, ten uns gastos anuais de 20.227,46€.
+En total a empresa, o primeiro ano, ten uns gastos anuais de 20.234,72€.
 
 
 
 #### 2.7.2- Ingresos
-A comercialización da aplicación realizarase mediante unha licenza basada en suscripción por un período anual renovable que inclúe o o uso do software, as actualizacións e o soporte da mesma, pero se o cliente non renova a suscripción, non pode seguir utilizándoa.
+A comercialización da aplicación realizarase mediante a selección, por parte do cliente, dunha das licenzas ofertadas:
+- Freemium: plan onde os clientes poden utilizar a aplicación gratuitamente durante un período de tempo dun mes.
+- Por suscripción: plan onde os clientes deben retribuir o prezo do mesmo a cambio de poder utilizar o software durante o período de tempo contratado. Deste plan ofertarase a contratación da licenza durante un ano, dous anos ou cinco anos.
 
-A empresa fíxase como obxectivo ter 6 novos clientes ao mes, de xeito que ao ano tería uns 72 clientes.
+A obtención da licenza por parte do cliente non implica a cesión da propiedade do software aos mesmos e estes non poden seguir utilizándoo no caso de non renovar a suscripción.
+
+Para cada mes, a empresa fíxase como obxectivo ter 6 novos clientes, de forma que ao ano tería uns 72 clientes.
 
 Para calcular o prezo da aplicación utilizouse a seguinte fórmula:
-$$\text{Prezo} = \frac{\text{total custos}} {\text{número de clientes obxectivo dun ano}} + 5\% \text{de ganancias} = \frac{\text{20.227,46 €}}{\text{72}} \times 5\%  = 24,11€$$
+$$\text{Prezo} = \frac{\text{total custos}} {\text{número de clientes obxectivo dun ano}} + 5\% \text{de ganancias} = \frac{\text{20.234,72 €}}{\text{72}} \times 5\%  = 24,12€$$
 
-Polo tanto, o prezo da suscripción á aplicación ten un prezo de 24,11€ ao mes sendo o custe total para o cliente duns 289,37€ ao ano.
-
-A este prezo, no caso de que o cliente non tivera un dominio propio, sumaríaselle o prezo do dominio.
+Polo tanto, o prezo da aplicaclión é de 24,12€ ao mes sendo o custo dun ano uns 289,37€. En función do tempo contratado polo cliente, o prezo final da aplicación sería o prezo dun ano multiplicado polos anos contratados polo o cliente. Ademáis, no caso de que o cliente non tivera un dominio para aloxar a web, engadiríaselle o prezo da contratación do dominio.
 
 
 
@@ -195,10 +190,10 @@ A este prezo, no caso de que o cliente non tivera un dominio propio, sumaríasel
 
 #### 2.8.1- Viabilidade técnica
 Para poñer en marcha este proxecto son necesarios os seguintes recursos:
- 1. Tecnoloxías utilizadas: PHP, JavaScript, HTML, CSS e MySQL.
- 2. Recursos dispoñibles: técnico en desenvolvemento de aplicacións web, hosting, ferramentas de entorno de desenrolo integrado como VSCode, equipo informático, hosting, servidor web, servidor de base de datos, local e mobiliario de oficina.
+ 1. Tecnoloxías utilizadas: PHP, JavaScript, HTML, SASS e MySQL.
+ 2. Recursos dispoñibles: técnico/a en desenvolvemento de aplicacións web, un servidor na nube, ferramentas de entorno de desenvolvemento integrado como VSCode, equipo informático, servidor web, servidor de base de datos, local e mobiliario de oficina.
  3. Integración con sistemas existentes como APIs.
- 4. Prazos de desenrolo: 240 horas.
+ 4. Tempo de desenrolo da aplicación: 500 horas.
  5. Seguridade: copias de seguridade, tanto do sistema como da base de datos, control de incidencias mediante o acceso aos logs do sistema e do servidor web.
 
 O proxecto é viable dende o punto de vista técnico xa que conta cos recursos necesarios para o correcto funcionamento da actividade.
@@ -206,24 +201,30 @@ O proxecto é viable dende o punto de vista técnico xa que conta cos recursos n
 
 
 #### 2.8.2 - Viabilidade económica
-Según os datos aportados nos apartados anteriores, podemos realizar a seguinte táboa:
-![Imaxe dos custos e ingresos](./img/Prevision_gastos_ingresos.png)
+Segundo os datos aportados nos apartados anteriores, pode levarse á cabo unha táboa que recolle a previsión de ingresos e gastos da empresa durante o primeiro ano.
+![Imaxe dos custos e ingresos](./img/Taboa_Prevision_gastos_ingresos.png)  
+_Táboa 1. Previsión de ingresos e gastos da empresa durante o primero ano._  
+_Fonte: Elaboración propia (2024)._
 
 Dos datos anteriores pódese deducir o seguinte:
-A inversión inicial da empresa é de 2.582,34€.
+- A inversión inicial da empresa é de 2.582,95€.
+- O primeiro ano a empresa ten os seguintes gastos:
+  - Gastos fixos duns 1.598€ ao mes, excepto nos meses de xuño e decembro nos que se engade o custo da comisión de mantemento da conta bancaria, que corresponden cos seguintes gastos:
+    - Aloxamento web.
+    - Asesoría.
+    - Liña de teléfono.
+    - Soldos.  
+   - Gastos variables de 3.259,40€ ano ano que corresponden cos gastos do kilometraxe e da publicidade. 
+- As cifras de vendas son estables durante todo o ano debido a que a empresa marcouse un obxectivo de 6 novos clientes cada mes, polo tanto a empresa ten uns ingresos totais de 20.841,77€. 
 
-Durante o primeiro ano a empresa ten uns gastos fixos duns 1.597,39€ ao mes que corresponden cos gastos do servidor, a asesoría, a liña de teléfono e os soldos, excepto nos meses de xuño e decembro nos que se engade o custo da comisión de mantemento da conta bancaria e uns gastos variables de 3.259,40€ ano ano que corresponden cos gas tos do kilometraxe e da publicidade. 
-
-As cifras de vendas son estables durante todo o ano debido a que a empresa marcouse un obxectivo de 6 novos clientes cada mes, polo tanto a empresa ten uns ingresos totais de 20.834,29€.
-
-Polo tanto non hai problemas de liquidez que motiven a utilizar fontes de financiación externa xa que en cada mes do ano, os ingresos son maiores ca os gastos, excepto no primeiro mes debido á inversión inicial da posta en marcha empresa.
+Disto conclúese que non hai problemas de liquidez que motiven a utilizar fontes de financiación externa xa que, en cada un dos meses do ano os ingresos son maiores ca os gastos, excepto no primeiro mes debido á inversión inicial da posta en marcha empresa e no mes de xullo debido á invesión en publicidade.
 
 
 
 #### 2.8.3- Conclusión
-Segun os datos explicados no apartado anterior, a empresa ao final do primeiro ano, ten uns gastos totais de 20.227,46€ e uns ingresos totais de 20.834,29€. 
+Segundo os datos explicados no apartado anterior, a empresa ao final do primeiro ano, ten uns gastos totais de 20.234,72€ e uns ingresos totais de 20.841,77€. 
 
-Polo tanto a empresa é viable técnicamente, xa que conta cos recursos necesarios para realizar a actividade, e económicamente xa que, ao final do primeiro ano, ten uns beneficios de 606,82€.
+Polo tanto a empresa é viable técnicamente, porque conta cos recursos necesarios para realizar a actividade, e económicamente debido a que, ao final do primeiro ano, ten uns beneficios de 607,04€.
 
 
 
@@ -240,24 +241,26 @@ Polo tanto a empresa é viable técnicamente, xa que conta cos recursos necesari
 - **Frontend:** 
   - JavaScript
   - HTML
-  - CSS.
+  - SASS.
 
 
 
 ## 4- Planificación
-![Diagrama de Gant](img/Diagrama_Gantt.png)
+![Diagrama de Gantt](img/Diagrama_Gantt.png)  
+_Figura 4. Diagrama de Gantt coa planificación do proxecto._  
+_Fonte: Elaboración propia (2024)._
 
 1. Estudo preliminar --> 23/09/24 - 29/09/24  
    Realización das seguintes tarefas:
    - Definición da idea do proxecto.
    - Investigación da competencia.
    - Investigación da viabilidade ecónomica e técnica do proxecto.
-   - 
+  
 2. Análise --> 30/09/24 - 02/10/24  
    Realización das seguintes tarefas:
    - Definición das funcionalidades e usuarios da aplicación.
    - Investigación da normativa aplicable ao software.
-   - 
+    
 3. Deseño --> 03/10/24 - 16/10/24  
    Realización das seguintes tarefas:
    - Realización dos diagramas de arquitectura, casos de uso e bases de datos da aplicación.
