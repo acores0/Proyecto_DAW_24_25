@@ -17,12 +17,17 @@ if (!isset($_SESSION['usuario'])) {
     $vendimia = new DiasVendimia();
     $albaranes = new AlbaranesEntrega($usuario->getDni());
     $recolecta = new Recolecta();
+    $diasVendimia = new DiasVendimia();
     require_once "../vista/funcionesVista.php";
+
+    $fechaInicioVendimia = $diasVendimia->obtenerInicioFinVendimia("inicio", date("Y"));
+    $fechaFinVendimia = $diasVendimia->obtenerInicioFinVendimia("fin", date("Y"));
+    
     if ($usuario->getRol() == "usuario"){
-        $fechasVendimia = cambiarFormatoFecha($vendimia->obtenerDiasVendimia($usuario->getDni()));
+        $fechasVendimia = cambiarFormatoFecha($vendimia->obtenerDatosDiasVendimia("fechas", $usuario->getDni(), date("Y")));
+        $cajasVendimia = $vendimia->obtenerDatosDiasVendimia("cajas", $usuario->getDni(), date("Y"));
         $datosVendimia = $recolecta->obtenerDatosRecolecta("usuario", $usuario->getDni(), date("Y"));
         $listaAlbaranes = cambiarFormatoFecha($albaranes->obtenerAlbaranes($usuario->getDni(), date("Y")));
-        $cajasVendimia = $vendimia->obtenerCajasVendimia($_SESSION['usuario']);
 
         require_once "../vista/vendimiaUsuarios.php";
 

@@ -1,0 +1,65 @@
+//-------------------- * * * --------------------
+//
+//  Archivo que contiene los estilos de las páginas con la normativa de la web (aviso legal, ...)
+//
+//  Autor: Arancha Cores López
+//  Fecha: 07-12-2024
+//  Nombre: _ventanasModales.scss
+//
+//-------------------- * * * --------------------*/
+
+//Archivo de las variables
+@use "variables";
+
+//Archivo de mixins
+@use "mixins";
+
+/*---------- Estilos de las tablas ----------*/
+.normativa {
+    > div {
+        ul {
+            list-style: disc;
+            margin-left: 2rem;
+        }
+    }
+
+    article {
+        @include mixins.flexDirection(column);
+        gap: 0.9rem;
+
+        h3 {
+            font-size: 1.5vw;
+            font-weight: bold;
+        }
+    }
+}
+
+.avisoLegal {
+    > div {
+        @include mixins.secciones;
+
+        &:first-child {
+            ul {
+                margin-top: 1rem;
+            }
+        }
+
+        &:last-child {
+            @include mixins.flexDirection(column);
+            gap: 1.5rem;
+        }
+    }
+}
+
+.politicaPrivacidad {
+    > div {
+        @include mixins.secciones;
+        @include mixins.flexDirection(column);
+        gap: 2rem;
+
+        div {
+            @include mixins.flexDirection(column);
+            gap: 2rem;
+        }
+    }
+}

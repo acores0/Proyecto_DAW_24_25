@@ -28,7 +28,7 @@ class Facturas extends IngresosFacturas{
                 call_user_func_array(array($this, "iniciarUsuario"),$params);
                 break;
 
-            case 8:
+            case 9:
                 call_user_func_array(array($this, "iniciarAtributos"),$params);
                 break;
         }
@@ -47,9 +47,10 @@ class Facturas extends IngresosFacturas{
      * @param Float $iva
      * @param Float $total
      * @param Boolean $pagada
+     * @param Array $archivo
      * @return void
      */
-    private function iniciarAtributos($numeroFactura, $dni, $concepto, $fecha, $baseImponible, $iva, $total, $pagada){
+    private function iniciarAtributos($numeroFactura, $dni, $concepto, $fecha, $baseImponible, $iva, $total, $pagada, $archivo){
         $this->numeroFactura = $numeroFactura;
         $this->dni = $dni;
         $this->concepto = $concepto;
@@ -58,6 +59,7 @@ class Facturas extends IngresosFacturas{
         $this->iva = $iva;
         $this->total = $total;
         $this->pagada = $pagada;
+        $this->archivo = $archivo;
     }
 
 
@@ -235,14 +237,14 @@ class Facturas extends IngresosFacturas{
      * @param Boolean $formato Indica si queremos devolver el número con formato español
      * @return Float|String
      */
-    public function obtenerTotalDeuda($listaFacturas, $formato){
+    public function obtenerTotalDeuda($listaFacturas){
         $deuda = 0;
 
         foreach ($listaFacturas as $cantidad){
             $deuda += $cantidad['total'];
         }
 
-        return ($formato) ? number_format($deuda , 2, '\'', '.') : $deuda;
+        return $deuda;
     }
 
 
@@ -333,10 +335,18 @@ class Facturas extends IngresosFacturas{
     public function actualizarFactura() {
         try {
             if ($this->existeFactura()){
-                if ($this->archivo = ""){
+                if ($this->archivo['name'] == ""){
                     $sql = "update facturas set usuario = :usuario, fecha = :fecha, concepto = :concepto, base_imponible = :baseImponible, iva = :iva, total = :total, pagada = :pagada where numero_factura = :numeroFactura";
+
                 } else {
-                    $sql = "update facturas set usuario = :usuario, fecha = :fecha, concepto = :concepto, base_imponible = :baseImponible, iva = :iva, total = :total, pagada = :pagada, archivo = :archivo where numero_factura = :numeroFactura";
+                    if (subirPDF($this->archivo, $this->numeroFactura)){
+                        $sql = "update facturas set usuario = :usuario, fecha = :fecha, concepto = :concepto, base_imponible = :baseImponible, iva = :iva, total = :total, pagada = :pagada, archivo = :archivo where numero_factura = :numeroFactura";
+                        
+                        $nombreArchivo = str_replace( "/", "_", $this->numeroFactura) . ".pdf";
+
+                    } else {
+                        return "Error al subir el archivo";
+                    }
                 }
 
                 $sentencia = $this->conexionBD->prepare($sql);
@@ -347,17 +357,45 @@ class Facturas extends IngresosFacturas{
                 $sentencia->bindValue(':iva', $this->iva);
                 $sentencia->bindValue(':total', $this->total);
                 $sentencia->bindValue(':pagada', $this->pagada);
+                    
+                if ($this->archivo['name'] != "") $sentencia->bindValue(':archivo', $nombreArchivo); 
+
                 $sentencia->bindValue(':numeroFactura', $this->numeroFactura);
                 $sentencia->execute();
 
                 return $sentencia->rowCount();
 
             } else {
-                return 2;
+                return "La factura no existe";
             }
 
         } catch (PDOException $error) {
             die("Hubo un error al obtener la factura: $error");
+        }
+    }
+
+
+
+    /**
+     * Método que devuelve la suma de todas las facturas agrupados por años de un usuario
+     *
+     * @param String $dni
+     * @return void
+     */
+    public function obtenerGastosUsuario($dni){
+        try {
+            $sql = "select year(fecha) as ano, sum(total) as total
+                from facturas where usuario = :dni
+                group by ano
+                order by ano;";
+            $sentencia = $this->conexionBD->prepare($sql);
+            $sentencia->bindValue(':dni', $dni);
+            $sentencia->execute();
+
+            return $sentencia->fetchAll(PDO::FETCH_ASSOC);
+
+        } catch (PDOException $error) {
+            die("Hubo un error al obtener los gastos de un usuario por año: $error");
         }
     }
 
@@ -386,25 +424,21 @@ class Facturas extends IngresosFacturas{
 
 
     /**
-     * Método que devuelve la suma de todas las facturas agrupados por años de un usuario
+     * Método que borra todas las facturas de un suario
      *
-     * @param String $dni
-     * @return void
+     * @param String $dni DNI del usuario
+     * @return Boolean
      */
-    public function obtenerGastosUsuario($dni){
+    public function borrarFacturasUsuario($dni){
         try {
-            $sql = "select year(fecha) as ano, sum(total) as total
-                from facturas where usuario = :dni
-                group by ano
-                order by ano;";
+            $sql = "delete from facturas where usuario = :dni";
+    
             $sentencia = $this->conexionBD->prepare($sql);
-            $sentencia->bindValue(':dni', $dni);
-            $sentencia->execute();
-
-            return $sentencia->fetchAll(PDO::FETCH_ASSOC);
+            $sentencia->bindValue('dni', $dni);
+            return $sentencia->execute();
 
         } catch (PDOException $error) {
-            die("Hubo un error al obtener los gastos de un usuario por año: $error");
+            die("Hubo un error al borrar las facturas del usuario: $error");
         }
     }
 

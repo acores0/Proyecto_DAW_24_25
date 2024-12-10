@@ -16,11 +16,9 @@
 
 /*---------- Estilos del dashboard ----------*/
 .dashboard {
-    height: 50vh;
     @include mixins.flexDirectionJustify(column, space-between);
     flex-grow: 1;
     gap: 2rem;
-    overflow-y: scroll;
 
     section {
         @include mixins.flexJustifyAlign(space-between, center);
@@ -64,9 +62,12 @@
                 width: 25%;
                 @include mixins.flexJustifyAlign(center, center);
                 background-color: variables.$color-mas-claro;
-
-                padding: 1rem;
                 border-radius: variables.$border-radius;
+                padding: 1rem;
+
+                @include mixins.mediaQueries(1500px){
+                    padding: 0.5rem;
+                }
 
                 @include mixins.mediaQueries(800px){
                     width: 35%;
@@ -76,12 +77,16 @@
                     font-size: 2vw;
                     color: variables.$color-mas-oscuro;
 
-                    @include mixins.mediaQueries(800px){
+                    @include mixins.mediaQueries(1500px){
+                        font-size: 2.5vw;
+                    }
+
+                    @include mixins.mediaQueries(1000px){
                         font-size: 3vw;
                     }
 
                     @include mixins.mediaQueries(550px){
-                        font-size: 4vw;
+                        font-size: 8vw;
                     }
                 }
             }
@@ -92,7 +97,7 @@
 
                 p:first-child {
                     color: variables.$color-mas-oscuro;
-                    font-size: 2vw;
+                    font-size: 1.6vw;
 
                     @include mixins.mediaQueries(700px){
                         font-size: 3vw;
@@ -187,7 +192,7 @@
             }
 
             .tabla{
-                height: 20vh;
+                height: 27vh;
                 flex-grow: 1;
             }
         }

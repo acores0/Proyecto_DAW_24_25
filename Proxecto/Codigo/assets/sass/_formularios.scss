@@ -19,6 +19,37 @@ form {
     @include mixins.flex(column, center, center);
     gap: 2.5rem;
 
+    &.formularioConsulta{
+        @include mixins.secciones;
+        flex-direction: row;
+        justify-content: flex-start;
+
+        @include mixins.mediaQueries(550px){
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        > div:not(:last-child){
+            width: 20%;
+
+            @include mixins.mediaQueries(1400px){
+                width: 25%;
+            }
+
+            @include mixins.mediaQueries(1100px){
+                width: 30%;
+            }
+
+            @include mixins.mediaQueries(900px){
+                width: 50%;
+            }
+
+            @include mixins.mediaQueries(550px){
+                width: 100%;
+            }
+        }
+    }
+
     div {
         width: 100%;
         position: relative;
@@ -27,10 +58,14 @@ form {
             @include mixins.flexJustifyAlign(flex-start, center);
             gap: 1rem;
             @include mixins.input;
-            padding: 0.5rem 1rem;
+            padding: 0.5rem 1.5rem;
 
             @include mixins.mediaQueries(1100px) {
                 flex-wrap: wrap;
+            }
+
+            @include mixins.mediaQueries(1000px){
+                padding: 1rem;
             }
 
             @include mixins.mediaQueries(800px) {
@@ -41,6 +76,7 @@ form {
         &:has(input[type="file"]) {
             @include mixins.flexAlign(center);
             flex-wrap: wrap;
+            gap: 1rem;
             @include mixins.input;
 
             label {
@@ -48,12 +84,12 @@ form {
             }
 
             p {
-                margin-top: 1rem;
+                width: 100%;
             }
         }
     }
 
-    .zonaArrastreImagen {
+    .zonaImagen {
         @include mixins.flexWrap(column, space-between, center);
         gap: 1rem;
         border-radius: variables.$border-radius;
@@ -64,6 +100,7 @@ form {
         }
 
         p {
+            text-align: center;
             @include mixins.mediaQueries(800px) {
                 margin: 0;
             }
@@ -135,6 +172,22 @@ form {
 
         &[type="file"] {
             font-size: 1.2vw;
+
+            @include mixins.mediaQueries(1000px){
+                font-size: 1.5vw;
+            }
+
+            @include mixins.mediaQueries(800px){
+                font-size: 1.8vw;
+            }
+
+            @include mixins.mediaQueries(650px){
+                font-size: 2vw;
+            }
+
+            @include mixins.mediaQueries(550px){
+                font-size: 2.5vw;
+            }
         }
 
         &[type="radio"] {
@@ -146,6 +199,12 @@ form {
 
             & ~ label {
                 @include mixins.labelFocus;
+            }
+        }
+
+        &:disabled{
+            & ~ label.inputCubierto {
+                background: linear-gradient(180deg, variables.$color-blanco 60%, variables.$color-deshabilitado 65%);
             }
         }
     }
@@ -163,8 +222,8 @@ form {
             position: static;
             transform: none;
 
-            @include mixins.mediaQueries(1100px) {
-                font-size: 1.2vw;
+            @include mixins.mediaQueries(1000px) {
+                font-size: 1.5vw;
             }
 
             @include mixins.mediaQueries(800px) {
@@ -188,9 +247,13 @@ form {
         border-radius: variables.$border-radius;
         padding: 1rem;
 
-        @include mixins.mediaQueries(1100px) {
+        @include mixins.mediaQueries(1450px){
+            font-size: 1.3vw;
+        }
+
+        @include mixins.mediaQueries(1000px) {
             padding: 0;
-            font-size: 1.2vw;
+            font-size: 1.5vw;
         }
 
         @include mixins.mediaQueries(800px) {
@@ -244,7 +307,8 @@ form {
             @include mixins.flex(row, space-between, center);
             gap: 2rem;
             box-shadow: 7px 7px 33px 0px rgba(0, 0, 0, 0.5);
-            animation: notificacionError 5s ease;
+            -webkit-animation: notificacionError 10s ease;
+                    animation: notificacionError 10s ease;
             opacity: 0;
 
             &::before {
@@ -256,7 +320,8 @@ form {
                 position: absolute;
                 bottom: 0;
                 right: 0;
-                animation: moverBarraError 5s linear;
+                -webkit-animation: moverBarraError 10s linear;
+                        animation: moverBarraError 10s linear;
             }
 
             div {
@@ -286,9 +351,10 @@ form {
                 }
 
                 span {
-                    &.close-rounded {
+                    &.close-outline{
+        
                         color: variables.$color-mas-oscuro;
-                        font-size: 1.5vw;
+                        font-size: 2vw;
                         cursor: pointer;
 
                         @include mixins.mediaQueries(550px) {

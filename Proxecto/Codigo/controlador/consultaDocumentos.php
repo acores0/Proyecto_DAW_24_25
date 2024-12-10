@@ -19,7 +19,7 @@ if (!isset($_SESSION['usuario'])) {
     $ingresos = new Ingresos();
 
     if ($usuario->getRol() == "usuario"){
-        $listaFacturas = $facturas->obtenerHistoricoFacturas("todosIndividual", $usuario->getDni(), date("Y"));
+        $listaFacturas = $facturas->obtenerHistoricoFacturas("individualAno", $usuario->getDni(), date("Y"));
         $listaIngresos = $ingresos->obtenerIngresos($usuario, date("Y"));
     
         

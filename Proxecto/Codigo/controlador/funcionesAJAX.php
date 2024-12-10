@@ -18,9 +18,81 @@ $factura = new Facturas();
 $ingreso = new Ingresos();
 $albaran = new AlbaranesEntrega();
 $recolecta = new Recolecta();
+$diasVendimia = new DiasVendimia();
 
 
 
+
+/**
+ * Código para introducir datos en la base de datos a través de los formularios
+ */
+if (filter_input(INPUT_POST, "alta")){
+    $tipoAlta = strip_tags(filter_input(INPUT_POST, "alta"));
+
+    switch($tipoAlta){
+        case "altaUsuario":
+            echo json_encode(editarUsuario("altaUsuario"));
+            break;
+
+        case "altaParcela":
+            echo json_encode(altaParcela());
+            break;
+
+        case "altaFactura":
+            echo json_encode(altaFactura());
+            break;
+            
+        case "altaIngreso":
+            echo json_encode(altaIngreso());
+            break;
+
+        case "altaAlbaran":
+            echo json_encode(altaAlbaran());
+            break;
+
+        case "altaDiasVendimia":
+            echo json_encode(altaDiasVendimia()); //JSON_UNESCAPED_UNICODE);
+            break;
+    }
+}
+
+
+/**
+ * Código que actualiza los datos de la base de datos
+ */
+if (filter_input(INPUT_POST, "editarDatos")){
+    $tipoEditar = strip_tags(filter_input(INPUT_POST, "editarDatos"));
+
+    switch ($tipoEditar){
+        case "editarFactura":
+            echo json_encode(editarFactura());
+            break;
+
+        case "editarIngreso":
+            echo json_encode(editarIngreso());
+            break;
+
+        case "editarParcela":
+            echo json_encode(editarParcela());
+            break;
+            
+        case "editarPrecio":
+            echo json_encode(editarPrecio());
+            break;
+
+        case "editarAlbaran":
+            echo json_encode(editarAlbaran());
+            break;
+
+        case "editarUsuario":
+            echo json_encode(editarUsuario("editarUsuario"));
+            break;
+
+        case "editarDiasVendimia":
+            echo json_encode(editarDiasVendimia());
+            break;
+    }
+}
 
 
 /**
@@ -51,7 +123,7 @@ if (filter_input(INPUT_POST, "obtenerDocumentos")){
             echo json_encode($array);
             break;
 
-        case "albaranes": case "mostrarAlbaranes":
+        case "albaranes": case "mostrarAlbaranes": case "consultaAlbaranes":
             $listaAlbaranes = ($usuario->getRol() == "administrador") ? $albaran->obtenerAlbaranes(filter_input(INPUT_POST, "dni"), $ano) : $albaran->obtenerAlbaranes($usuario->getDni(), $ano);
             $array = [
                 "albaranes" => $listaAlbaranes,
@@ -84,40 +156,18 @@ if (filter_input(INPUT_POST, "obtenerDocumentos")){
 
             echo json_encode($array);
             break;
-    }
-}
 
+        case "ultimosMovimientos":
+            $movimientos = $factura->obtenerIngresosFacturas($usuario);
+            $array = [
+                "movimientos" => $movimientos,
+                "rol" => $usuario->getRol()
+            ];
 
-
-/**
- * Código para introducir datos en la base de datos a través de los formularios
- */
-if (filter_input(INPUT_POST, "alta")){
-    $tipoAlta = strip_tags(filter_input(INPUT_POST, "alta"));
-
-    switch($tipoAlta){
-        case "altaUsuario":
-            echo json_encode(cargarUsuario("altaUsuario"));
-            break;
-
-        case "altaParcela":
-            echo json_encode(altaParcela());
-            break;
-
-        case "altaFactura":
-            echo json_encode(altaFactura());
-            break;
-            
-        case "altaIngreso":
-            echo json_encode(altaIngreso());
-            break;
-
-        case "altaAlbaran":
-            echo json_encode(altaAlbaran());
+            echo json_encode($array);
             break;
     }
 }
-
 
 
 
@@ -139,7 +189,7 @@ if (filter_input(INPUT_POST, "movimiento")){
             modalMostrarMovimiento($movimiento, $datosTabla, $usuario->getRol());
             break;
 
-        case "editarMovimiento":
+        case "modalEditarMovimiento":
             ($movimiento == "factura") ? modalEditarFactura($datosTabla, $usuario) : modalEditarIngreso($datosTabla, $usuario);
             break;
                 
@@ -148,34 +198,6 @@ if (filter_input(INPUT_POST, "movimiento")){
             break;
     }
 }
-
-
-
-/**
- * Código que actualiza los datos de la base de datos
- */
-if (filter_input(INPUT_POST, "editar")){
-    $tipoEditar = strip_tags(filter_input(INPUT_POST, "editar"));
-
-    switch ($tipoEditar){
-        case "editarFactura":
-            echo json_encode(editarFactura());
-            break;
-
-        case "editarIngreso":
-            echo json_encode(editarIngreso());
-            break;
-
-        case "editarParcela":
-            echo json_encode(editarParcela());
-            break;
-            
-        case "editarPrecio":
-            echo json_encode(editarPrecio());
-            break;
-    }
-}
-
 
 
 
@@ -203,16 +225,168 @@ if (filter_input(INPUT_POST, "parcela")){
         case "obtenerParcelasUsuario":
             echo json_encode($parcela->obtenerParcelasUsuario("usuario", $id));
             break;
+
+        case "modalEditarParcela":
+            modalEditarParcela($datosParcela);
+            break;
+
+        case "borrarParcela":
+            echo json_encode($parcela->borrarParcela($id));
+            break;
     }
 }
 
 
 
+if (filter_input(INPUT_POST, "diasVendimia")){
+    $accion = strip_tags(filter_input(INPUT_POST, "diasVendimia"));
+
+    switch ($accion) {
+        case "mostrarSeccionDiasVendimia":
+            $dni = strip_tags(filter_input(INPUT_POST, "dniDiasVendimia"));
+            mostrarDiasVendimia($diasVendimia->obtenerDatosDiasVendimia("todos", $dni, date("Y")));
+            break;
+
+        case "modalEditarDiasVendimia":
+            $id = strip_tags(filter_input(INPUT_POST, "id"));
+            modalEditarDiasVendimia($diasVendimia->obtenerDiaVendimia($id), $usuario);
+            break;
+
+        case "datosVendimia":
+            $dni = strip_tags(filter_input(INPUT_POST, "dni"));
+            echo json_encode($diasVendimia->obtenerDatosDiasVendimia("todos", $dni, date("Y")));
+            break;
+
+        case "borrarDiaVendimia":
+            $id = strip_tags(filter_input(INPUT_POST, "id"));
+            echo json_encode($diasVendimia->borrarDiasVendimia($id));
+            break;
+    }
+}
+
+
+
+if (filter_input(INPUT_POST, "albaranes")){
+    $tipoAccion = strip_tags(filter_input(INPUT_POST, "albaranes"));
+    $id = strip_tags(filter_input(INPUT_POST, "id"));
+
+    switch($tipoAccion){
+        case "verAlbaran":
+            modalMostrarAlbaran($albaran->obtenerDatosAlbaran($id), $usuario->getRol());
+            break;
+
+        case "mostrarSeccionAlbaranes":
+            $dni = strip_tags(filter_input(INPUT_POST, "dni"));
+            $listaAlbaranes = $albaran->obtenerAlbaranes($dni, date("Y"));
+            $datosVendimia = $recolecta->obtenerDatosRecolecta("usuario", $dni, date("Y"));
+            mostrarAlbaranes($usuario->getRol(), $listaAlbaranes, $datosVendimia);
+            break;
+
+        case "modalEditarAlbaran":
+            modalEditarAlbaran($albaran->obtenerDatosAlbaran($id), $usuario);
+            break;
+
+        case "borrarAlbaran":
+            echo json_encode($albaran->borrarAlbaran($id));
+            break;
+
+    }
+}
+
+
+
+if (filter_input(INPUT_POST, "usuarios")){
+    switch(filter_input(INPUT_POST, "usuarios")){
+        case "consultaUsuarios":
+            $tipoConsulta = strip_tags(filter_input(INPUT_POST, "tipoConsulta"));
+
+            if ($tipoConsulta == "todos"){   
+                echo json_encode($usuario->obtenerTodosUsuarios());
+    
+            } else if ($tipoConsulta == "individual"){
+                $dni = strip_tags(filter_input(INPUT_POST, "dni"));
+                mostrarPerfilUsuario($usuario->obtenerDatosUsuario($dni), $usuario->getRol(), $parcela->obtenerParcelasUsuario("usuario", $dni));
+            }
+            break;
+
+        case "cambiarContrasinal":
+            $correo = strip_tags(filter_input(INPUT_POST, "correoContrasinal"));
+            $contrasinal = strip_tags(filter_input(INPUT_POST, "cambiarContrasinal"));
+            $repContrasinal = strip_tags(filter_input(INPUT_POST, "repContrasinal"));
+
+            if ($contrasinal === $repContrasinal){
+                $datosUsuario = $usuario->obtenerDatosUsuario($correo);
+
+                if (count($datosUsuario) == 1){
+                    $contrasinalBD = count($_SESSION) == 0 ? $datosUsuario[0]['contrasinal'] : $usuario->getContrasinal();
+
+                    if (!password_verify($contrasinal, $contrasinalBD)){          
+                        if ($correo){
+                            echo json_encode($usuario->cambiarContrasinal($contrasinal, $correo));
+                        } else {
+                            echo json_encode($usuario->cambiarContrasinal($contrasinal, $usuario->getDni()));
+                        }
+                    
+                    } else {
+                        echo json_encode("La contraseña introducida es la misma que la actual");
+                    }   
+                } else {
+                    echo json_encode("Las credenciales introducidas son erróneas");
+                }
+            } else {
+                echo json_encode("Las contraseñas introducidas no son iguales");
+            }
+
+            break;
+ 
+
+        case "borrarUsuario":
+            $dni = strip_tags(filter_input(INPUT_POST, "id"));
+
+            if ($usuario->existeUsuario($dni)){
+                $albaran->borrarAlbaranesUsuario($dni);
+                $parcela->borrarParcelasUsuario($dni);
+                $recolecta->borrarRecolectasUsuario($dni);
+                $factura->borrarFacturasUsuario($dni);
+                $ingreso->borrarIngresosUsuario($dni);
+                $diasVendimia->borrarDiasVendimiaUsuario($dni);
+                $usuario->borrarUsuario($dni);
+
+                echo json_encode(true);
+
+            } else {
+                echo json_encode(false);
+            }
+            break;
+
+        case "iniciarSesion":
+            $correo = strip_tags(filter_input(INPUT_POST, "correoLogin", FILTER_VALIDATE_EMAIL));
+            $contrasinal = strip_tags(filter_input(INPUT_POST, "contrasinalLogin"));
+            
+            $resultado = $usuario->obtenerDatosUsuario($correo);
+            
+            if (count($resultado) == 1){
+                if (password_verify($contrasinal, $resultado[0]['contrasinal'])){
+                    session_regenerate_id(true);
+                    $_SESSION['usuario'] = $resultado[0]['dni'];
+                    echo json_encode(count($resultado));  
+                } else {
+                    echo json_encode("La contraseña introducida no es válida");
+                }
+            } else {
+                echo json_encode(0);
+            }
+            
+            break;
+    }
+}
+
+
 /**
- * Código que borrar datos de la base de datos
+ * Código que borra varios registros de la base de datos
  */
-if (filter_input(INPUT_POST, "borrar")){
-    $tipoBorrar = strip_tags(filter_input(INPUT_POST, "borrar"));
+if (filter_input(INPUT_POST, "borrarVariosRegistros")){
+    $tipoBorrar = strip_tags(filter_input(INPUT_POST, "borrarVariosRegistros"));
 
     //Recoger array de JavaScript
     $archivos = json_decode(filter_input(INPUT_POST, "archivos"));
@@ -244,7 +418,14 @@ if (filter_input(INPUT_POST, "borrar")){
                 $resultado += $parcela->borrarParcela($archivo);
             }
 
-        break;
+            break;
+
+        case "borrarVariosDiasVendimia":
+            foreach($archivos as $archivo){
+                $resultado += $diasVendimia->borrarDiasVendimia($archivo);
+            }
+
+            break;
     }
 
     if ($resultado == count($archivos)){
@@ -256,20 +437,78 @@ if (filter_input(INPUT_POST, "borrar")){
 
 
 
-if (filter_input(INPUT_POST, "albaranes")){
-    $tipoAccion = strip_tags(filter_input(INPUT_POST, "albaranes"));
-    $id = strip_tags(filter_input(INPUT_POST, "id"));
+if (filter_input(INPUT_POST, "ventanasModales")){
+    $id = strip_tags(filter_INPUT(INPUT_POST, "id"));
 
-    switch($tipoAccion){
-        case "verAlbaran":
-            modalMostrarAlbaran($albaran->obtenerDatosAlbaran($id), $usuario->getRol());
+    switch(filter_input(INPUT_POST, "ventanasModales")){
+        case "modalEditarPerfil":
+            modalEditarPerfil($usuario->obtenerDatosUsuario($id));
             break;
-        case "mostrarSeccionAlbaranes":
-            $dni = strip_tags(filter_input(INPUT_POST, "dni"));
-            $listaAlbaranes = cambiarFormatoFecha($albaran->obtenerAlbaranes($dni, date("Y")));
-            $datosVendimia = $recolecta->obtenerDatosRecolecta("usuario", $dni, date("Y"));
-            mostrarAlbaranes($usuario->getRol(), $listaAlbaranes, $datosVendimia);
+
+        case "modalMostrarParcela":
+            modalMostrarParcela($parcela->obtenerDatosParcela($id));
             break;
+            
+        case "modalAltaParcela":
+            modalAltaParcela();
+            break;
+
+        
+    }
+}
+
+
+
+/**
+ * Código para devolver el número de ingreso o de factura
+ */
+if (filter_input(INPUT_POST, "calcularNumero")){
+    $tipoNumero = strip_tags(filter_input(INPUT_POST, "calcularNumero"));
+
+    switch($tipoNumero){
+        case "numeroFactura":
+            echo json_encode($factura->calcularNumeroFactura());
+            break;
+
+        case "numeroIngreso":
+            echo json_encode($ingreso->calcularNumeroIngreso());
+            break;
+        case "numeroAlbaran":
+            echo json_encode($albaran->calcularNumeroAlbaran());
+            break;
+    }
+}
+
+
+
+/**
+ * Código que muestra los datos de la aplicación
+ */
+if (filter_input(INPUT_POST, "refrescar")){
+    $refrescar = strip_tags(filter_input(INPUT_POST, "refrescar"));
+    $dni = strip_tags(filter_input(INPUT_POST, "dni"));
+    $ano = strip_tags(filter_input(INPUT_POST, "ano"));
+
+    switch($refrescar){
+        case "tablaUltimosMovimientos":
+            mostrarTablaUltimosMovimientos($usuario->getRol(), $factura->obtenerIngresosFacturas($usuario));
+            break;
+
+        case "tablaRecolecta":
+            mostrarTablaResumenVendimia($recolecta->obtenerResumenRecolecta($recolecta->obtenerDatosRecolecta("todos", "", $ano)), $usuario->getRol());
+            break;
+
+        case "tablaAlbaranes": 
+            mostrarTablaAlbaranes($usuario->getRol(), $albaran->obtenerAlbaranes($dni, $ano));
+            break;
+
+        case "tablaParcelas":
+            mostrarTablaParcelas($usuario->getRol(), $parcela->obtenerParcelasUsuario("usuario", $dni));
+            break;
+
+        case "tablaDiasVendimia":
+            mostrarTablaDiasVendimiaAdmin($diasVendimia->obtenerDatosDiasVendimia("todos", $dni, date("Y")));
+            break;            
     }
 }
 
@@ -279,19 +518,12 @@ if (filter_input(INPUT_POST, "albaranes")){
  * Código para devolver las coordenadas de la dirección
  */
 if (filter_input(INPUT_POST, "mapa")){
-    header('Content-Type: text/html; charset=UTF-8');
-    $direccion = filter_input(INPUT_POST, "direccion");
-    $municipio = filter_input(INPUT_POST, "municipio");
-    $provincia = filter_input(INPUT_POST, "provincia");
+    $direccion = strip_tags(filter_input(INPUT_POST, "direccion"));
+    $municipio = strip_tags(filter_input(INPUT_POST, "municipio"));
+    $provincia = strip_tags(filter_input(INPUT_POST, "provincia"));
 
-    $nuevaDireccion = dividirCadena($direccion) . "," . dividirCadena($municipio) . "," . dividirCadena($provincia);
-    //$nuevaDireccion = dividirCadena("Santiago de Compostela");
-    //$search_url = "https://nominatim.openstreetmap.org/search.php?q=$direccion,$municipio,$provincia&format=jsonv2";
-    //$search_url = "https://nominatim.openstreetmap.org/search?q=Santiago de Compostela,Spain&format=jsonv2";
-    //$search_url = "https://nominatim.openstreetmap.org/search.php?q=santiago+de+compostela&format=jsonv2";
-    //$search_url = "https://nominatim.openstreetmap.org/search.php?q=Avenida%20Cambados%2016,Vilagarc%C3%ADa%20de%20Arousa,Pontevedra&format=jsonv2";
-    //$search_url = "https://nominatim.openstreetmap.org/search.php?q=$direccion&format=jsonv2"; 
-    $search_url = "https://nominatim.openstreetmap.org/search.php?q=$nuevaDireccion&format=jsonv2";
+    $direccionCompleta = dividirCadena($direccion) . "," . dividirCadena($municipio) . "," . dividirCadena($provincia);
+    $search_url = "https://nominatim.openstreetmap.org/search.php?q=$direccionCompleta&format=jsonv2";
     $httpOptions = [
         "http" => [
         "method" => "GET",
@@ -300,19 +532,25 @@ if (filter_input(INPUT_POST, "mapa")){
     ];
 
     $streamContext = stream_context_create($httpOptions);
-    $json = file_get_contents($search_url, false, $streamContext);
+    $json = @file_get_contents($search_url, false, $streamContext);
+    $error = error_get_last();
 
-    //!COMPROBAR SI HAY RESULTADOS, DE LO CONTRARIO ERROR-> LA DIRECCIÓN ES INCORRECTA
-    $decoded = json_decode($json, true);
-    $lat = $decoded[0]["lat"];
-    $lng = $decoded[0]["lon"];
+    if ($json == false || http_response_code() >= 400){
+        echo json_encode("La dirección introducida no es correcta");
 
-    $array = array(
-        "latitud" => $lat,
-        "longitud" => $lng
-    );
+    } else {
 
-    echo json_encode($array);
+        $decoded = json_decode($json, true);
+        $lat = $decoded[0]["lat"];
+        $lng = $decoded[0]["lon"];
+
+        $array = array(
+            "latitud" => $lat,
+            "longitud" => $lng
+        );
+
+        echo json_encode($array);
+    }
 }
 
 
@@ -365,142 +603,6 @@ if (filter_input(INPUT_POST, "grafico")){
             break;
     }
 
-}
-
-
-
-if (filter_input(INPUT_POST, "usuarios")){
-    switch(filter_input(INPUT_POST, "usuarios")){
-        case "consultaUsuarios":
-            $tipoConsulta = strip_tags(filter_input(INPUT_POST, "tipoConsulta"));
-
-            if ($tipoConsulta == "todos"){   
-                echo json_encode($usuario->obtenerTodosUsuarios());
-    
-            } else if ($tipoConsulta == "individual"){
-                $dni = strip_tags(filter_input(INPUT_POST, "dni"));
-                mostrarPerfilUsuario($usuario->obtenerDatosUsuario($dni), $usuario->getRol(), $parcela->obtenerParcelasUsuario("usuario", $dni));
-            }
-            break;
-
-        case "cambiarContrasinal":
-            $correo = strip_tags(filter_input(INPUT_POST, "correoContrasinal"));
-            $contrasinal = strip_tags(filter_input(INPUT_POST, "cambiarContrasinal"));
-            $repContrasinal = strip_tags(filter_input(INPUT_POST, "repContrasinal"));
-
-            if ($contrasinal === $repContrasinal){
-                if (password_verify($contrasinal, $usuario->getContrasinal())){          
-                    if ($correo){
-                        echo json_encode($usuario->cambiarContrasinal($contrasinal, $correo));
-                    } else {
-                        echo json_encode($usuario->cambiarContrasinal($contrasinal, $usuario->getDni()));
-                    }
-                } else {
-                    echo json_encode("La contraseña introducida es la misma que la actual");
-                }
-            } else {
-                echo json_encode("Las contraseñas introducidas no son iguales");
-            }
-
-            break;
- 
-        case "editarUsuario":
-            echo json_encode(cargarUsuario("editarUsuario"));
-            break;
-
-        case "borrarUsuario":
-            $dni = filter_input(INPUT_POST, "id");
-            echo json_encode($usuario->borrarUsuario($dni));
-            break;
-
-        case "iniciarSesion":
-            $correo = filter_input(INPUT_POST, "correoLogin", FILTER_VALIDATE_EMAIL);
-            $contrasinal = filter_input(INPUT_POST, "contrasinalLogin");
-            
-            $resultado = $usuario->obtenerDatosUsuario($correo);
-            
-            if (count($resultado) == 1){
-                foreach ($resultado as $fila){
-                    if (password_verify($contrasinal, $fila['contrasinal'])){
-                        session_regenerate_id(true);
-                        $_SESSION['usuario'] = $fila['dni'];
-                    } else {
-                        echo json_encode("La contraseña introducida no es válida");
-                    }
-                }
-            }
-              
-            echo json_encode(count($resultado));  
-            break;
-    }
-}
-
-
-if (filter_input(INPUT_POST, "ventanasModales")){
-    switch(filter_input(INPUT_POST, "ventanasModales")){
-        case "modalEditarPerfil":
-            modalEditarPerfil($usuario->obtenerDatosUsuario($usuario->getDni()));
-            break;
-
-        case "modalMostrarParcela":
-            modalMostrarParcela($parcela->obtenerDatosParcela(filter_input(INPUT_POST, "id")));
-            break;
-            
-        case "modalAltaParcela":
-            modalAltaParcela();
-            break;
-    }
-}
-
-
-/**
- * Código para devolver el número de ingreso o de factura
- */
-if (filter_input(INPUT_POST, "calcularNumero")){
-    $tipoNumero = strip_tags(filter_input(INPUT_POST, "calcularNumero"));
-
-    switch($tipoNumero){
-        case "numeroFactura":
-            echo json_encode($factura->calcularNumeroFactura());
-            break;
-
-        case "numeroIngreso":
-            echo json_encode($ingreso->calcularNumeroIngreso());
-            break;
-        case "numeroAlbaran":
-            echo json_encode($albaran->calcularNumeroAlbaran());
-            break;
-    }
-}
-
-
-/**
- * Código que muestra los datos de la aplicación
- */
-if (filter_input(INPUT_POST, "refrescar")){
-    $refrescar = strip_tags(filter_input(INPUT_POST, "refrescar"));
-
-    switch($refrescar){
-        case "tablaUltimosMovimientos":
-            mostrarTablaUltimosMovimientos($usuario->getRol(), $factura->obtenerIngresosFacturas($usuario));
-            break;
-
-        case "tablaRecolecta":
-            $ano = filter_input(INPUT_POST, "ano");
-            mostrarTablaResumenVendimia($recolecta->obtenerResumenRecolecta($recolecta->obtenerDatosRecolecta("todos", "", $ano)), $usuario->getRol());
-            break;
-
-        case "tablaAlbaranes":
-            $dni = strip_tags(filter_input(INPUT_POST, "dni"));
-            $ano = strip_tags(filter_input(INPUT_POST, "ano"));
-            mostrarTablaAlbaranes("usuario", $albaran->obtenerAlbaranes($dni, $ano));
-            break;
-
-        case "tablaParcelas":
-            $dni = strip_tags(filter_input(INPUT_POST, "dni"));
-            mostrarTablaParcelas($usuario->getRol(), $parcela->obtenerParcelasUsuario("usuario", "dni"));
-            break;
-    }
 }
 
 ?>

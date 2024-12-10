@@ -9,6 +9,7 @@
             <nav>
                 <ul>
                     <li class="activo">Normativa</li>
+                    <li>Días vendimia</li>
                     <li>Albaranes</li>
                     <li>Campañas</li>
                 </ul>
@@ -17,63 +18,47 @@
 
         <div class="secciones">
             <section id="normativa" class="activo">
+                <?php 
+                    mostrarFechasVendimia($fechaInicioVendimia, $fechaFinVendimia);
+                    mostrarNormasVendimia(); 
+                ?>
+            </section>
+
+            <section id="consultaDiasVendimia">
                 <div>
-                    <h3>Normas vendimia </h3>
-                    <div>
-                        <p>La apertura para la entrega de uva serán los días del 02 al 15 de septiembre en horario de
-                            9:00 a
-                            23:00p</p>
+                    <form id="formularioConsultaDiasVendimia" class="formularioConsulta">
+                        <div>
+                            <input type="text" name="dniDiasVendimia" id="dniDiasVendimia" class="dni" title="Ejemplo: 12345678A" pattern="\d{8}[A-Za-z]" required aria-required="true">
+                            <label for="dniDiasVendimia">DNI</label>
+                        </div>
 
-                        <p>Durante la recogida de uva se deben cumplir las siguientes normas:</p>
-                        <ul>
+                        <div class="botones">
+                            <input type="submit" id="btnConsultaDiasVendimia" name="btnConsultaDiasVendimia" class="btnOscuro" value="Consultar usuario">
+                        </div>
 
-                            <li>TODOS LOS REMOLQUES DESCARGARAN LA UVA RECOGIDA EN EL DIA BAJO SANCIÓN.</li>
-                            <li>SE PROHIBE VENDIMIAR POR LA NOCHE, Y SE EMPEZARA LA RECOGIDA A PARTIR DE LAS 7 DE LA
-                                MAÑANA.</li>
-                            <li> LA UVA RECOGIDA CON MAQUINA, SE DESCARGARA DEPENDIENDO DE LAS NECESIDADES DE LA BODEGA
-                                Y SE
-                                DEBERA AVISAR CON ANTELACIÓN, especialmente en los comienzos de la vendimia
-                                de uva blanca.</li>
-                            <li> SE DECIDE ESTABLECER COMO EL AÑO ANTERIOR DOS CALIDADES 1ª Y 2ª.</li>
-                            <li> SERÁ DE 1º CALIDAD LAS UVAS BLANCAS Y TINTAS CON UN CONTENIDO EN GLUCÓNICO IGUAL
-                                O MENOR DE 0,5.</li>
-                            <li> EL VALOR MÍNIMO DE ACIDEZ TOTAL ES DE 2,94 QUE MEDIDA EN ACIDO TARTARICO ES 4,5,
-                                POR DEBAJO DEL CUAL LA UVA SERÍA DE 2ª CALIDAD.</li>
-                            <li> RESPECTO DEL GRADO ALCOHÓLICO, COMO EN AÑOS ANTERIORES SE HA DECIDIDO ESTABLECER
-                                LÍMITE DE 14 GRADOS PARA EL TINTO Y 12,5 PARA EL BLANCO. ADEMÁS UN VALOR INFERIOR A
-                                10,5º EN TINTO y 9,3º (9 ALCOHOL PROBABLE), EN BLANCO DEPRECIARÁN A LA UVA A 2ª CALIDAD.
-                            </li>
-                            <li> EL GRADO BAUME SE DETERMINARÁ POR REFRACTOMETRIA (METODO OFICIAL), CADA UNA LLEVARÁ SU
-                                GRADO, A EXCEPCIÓN DE LA UVA MACABEO QUE MANTENIENDO EL GRADO MÁXIMO DE BODEGA PERMITIDO
-                                PARA EL RESTO DE UVA BLANCA, SE LE ASIGNARÁ EL GRADO MEDIO DE SU VARIEDAD.</li>
-                            <li> EN EL CASO QUE LAS CONDICIONES DE CALIDAD SE VIERAN AFECTADAS POR PODREDUMBRE, (A
-                                PARTIR
-                                DE VALORES DE 1,5 DE GLUCÓNICO), EL CONSEJO RECTOR DETERMINARA SI LO ESTIMA CONVENIENTE
-                                ELIMINAR EL GRADO DE TODA LA CAMPAÑA, ASÍ COMO ESTABLECER PRECIOS DE ESTA UVA A
-                                RESULTAS.
-                            </li>
-                        </ul>
-
-                    </div>
+                        <div class="notificaciones"></div>
+                    </form> 
+                    <button id="btnEngadirDiasVendimia" class="btnOscuro ventanaModal">Añadir días vendimia</button>
                 </div>
+                
+                <div id="mostrarDiasVendimia"></div>
             </section>
 
             <section id="consultaAlbaranes">
                 <div>
-                    <form id="formularioConsultaAlbaranes">
+                    <form id="formularioConsultaAlbaranes" class="formularioConsulta">
                         <div>
                             <input type="text" name="dni" id="dni" class="dni" title="Ejemplo: 12345678A" pattern="\d{8}[A-Za-z]" required aria-required="true">
                             <label for="dni">DNI</label>
                         </div>
 
                         <div class="botones">
-                            <input type="submit" id="btnConsultaAlbaranes" name="btnConsultaAlbaranes" class="btnOscuro" value="Consultar albaranes usuario">
+                            <input type="submit" id="btnConsulta" name="btnConsulta" class="btnOscuro" value="Consultar albaranes usuario">
                         </div>
 
                         <div class="notificaciones"></div>
                     </form>
-                    <button id="btnEngadirAlbaran" class="btnOscuro">Añadir albarán</button>
-               
+                    <button id="btnEngadirAlbaran" class="btnOscuro ventanaModal">Añadir albarán</button>
                 </div>
 
                 <div id="mostrarAlbaranes"></div>
@@ -93,7 +78,7 @@
                 </div>
 
                 <div class="botones">
-                    <button id="btnModalEditarPrecio" class="btnOscuro">Editar precio campaña</button>
+                    <button id="btnModalEditarPrecio" class="btnOscuro ventanaModal">Editar precio campaña</button>
                 </div>
             </section>
         </div>
@@ -104,6 +89,7 @@
 
 <div id="ventanasModales">
     <?php 
+        modalAltaDiasVendimia($usuario);
         modalAltaAlbaran($usuario);
         modalEditarPrecio();
     ?>

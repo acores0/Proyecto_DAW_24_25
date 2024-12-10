@@ -2,6 +2,7 @@
 require_once ("ConexionBD.php");
 
 class Parcelas {
+    private $idParcela;
     private $usuario;
     private $nombre;
     private $direccion;
@@ -199,10 +200,10 @@ class Parcelas {
     public function actualizarParcela(){
         try{
             if ($this->existeParcela()){
-                $sql = "update parcelas set nombre = :nombre, direccion = :direccion, municipio = :municipio, provincia = :provincia, codigo_postal = :codigoPostal, m2 = :m2, variedad_uva = :variedad, cupo = :cupo where id = :id)";
+                $sql = "update parcelas set nombre = :nombre, usuario = :usuario, direccion = :direccion, municipio = :municipio, provincia = :provincia, codigo_postal = :codigoPostal, m2 = :m2, variedad_uva = :variedad, cupo = :cupo where id = :id";
                 $sentencia = $this->conexionBD->prepare($sql);
-                $sentencia->bindValue(':usuario', $this->usuario);
                 $sentencia->bindValue(':nombre', $this->nombre);
+                $sentencia->bindValue(':usuario', $this->usuario);
                 $sentencia->bindValue(':direccion', $this->direccion);
                 $sentencia->bindValue(':municipio', $this->municipio);
                 $sentencia->bindValue(':provincia', $this->provincia);
@@ -210,12 +211,13 @@ class Parcelas {
                 $sentencia->bindValue(':m2', $this->m2);
                 $sentencia->bindValue(':variedad', $this->variedad);    
                 $sentencia->bindValue(':cupo', $this->cupo);
+                $sentencia->bindValue(':id', $this->idParcela);
                 $sentencia->execute();
 
                 return $sentencia->rowCount();
             
             } else {
-                return 2;
+                return "La parcela modificada no existe";
             }
 
 
@@ -243,7 +245,28 @@ class Parcelas {
             return $sentencia->rowCount();
 
         } catch (PDOException $error){
-            return "Hubo un error al eliminar la parcela $error";
+            die("Hubo un error al eliminar la parcela $error");
+        }
+    }
+
+
+
+    /**
+     * Método que borra todas las parcelas de un usuario
+     *
+     * @param String $dni DNI del usuario
+     * @return Boolean
+     */
+    public function borrarParcelasUsuario($dni){
+        try{
+            $sql = "delete from parcelas where usuario = :dni";
+            $sentencia = $this->conexionBD->prepare($sql);
+            $sentencia->bindValue(':dni', $dni );
+            return $sentencia->execute();
+
+
+        } catch (PDOException $error){
+            die("Hubo un error al eliminar las parcelas del usuario: $error");
         }
     }
 
@@ -251,6 +274,22 @@ class Parcelas {
 
 
     //-------------------- Getters y Setters
+    /**
+     * Get the value of idParcela
+     */
+    public function getIdParcela() {
+        return $this->idParcela;
+    }
+
+    /**
+     * Set the value of idParcela
+     */
+    public function setIdParcela($idParcela): self {
+        $this->idParcela = $idParcela;
+
+        return $this;
+    }
+
     /**
      * Get the value of usuario
      */
@@ -410,4 +449,6 @@ class Parcelas {
 
         return $this;
     }
+
+    
 }

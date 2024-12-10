@@ -407,7 +407,7 @@ class Recolecta{
                 $baseImponible += $datos['base_imponible'];
                 $retencion += $datos['retencion'];
                 $total += $datos['total'];
-                $porcentaje += $datos['porcentaje'];
+                $porcentaje = $datos['porcentaje'];
                 $contador++;
             }
         }
@@ -472,6 +472,27 @@ class Recolecta{
 
         } catch (PDOException $error) {
             echo "Hubo un error al editar el precio: $error";
+        }
+    }
+
+
+
+    /**
+     * Método que borra todas las recolectas de un usuario
+     *
+     * @param String $dni DNI del usuario
+     * @return Boolean
+     */
+    public function borrarRecolectasUsuario($dni){
+        try {
+            $sql = "delete from recolecta where usuario = :dni";
+    
+            $sentencia = $this->conexionBD->prepare($sql);
+            $sentencia->bindValue('dni', $dni);
+            return $sentencia->execute();
+
+        } catch (PDOException $error) {
+            die("Hubo un error al borrar las recolectas del usuario: $error");
         }
     }
 

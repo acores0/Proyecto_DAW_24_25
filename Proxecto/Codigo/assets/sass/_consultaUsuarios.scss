@@ -17,22 +17,10 @@
 /*---------- Estilos de la página de consulta de usuarios ----------*/
 .consultaUsuarios{
     justify-content: space-between;
-    
-    #formularioConsultaUsuarios{
-        @include mixins.secciones;
-        flex-direction: row;
-        justify-content: flex-start;
 
-        div:not(.notificaciones):not(.error){
-            width: 20%;
-
-            @include mixins.mediaQueries(800px){
-                width: 30%;
-            }
-
-            @include mixins.mediaQueries(550px){
-                width: 100%;
-            }
+    .datosPerfil{
+        .tabla{
+            height: 10vh;
         }
     }
 }

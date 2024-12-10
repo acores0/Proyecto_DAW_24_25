@@ -204,13 +204,12 @@ class Usuarios{
      * @return INT Retorna el núḿero de registros borrados
      */
     public function borrarUsuario($dni) {
+        
         try {
             $sql = "delete from usuarios where dni = :dni";
             $sentencia = $this->conexionBD->prepare($sql);
             $sentencia->bindValue(':dni', $dni);
-            $sentencia->execute();
-
-            return $sentencia->rowCount() == 1;
+            return $sentencia->execute();
 
         } catch (PDOException $error) {
             die("Hubo un error al borrar el usuario: $error");

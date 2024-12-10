@@ -22,15 +22,19 @@
       @include mixins.flexJustify(flex-start);
       gap: 1.5rem;
 
-      @include mixins.mediaQueries(700px) {
-        gap: 0;
+      @include mixins.mediaQueries(1000px) {
+        gap: 1rem;
         justify-content: space-between;
+        align-items: center;
+      }
+
+      @include mixins.mediaQueries(800px){
+        flex-wrap: wrap;
       }
 
       @include mixins.mediaQueries(550px) {
         gap: 0.5rem;
         justify-content: center;
-        flex-wrap: wrap;
       }
 
       li {
@@ -42,17 +46,27 @@
         cursor: pointer;
 
         @include mixins.mediaQueries(1000px) {
-          padding: 1rem 3rem;
+          width: 25%;
+          padding: 1.5rem;
         }
 
-        @include mixins.mediaQueries(700px) {
+        @include mixins.mediaQueries(800px) {
+          width: 48%;
           font-size: 2.3vw;
         }
 
+        @include mixins.mediaQueries(600px){
+          font-size: 3vw;
+        }
+
         @include mixins.mediaQueries(550px) {
-          width: 49%;
           font-weight: 900;
           font-size: 5vw;
+          padding: 0.9rem;
+        }
+
+        @include mixins.mediaQueries(450px){
+          width: 100%;
         }
 
         &.activo {
@@ -61,10 +75,6 @@
 
         &:last-child {
           margin-right: 0;
-
-          @include mixins.mediaQueries(550px) {
-            width: 100%;
-          }
         }
       }
     }
@@ -73,7 +83,11 @@
   .secciones {
     position: relative;
     flex-grow: 1;
-    overflow-y: scroll;
+    overflow-x: hidden;
+
+    @include mixins.mediaQueries(550px){
+      height: 47vh;
+    }
 
     section {
       width: 100%;
@@ -127,10 +141,28 @@
         }
       }
 
-      #facturas, #ingresos{
+      &#facturas, &#ingresos{
         .tabla{
             flex-grow: 1;
-            height: 55vh;
+            height: 30vh;
+
+
+        }
+
+        #btnBorrarIngresos, #btnBorrarFacturas{
+          width: 20%;
+
+          @include mixins.mediaQueries(1300px){
+            width: 30%;
+          }
+
+          @include mixins.mediaQueries(800px){
+            width: 40%;
+          }
+
+          @include mixins.mediaQueries(550px){
+            width: 100%;
+          }
         }
       }
     }
@@ -138,23 +170,10 @@
 
 
 .consultaDocumentos {
-    form {
-        @include mixins.secciones;
-        flex-direction: row;
-        justify-content: flex-start;
-
-        > div {
-            &:not(.notificaciones) {
-                width: 20%;
-            }
-        }
-    }
-
     #mostrarDocumentos {
         display: none;
         flex-direction: column;
         flex-grow: 1;
-        overflow-y: scroll;
 
         .tabla{
             flex-grow: 1;

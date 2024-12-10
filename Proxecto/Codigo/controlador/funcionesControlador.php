@@ -1,85 +1,17 @@
 <?php 
-//require_once "../modelo/Parcelas.php";
 
-function mapa($direccion, $municipio){
-    //$search_url = "https://nominatim.openstreetmap.org/search?q=$direccion,$municipio&format=json";
-    //$search_url = "https://nominatim.openstreetmap.org/search?q=Santiado de Compostela,Spain&format=json";
-    $search_url = "https://nominatim.openstreetmap.org/search.php?q=santiago+de+compostela&format=jsonv2";
-    $httpOptions = [
-        "http" => [
-        "method" => "GET",
-        "header" => "User-Agent: Nominatim-Test"
-        ]
-    ];
-
-    $streamContext = stream_context_create($httpOptions);
-    $json = file_get_contents($search_url, false, $streamContext);
-
-    $decoded = json_decode($json, true);
-    $lat = $decoded[0]["lat"];
-    $lng = $decoded[0]["lon"];
-
-    $array = array(
-        "latitude" => $lat,
-        "lonxitude" => $lng
-    );
-
-    return $array;
-}
-
-
-//!TERMINAR --> MAPA
 /**
- * Función que deveuelve una cadena separando cada palabra con el signo +
+ * Función que devuelve una cadena separando cada palabra con el signo +
  *
- * @param String $cadena
+ * @param String $cadena a cambiar
  * @return String
  */
 function dividirCadena($cadena){
-    /*$letrasCadena = str_split($cadena);
-    $cadenaSinTildes = "";*/
+    $tildes = ["Á", "á", "É", "é", "Í", "í", "Ó", "ó", "Ú", "ú", ",", " "];
+    $sinTildes = [ "A", "a", "E", "e", "I", "i", "O", "o", "U", "u", "", "+"];
+    $cadena = str_replace($tildes, $sinTildes, $cadena);
 
-    //for ($i = 0; $i < count($letrasCadena); $i++){
-    for ($i = 0; $i < strlen($cadena); $i++) {
-        $prueba = $cadena[$i];
-        switch($cadena[$i]){
-            case "á": case "Á":
-                $cadena[$i] = ($cadena[$i] == "á") ? "á" : "Á";
-                break;
-
-            case "é": case "É":
-                $cadena[$i] = ($cadena[$i] == "é") ? "é" : "É";
-                break;
-
-            case "í": case "Í":
-                $cadena[$i] = ($cadena[$i] == "í") ? "í" : "Í";
-                break;
-
-            case "ó": case "Ó":
-                $cadena[$i] = ($cadena[$i] == "ó") ? "ó" : "Ó";
-                break;
-
-            case "ú": case "Ú":
-                $cadena[$i] = ($cadena[$i] == "ú") ? "ú" : "Ú";
-                break;
-        }
-
-        //$cadenaSinTildes .= $letrasCadena[$i];
-        
-    }
-
-    
-    
-
-
-    $array = explode(" ", $cadena);
-    $nuevaCadena = "";
-    
-    for ($i = 0; $i < count($array); $i++){
-        $nuevaCadena .= ($i == count($array) - 1) ? $array[$i] : $array[$i] . "+";
-    }
-
-    return $nuevaCadena;
+    return $cadena;
 }
 
 
@@ -87,7 +19,7 @@ function dividirCadena($cadena){
 /**
  * Función que cambia el formato de la fecha (yyyy-mm-dd --> dd/mm/yyyy)
  *
- * @param Array $listaFechas
+ * @param Array $arrayDatos Array con los datos a cambiar
  * @return Array
  */
 function cambiarFormatoFecha($array){
@@ -97,12 +29,22 @@ function cambiarFormatoFecha($array){
         $arrayFila = [];
 
         foreach ($fila as $clave => $valor) {
-            if ($clave == "fecha"){
+            if ($clave == "fecha" || $clave == "fecha_hora"){
                 $ano = substr($valor, 0, 4);
                 $mes = substr($valor, 5, 2);
                 $dia = substr($valor, 8, 2);
 
-                $valor = $dia . "/" . $mes . "/" . $ano;
+
+                switch($clave){
+                    case "fecha":
+                        $valor = $dia . "/" . $mes . "/" . $ano;
+                        break;
+
+                    case "fecha_hora":
+                        $hora = substr($valor, 10);
+                        $valor = $dia . "/" . $mes . "/" . $ano . $hora;
+                        break;       
+                }
             }
 
             $arrayFila[$clave] = $valor;    
@@ -119,8 +61,8 @@ function cambiarFormatoFecha($array){
 /**
  * Función que sube un archivo al servidor
  *
- * @param FILE $archivo
- * @param String $nombreArchivo
+ * @param FILE $archivo Array con los datos del archivo
+ * @param String $nombreArchivo Nombre del archivo
  * @return Boolean
  */
 function subirPDF($archivo, $numeroDocumento){
@@ -146,6 +88,30 @@ function subirPDF($archivo, $numeroDocumento){
     $destino = $rutaArchivo . $nombreArchivo . ".pdf";
     
     return (!move_uploaded_file($origen, $destino)) ? false : true;  
+}
+
+
+
+/**
+ * Función para cargar la imagen de perfil del usuario en el servidor
+ *
+ * @param String $dni DNI del usuario
+ * @param USUARIOS $usuario Objeto usuarios
+ * @return Boolean
+ */
+function subirImagenPerfil($dni, $usuario){
+    if ($_FILES['imagenPerfil']['size'] > 0){
+        $nombreImagen = $dni . "." . substr($_FILES['imagenPerfil']['name'], -3);
+        $origen = $_FILES['imagenPerfil']['tmp_name'];
+        $destino = "../documentosUsuarios/imagenesUsuarios/" . $nombreImagen;
+
+        $usuario->setFoto($nombreImagen);
+
+        return (!move_uploaded_file($origen, $destino)) ? false : true;
+
+    } else {
+        return true;
+    }
 }
 
 

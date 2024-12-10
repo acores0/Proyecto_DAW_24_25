@@ -5,14 +5,14 @@
     <?php mostrarTituloPagina("Consultar documentos", "Comprueba los documentos de los usuarios"); ?>
 
     <div id="contenido" class="consultaDocumentos">
-        <form id="formularioConsultaDocumentos">
+        <form id="formularioConsultaDocumentos" class="formularioConsulta">
             <div>
                 <input type="text" name="dni" id="dni" class="dni" title="Ejemplo: 12345678A" pattern="\d{8}[A-Za-z]" required aria-required="true">
                 <label for="dni">DNI</label>
             </div>
 
             <div class="botones">
-                <input type="submit" id="btnConsultaUsuarios" name="btnConsultaUsuarios" class="btnOscuro" value="Consultar usuario">
+                <input type="submit" id="btnConsulta" name="btnConsulta" class="btnOscuro" value="Consultar usuario">
             </div>
 
             <div class="notificaciones"></div>

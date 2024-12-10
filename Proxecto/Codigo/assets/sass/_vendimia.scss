@@ -22,40 +22,102 @@
                 background-color: transparent;
                 padding: 0;
 
-                div {
-                    max-height: 50vh;
-                    overflow-y: scroll;
-                }
+                > div {
+                    @include mixins.secciones;
 
-                .tabla {
-                    border-radius: variables.$border-radius;
+                    &#fechasVendimia {
+                        display: flex;
+                        border-radius: variables.$border-radius;
 
-                    table {
-                        tr {
-                            &:first-child {
-                                background-color: variables.$color-base;
+                        @include mixins.mediaQueries(700px) {
+                            flex-wrap: wrap;
+                            gap: 2rem;
+                        }
+
+                        > div {
+                            display: flex;
+
+                            @include mixins.mediaQueries(1000px) {
+                                width: 45%;
                             }
 
-                            &:last-child {
-                                background-color: variables.$color-blanco;
+                            @include mixins.mediaQueries(700px) {
+                                width: 100%;
+                                flex-wrap: wrap;
+                            }
+
+                            p {
+                                font-size: 1.3vw;
+                                padding: 1.5rem;
+
+                                @include mixins.mediaQueries(1000px) {
+                                    width: 50%;
+                                }
+
+                                @include mixins.mediaQueries(700px) {
+                                    width: 100%;
+                                    font-size: 2.5vw;
+                                    text-align: center;
+                                }
+
+                                &:first-child {
+                                    background-color: variables.$color-mas-oscuro;
+                                    color: variables.$color-blanco;
+                                    border-radius: variables.$border-radius 0 0 variables.$border-radius;
+
+                                    @include mixins.mediaQueries(700px) {
+                                        border-radius: variables.$border-radius variables.$border-radius 0 0;
+                                    }
+                                }
+
+                                &:last-child {
+                                    background-color: variables.$color-claro;
+                                    color: variables.$color-negro;
+                                    border-radius: 0 variables.$border-radius variables.$border-radius 0;
+
+                                    @include mixins.mediaQueries(700px) {
+                                        border-radius: 0 0 variables.$border-radius variables.$border-radius;
+                                    }
+                                }
                             }
                         }
                     }
-                }
 
-                > div {
+                    &#mostrarDatosVendimia {
+                        padding-bottom: 0;
+
+                        table {
+                            tr {
+                                &:first-child {
+                                    background-color: variables.$color-base;
+                                }
+
+                                &:last-child {
+                                    background-color: variables.$color-blanco;
+                                }
+                            }
+                        }
+                    }
+
                     &:last-child {
-                        @include mixins.secciones;
                         @include mixins.flexDirection(column);
                         gap: 2rem;
 
                         div {
                             @include mixins.flexDirection(column);
                             gap: 1rem;
+                            max-height: 50vh;
+                            overflow-y: scroll;
+
+                            @include mixins.mediaQueries(700px) {
+                                font-size: 2.5vw;
+                            }
 
                             ul {
                                 @include mixins.flexDirection(column);
                                 gap: 1rem;
+                                margin-left: 1.5rem;
+                                list-style: disc;
                             }
                         }
                     }
@@ -91,43 +153,21 @@
                 padding: 0;
 
                 > div {
-                    &:first-child {
-                        @include mixins.secciones;
-
-                        @include mixins.mediaQueries(550px) {
-                            flex-wrap: wrap;
-                        }
-
-                        #formularioConsultaAlbaranes {
-                            flex-direction: row;
-
-                            @include mixins.mediaQueries(550px) {
-                                order: 1;
-                            }
-                        }
-
-                        button {
-                            order: 0;
-                            width: 20%;
-
-                            @include mixins.mediaQueries(550px) {
-                                width: 100%;
-                                margin-bottom: 1rem;
-                            }
-                        }
-                    }
-
                     &#mostrarAlbaranes {
                         display: none; //Cambiamos a flex con JavaScript ($("#formularioConsultaAlbaranes").submit --> index.js)
                         flex-direction: column;
                         gap: 2rem;
+
+                        h3 {
+                            width: 80%;
+                        }
 
                         > div {
                             @include mixins.secciones;
 
                             &:first-child {
                                 @include mixins.flexDirection(column);
-                                gap: 1rem;
+                                gap: 1.5rem;
 
                                 > div {
                                     &:first-child {
@@ -151,6 +191,34 @@
                                     }
                                 }
                             }
+
+                            &#resumenVendimia {
+                                padding-bottom: 0;
+                            }
+                        }
+                    }
+                }
+            }
+
+            &#consultaDiasVendimia {
+                background-color: transparent;
+                padding: 0;
+
+                > div {
+                    @include mixins.secciones;
+
+                    &#mostrarDiasVendimia {
+                        display: none; //Cambiamos a flex con JavaScript ($("#formularioConsultaDiasVendimia").submit --> index.js)
+                        flex-direction: column;
+                        gap: 2rem;
+
+                        > div {
+                            @include mixins.flexDirection(column);
+                            gap: 2rem;
+
+                            #tablaDiasVendimia {
+                                height: 37vh;
+                            }
                         }
                     }
                 }
@@ -160,6 +228,62 @@
                 .botones {
                     display: flex;
                     gap: 1rem;
+                }
+            }
+
+            &#consultaDiasVendimia,
+            &#consultaAlbaranes {
+                > div {
+                    &:first-child {
+                        @include mixins.secciones;
+
+                        @include mixins.mediaQueries(800px) {
+                            flex-wrap: wrap;
+                            gap: 1rem;
+                        }
+
+                        @include mixins.mediaQueries(550px) {
+                            gap: 1.5rem;
+                        }
+
+                        form {
+                            background-color: #fffefe;
+                            border-radius: 10px;
+                            width: 80%;
+                            padding: 0;
+
+                            @include mixins.mediaQueries(800px) {
+                                width: 100%;
+                                order: 1;
+                            }
+
+                            div {
+                                &:not(:last-child) {
+                                    width: 40%;
+
+                                    @include mixins.mediaQueries(800px) {
+                                        width: 50%;
+                                    }
+                                    
+                                    @include mixins.mediaQueries(550px) {
+                                        width: 100%;
+                                    }
+                                }
+                            }
+                        }
+
+                        button {
+                            order: 0;
+                            width: 25%;
+
+                            @include mixins.mediaQueries(1200px) {
+                                width: 30%;
+                            }
+                            @include mixins.mediaQueries(800px) {
+                                width: 100%;
+                            }
+                        }
+                    }
                 }
             }
         }

@@ -1,24 +1,36 @@
-/*-------------------- * * * --------------------
-
-  Archivo css que contiene los estilos del pie de página
-  
-  Autor: Arancha Cores López
-  Fecha: 19-10-2024
-  Nombre: _piePagina.scss
-
--------------------- * * * --------------------*/
+//-------------------- * * * --------------------
+//
+//  Archivo css que contiene los estilos del pie de página
+//  
+//  Autor: Arancha Cores López
+//  Fecha: 19-10-2024
+//  Nombre: _piePagina.scss
+//
+//-------------------- * * * --------------------
 //Archivo de las variables
 @use "variables";
 
 //Archivo de mixins
 @use "mixins";
 
-/*---------- Estilos de la cabecera ----------*/
+/*---------- Estilos del pié de página ----------*/
 footer {
     background-color: variables.$color-blanco;
     @include mixins.flexJustifyAlign(space-between, center);
     border-radius: variables.$border-radius;
     padding: 1.5rem;
+
+    @include mixins.mediaQueries(400px){
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    p{
+        @include mixins.mediaQueries(400px){
+            width: 100%;
+            text-align: center;
+        }
+    }
     
     ul {
         display: flex;
@@ -26,6 +38,11 @@ footer {
         @include mixins.mediaQueries(550px){
             flex-direction: column;
             gap: 0.5rem;
+        }
+
+        @include mixins.mediaQueries(400px){
+            width: 100%;
+            text-align: center;
         }
 
         li {

@@ -30,7 +30,7 @@ class Ingresos extends IngresosFacturas{
                 call_user_func_array(array($this, "iniciarUsuario"),$parametros);
                 break;
 
-            case 9:
+            case 10:
                 call_user_func_array(array($this, "establecerEstado"), $parametros);
         }
     }
@@ -60,9 +60,10 @@ class Ingresos extends IngresosFacturas{
      * @param Float $porcentaje
      * @param Float $total
      * @param Boolean $estado
+     * @param Array $archivo
      * @return void
      */
-    private function establecerEstado($numeroIngreso, $dni, $fecha, $concepto, $ingresoBruto, $retencion, $porcentaje, $total, $estado){
+    private function establecerEstado($numeroIngreso, $dni, $fecha, $concepto, $ingresoBruto, $retencion, $porcentaje, $total, $estado, $archivo){
         $this->numeroIngreso = $numeroIngreso;
         $this->dni = $dni;
         $this->fecha = $fecha;
@@ -72,6 +73,7 @@ class Ingresos extends IngresosFacturas{
         $this->porcentaje = $porcentaje;
         $this->total = $total;
         $this->estado = $estado;
+        $this->archivo = $archivo;
     }
 
 
@@ -357,10 +359,17 @@ class Ingresos extends IngresosFacturas{
     public function actualizarIngreso() {
         try {
             if ($this->existeIngreso()){
-                if ($this->archivo == ""){
+                if ($this->archivo['name'] == ""){
                     $sql = "update ingresos set usuario = :usuario, fecha = :fecha, concepto = :concepto, ingreso_bruto = :ingresoBruto, porcentaje_retencion = :porcentajeRetencion, retencion = :retencion, total = :total, estado = :estado where numero_ingreso = :numeroIngreso";
                 } else {
-                    $sql = "update ingresos set usuario = :usuario, fecha = :fecha, concepto = :concepto, ingreso_bruto = :ingresoBruto, porcentaje_retencion = :porcentajeRetencion, retencion = :retencion, total = :total, estado = :estado, archivo = :archivo where numero_ingreso = :numeroIngreso";
+                    if (subirPDF($this->archivo, $this->numeroIngreso)){
+                        $sql = "update ingresos set usuario = :usuario, fecha = :fecha, concepto = :concepto, ingreso_bruto = :ingresoBruto, porcentaje_retencion = :porcentajeRetencion, retencion = :retencion, total = :total, estado = :estado, archivo = :archivo where numero_ingreso = :numeroIngreso";
+
+                        $nombreArchivo = str_replace( "/", "_", $this->numeroIngreso) . ".pdf";
+
+                    } else {
+                        return "Error al subir el archivo";
+                    }
                 }
 
                 $sentencia = $this->conexionBD->prepare($sql);
@@ -374,14 +383,14 @@ class Ingresos extends IngresosFacturas{
                 $sentencia->bindValue(':estado', $this->estado);
                 $sentencia->bindValue(':numeroIngreso', $this->numeroIngreso);
 
-                if ($this->archivo != "") $sentencia->bindValue(':archivo', $this->archivo);
+                if ($this->archivo['name'] != "") $sentencia->bindValue(':archivo', $nombreArchivo);
 
                 $sentencia->execute();
 
                 return $sentencia->rowCount();
             
             } else {
-                return 2;
+                return "El ingreso no existe";
             }
 
         } catch (PDOException $error) {
@@ -408,6 +417,27 @@ class Ingresos extends IngresosFacturas{
 
         } catch (PDOException $error) {
             die("Hubo un error al borrar el ingreso: $error");
+        }
+    }
+
+
+
+    /**
+     * Función que borra todos los ingresos de un usuario
+     *
+     * @param String $dni DNI del usuario
+     * @return Boolean
+     */
+    public function borrarIngresosUsuario($dni){ 
+        try {
+            $sql = "delete from ingresos where usuario = :dni";
+
+            $sentencia = $this->conexionBD->prepare($sql);
+            $sentencia->bindValue('dni', $dni);
+            return $sentencia->execute();
+
+        } catch (PDOException $error) {
+            die("Hubo un error al borrar el albarán: $error");
         }
     }
 

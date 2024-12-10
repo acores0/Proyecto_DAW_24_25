@@ -23,6 +23,26 @@
     background-color: variables.$color-mas-oscuro;
   }
 
+  .notificaciones{
+    width: 60%;
+  }
+
+  .botonLogin{
+    font-size: 1.2vw;
+
+    @include mixins.mediaQueries(1200px){
+      font-size: 1.5vw;
+    }
+
+    @include mixins.mediaQueries(800px){
+      font-size: 2.5vw;
+    }
+
+    @include mixins.mediaQueries(550px){
+      font-size: 3vw;
+    }
+  }
+
   > div {
     display: none;
 
@@ -41,7 +61,7 @@
     height: 100vh;
     transition: all 0.6s ease-in-out;
 
-    @include mixins.mediaQueries(700px) {
+    @include mixins.mediaQueries(800px) {
       width: 100%;
       height: 60%;
       top: auto;
@@ -66,6 +86,7 @@
       &:hover {
         background-color: variables.$color-mas-oscuro;
         color: variables.$color-mas-claro;
+        border: solid 1px variables.$color-mas-claro;
         cursor: pointer;
       }
     }
@@ -87,7 +108,7 @@
       > div {
         border-radius: 50px 0 0 50px;
 
-        @include mixins.mediaQueries(700px) {
+        @include mixins.mediaQueries(800px) {
           border-radius: 0 0 50px 50px;
         }
 
@@ -101,7 +122,7 @@
         @include mixins.flex(row, center, center);
         gap: 3rem;
 
-        @include mixins.mediaQueries(700px) {
+        @include mixins.mediaQueries(800px) {
           margin: 1rem 0 3rem;
         }
 
@@ -128,7 +149,7 @@
               font-size: 2vw;
             }
 
-            @include mixins.mediaQueries(700px) {
+            @include mixins.mediaQueries(800px) {
               font-size: 4vw;
             }
           }
@@ -139,7 +160,7 @@
     &.form-passwd {
       opacity: 0;
 
-      @include mixins.mediaQueries(700px) {
+      @include mixins.mediaQueries(800px) {
         transform: translateX(100%);
       }
 
@@ -151,7 +172,7 @@
         justify-content: space-evenly;
         border-radius: 0 50px 50px 0;
 
-        @include mixins.mediaQueries(700px) {
+        @include mixins.mediaQueries(800px) {
           border-radius: 0 0 50px 50px;
         }
 
@@ -183,10 +204,6 @@
       @include mixins.mediaQueries(1024px) {
         font-size: 2.9rem;
       }
-
-      /*@include mixins.mediaQueries(){
-
-      }*/
     }
 
     > div {
@@ -220,7 +237,7 @@
         width: 96%;
       }
 
-      @include mixins.mediaQueries(700px) {
+      @include mixins.mediaQueries(800px) {
         width: 90%;
         height: 90%;
         justify-content: flex-start;
@@ -266,7 +283,6 @@
         }
 
         label {
-          @include mixins.label;
 
           span {
             font-size: 1.5vw;
@@ -323,7 +339,7 @@
       left: 50%;
       transition: all 0.6s ease-in-out;
 
-      @include mixins.mediaQueries(700px) {
+      @include mixins.mediaQueries(800px) {
         width: 100%;
         height: 40%;
         left: 0;
@@ -360,25 +376,25 @@
           left: 0;
           z-index: 1;
 
-          @include mixins.mediaQueries(700px) {
+          @include mixins.mediaQueries(800px) {
             border-radius: 50px 50px 0 0;
           }
 
           figure {
-            @include mixins.mediaQueries(700px) {
+            @include mixins.mediaQueries(800px) {
               width: 100%;
               text-align: center;
             }
 
             img {
-              @include mixins.mediaQueries(700px) {
+              @include mixins.mediaQueries(800px) {
                 width: 60%;
               }
             }
           }
 
           h2 {
-            @include mixins.mediaQueries(700px) {
+            @include mixins.mediaQueries(800px) {
               font-size: 2.3rem;
             }
           }
@@ -389,7 +405,7 @@
           border-radius: 50px 0 0 50px;
           opacity: 0;
 
-          @include mixins.mediaQueries(700px) {
+          @include mixins.mediaQueries(800px) {
             border-radius: 50px 50px 0 0;
           }
         }
@@ -415,9 +431,10 @@
       transform: translateX(100%);
       opacity: 1;
       z-index: 1;
-      animation: moverLogin 0.6s;
+      -webkit-animation: moverLogin 0.6s;
+              animation: moverLogin 0.6s;
 
-      @include mixins.mediaQueries(700px) {
+      @include mixins.mediaQueries(800px) {
         transform: translateX(0);
       }
 
@@ -429,7 +446,7 @@
     .toggle {
       transform: translateX(-100%);
 
-      @include mixins.mediaQueries(700px) {
+      @include mixins.mediaQueries(800px) {
         transform: none;
       }
 
@@ -444,7 +461,7 @@
           transform: translateX(25%);
         }
 
-        @include mixins.mediaQueries(700px) {
+        @include mixins.mediaQueries(800px) {
           transform: none;
         }
 
@@ -452,7 +469,7 @@
           z-index: 0;
           opacity: 0;
 
-          @include mixins.mediaQueries(700px) {
+          @include mixins.mediaQueries(800px) {
             transform: translateX(100%);
           }
         }

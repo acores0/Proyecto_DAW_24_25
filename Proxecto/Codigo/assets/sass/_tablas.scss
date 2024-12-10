@@ -1,12 +1,13 @@
-/*-------------------- * * * --------------------
+//-------------------- * * * --------------------
+//
+//  Archivo css que contiene los estilos de las tablas
+//  
+//  Autor: Arancha Cores López
+//  Fecha: 21-10-2024
+//  Nombre: _tablas.scss
+//
+//-------------------- * * * --------------------
 
-  Archivo css que contiene los estilos de las tablas
-  
-  Autor: Arancha Cores López
-  Fecha: 21-10-2024
-  Nombre: _tablas.scss
-
--------------------- * * * --------------------*/
 //Archivo de las variables
 @use "variables";
 
@@ -17,7 +18,8 @@
 .tabla {
     overflow: scroll;
     overscroll-behavior-x: contain;
-    scroll-snap-type: x proximity;
+    -ms-scroll-snap-type: x proximity;
+        scroll-snap-type: x proximity;
 
   table {
     width: 100%;
@@ -25,11 +27,11 @@
     text-align: center;
 
     @include mixins.mediaQueries(700px) {
-      font-size: 1.5vw;
+      //font-size: 1.5vw;
     }
 
     @include mixins.mediaQueries(550px){
-      font-size: 2.5vw;
+      font-size: 3.5vw;
     }
 
     th,
@@ -65,7 +67,11 @@
               display: flex;
               background-color: transparent;
               border: solid 1px variables.$color-mas-oscuro;
-              border-radius: 10px;
+              border-radius: variables.$border-radius;
+
+              @include mixins.mediaQueries(900px){
+                border-radius: 6px;
+              }
 
               &:hover {
                 background-color: variables.$color-mas-claro;
@@ -76,12 +82,20 @@
                 color: variables.$color-mas-oscuro;
                 cursor: pointer;
 
-                @include mixins.mediaQueries(1300px){
+                @include mixins.mediaQueries(1500px){
                   font-size: 2.5vw;
                 }
 
-                @include mixins.mediaQueries(800px){
+                @include mixins.mediaQueries(1200px){
                   font-size: 3vw;
+                }
+
+                @include mixins.mediaQueries(1000px){
+                  font-size: 3.5vw;
+                }
+
+                @include mixins.mediaQueries(700px){
+                  font-size: 4vw;
                 }
 
                 @include mixins.mediaQueries(550px){

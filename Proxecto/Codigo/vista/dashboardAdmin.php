@@ -13,12 +13,12 @@
             <div>
                 <h3>Últimos movimientos</h3>
 
-                <div class="tabla">
+                <div id="ultimosMovimientos" class="tabla">
                     <?php mostrarTablaUltimosMovimientos($usuario->getRol(), $listaIngresosFacturas); ?>
                 </div>
 
                 <div class="botones">
-                    <button id="btnEngadirDocumento" class="btnOscuro">Añadir factura / ingreso</button>
+                    <button id="btnEngadirDocumento" class="btnOscuro ventanaModal">Añadir factura / ingreso</button>
                     <button id="btnBorrarDocumento" class="btnClaro">Borrar seleccionados</button>
                 </div>
             </div>
@@ -26,26 +26,7 @@
             <div>
                 <h3>Proveedores de uva</h3>
                 <div class="tabla">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Nombre y apellidos</th>
-                                <th>Total a pagar</th>
-                                <th>Total a cobrar</th>
-                            </tr>
-
-                        </thead>
-                                        
-                        <tbody>
-                            <?php foreach ($listaUsuarios as $datosUsuario) :?>
-                                <tr>
-                                    <td><?php echo $datosUsuario['nombre'] . " " . $datosUsuario['apellidos']; ?></td>
-                                    <td><?php echo ($recolecta->obtenerPendienteCobro($datosUsuario['dni']) == null) ? "0'00" : $recolecta->obtenerPendienteCobro($datosUsuario['dni']); ?>€</td>
-                                    <td><?php echo $facturas->obtenerTotalDeuda($facturas->obtenerFacturasImpagadas("usuario", $datosUsuario['dni']), true); ?>€</td>
-                                </tr>
-                            <?php endforeach?>
-                        </tbody>
-                    </table>
+                    <?php mostrarTablaUsuariosDeuda($listaUsuarios, $recolecta, $facturas); ?>
                 </div>
             </div>
         </div>

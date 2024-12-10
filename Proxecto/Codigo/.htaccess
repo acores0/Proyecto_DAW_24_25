@@ -1,0 +1,13 @@
+RewriteEngine On
+
+# Redirigir la raíz a controlador/login.php
+RewriteRule ^$ controlador/login.php [L]
+
+# Si la solicitud no es un archivo existente
+RewriteCond %{REQUEST_FILENAME} !-f
+
+# Y si la solicitud no es un directorio existente
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Redirigir cualquier otra solicitud a controlador/*
+RewriteRule ^(.*)$ controlador/$1 [L,QSA]

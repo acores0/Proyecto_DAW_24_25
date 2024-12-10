@@ -1,7 +1,7 @@
 <?php mostrarCabecera($usuario->getRol(), "Alta usuario"); ?>
 
 <main>
-    <?php mostrarTituloPagina("Alta usuario", "Da de alta un nuevo usuario"); ?>
+    <?php mostrarTituloPagina("Añadir usuario", "Añade un nuevo usuario"); ?>
 
     <div id="contenido" class="altaUsuario">
         <form id="formularioAltaUsuario">
@@ -10,10 +10,10 @@
                     <img id="imagenUsuario" src="../assets/imagenes/Avatar_perfil.png" alt="Foto de perfil predeterminada">
                 </figure>
 
-                <div class="zonaArrastreImagen">
+                <div class="zonaImagen">
                     <p><span class="cloud-arrow-up-outline"></span></p>
                     <input type="file" name="imagenPerfil" id="imagenPerfil">
-                    <label for="imagenPerfil">Click para añadir una imagen (Opcional)</></label>
+                    <label for="imagenPerfil">Haz clic para añadir una imagen (Opcional)</label>
                 </div>
             </div>
 
@@ -82,9 +82,9 @@
                         <label for="formaPago">Forma de pago:</label>
                         <select name="formaPago" id="formaPago" class="select">
                             <option value="predeterminado">Seleccione una forma de pago</option>
-                            <option value="domiciliado">Domiciliado</option>
-                            <option value="cheque">Cheque</option>
                             <option value="contado">Al contado</option>
+                            <option value="cheque">Cheque</option>
+                            <option value="domiciliado">Domiciliado</option>
                         </select>
                     </div>
 
@@ -103,7 +103,7 @@
         </form>
 
         <div id="engadirParcelas">
-            <div id="parcelas">
+            <div id="listaParcelas">
                 <h3>Listado de parcelas</h3>
 
                 <div class="tabla">
@@ -128,7 +128,7 @@
             </div>
 
             <div id="botones">
-                <button id="btnNuevaParcela" class="btnOscuro" name="btnNuevaParcela">Nueva parcela</button>
+                <button id="btnNuevaParcela" class="btnOscuro ventanaModal" name="btnNuevaParcela">Nueva parcela</button>
                 <button id="btnBorrarParcelas" class="btnClaro" name="btnBorrarParcelas">Borrar seleccionadas</button>
             </div>
         </div>

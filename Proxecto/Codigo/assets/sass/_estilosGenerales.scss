@@ -1,12 +1,12 @@
-/*-------------------- * * * --------------------
-
-  Archivo que contiene los estilos generales de todo el proyecto
-  
-  Autor: Arancha Cores López
-  Fecha: 12-10-2024
-  Nombre: _estilosGenerales.scss
-
--------------------- * * * --------------------*/
+//-------------------- * * * --------------------
+//
+//  Archivo que contiene los estilos generales de todo el proyecto
+//  
+//  Autor: Arancha Cores López
+//  Fecha: 12-10-2024
+//  Nombre: _estilosGenerales.scss
+//
+//-------------------- * * * --------------------
 //Archivo de las variables
 @use "variables";
 
@@ -24,6 +24,9 @@
 
 //Archivo de los estilos de los formularios
 @use "formularios";
+
+//ARchivo de los estilos de las páginas de la normativa
+@use "normativa";
 
 /*-------------------- Estilos generales ---------------------*/
 * {
@@ -44,6 +47,10 @@ body {
 
     @include mixins.mediaQueries(1300px){
         font-size: 1.3vw;
+    }
+
+    @include mixins.mediaQueries(1000px){
+        font-size: 1.7vw;
     }
 
     @include mixins.mediaQueries(800px){
@@ -76,7 +83,7 @@ h3 {
     font-size: 2vw;
 
     @include mixins.mediaQueries(800px){
-        font-size: 3dvw;
+        font-size: 4vw;
     }
 
     @include mixins.mediaQueries(550px) {
@@ -86,6 +93,11 @@ h3 {
 
 a {
     text-decoration: none;
+    color: variables.$color-complementario;
+
+    &:hover{
+        font-weight: 900;
+    }
 }
 
 ul {
@@ -107,10 +119,20 @@ button {
 .btnOscuro {
     @include mixins.boton(variables.$color-oscuro);
     color: variables.$color-blanco;
+
+    &:hover, &:focus{
+        background-color: variables.$color-claro;
+        color: variables.$color-mas-oscuro;
+    }
 }
 
 .btnClaro {
     @include mixins.boton(variables.$color-claro);
+
+    &:hover, &:focus{
+        background-color: variables.$color-oscuro;
+        color: variables.$color-blanco;
+    }
 }
 
 .download-rounded{

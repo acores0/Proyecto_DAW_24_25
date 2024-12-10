@@ -1,12 +1,12 @@
-/*----------- Datos del archivo -----------
-    
-  Archivo que contiene los mixinss del proyecto
-
-  Autor: Arancha Cores López
-  Fecha: 09-10-2024
-  Nombre: _iconos.scss
-
--------------------- * * * --------------------*/
+//----------- Datos del archivo -----------
+//    
+//  Archivo que contiene los mixinss del proyecto
+//
+//  Autor: Arancha Cores López
+//  Fecha: 09-10-2024
+//  Nombre: _iconos.scss
+//
+//-------------------- * * * --------------------
 @use "variables";
 
 @mixin flex($direccion, $justify, $align) {
@@ -116,8 +116,16 @@
   padding: 0 0.5rem;
   background: linear-gradient(180deg, variables.$color-blanco 60%, variables.$color-mas-claro 65%);
 
-  @include mediaQueries(800px){
+  @include mediaQueries(1450px){
     font-size: 1.3vw;
+  }
+
+  @include mediaQueries(1000px){
+    font-size: 1.5vw;
+  }
+
+  @include mediaQueries(800px){
+    font-size: 1.8vw;
   }
 
   @include mediaQueries(550px){
@@ -145,8 +153,16 @@
   border-radius: variables.$border-radius;
   padding: 1rem;
 
-  @include mediaQueries(800px){
+  @include mediaQueries(1450px){
+    font-size: 1.3vw;
+  }
+
+  @include mediaQueries(1000px){
     font-size: 1.5vw;
+  }
+
+  @include mediaQueries(800px){
+    font-size: 1.8vw;
   }
 
   @include mediaQueries(550px){
@@ -161,7 +177,7 @@
   border-radius: variables.$border-radius;
   padding: 1rem;
 
-  @include mediaQueries(800px){
+  @include mediaQueries(900px){
     flex-wrap: wrap;
   }
 }

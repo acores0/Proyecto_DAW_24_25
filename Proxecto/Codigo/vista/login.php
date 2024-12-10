@@ -33,7 +33,7 @@
                 </div>
 
                 <div class="boton">
-                    <input type="submit" name="btnEntrar" id="btnEntrar" class="btnEntrar" value="Entrar">
+                    <input type="submit" name="btnEntrar" id="btnEntrar" class="btnEntrar botonLogin" value="Entrar">
                 </div>
                 
                 <div class="notificaciones"></div>
@@ -63,8 +63,8 @@
                 </div>
 
                 <div class="boton">
-                    <input type="submit" name="btnPasswd" id="btnPasswd" class="btnPasswd" value="Cambiar contraseña">
-                    <button id="btnSesionMovil" class="btnIniciarSesion btnClaro">Iniciar sesión</button>
+                    <input type="submit" name="btnPasswd" id="btnPasswd" class="btnPasswd botonLogin" value="Cambiar contraseña">
+                    <button id="btnSesionMovil" class="btnIniciarSesion botonLogin btnClaro">Iniciar sesión</button>
                 </div>
 
                 <div class="notificaciones"></div>
@@ -83,7 +83,7 @@
 
             <div class="toggle-passwd">
                 <h2>¡Bienvenido a BaseInfoDB3!</h2>
-                <button class="btnIniciarSesion">Iniciar sesión</button>
+                <button class="btnIniciarSesion botonLogin">Iniciar sesión</button>
             </div>
         </div>
     </section>

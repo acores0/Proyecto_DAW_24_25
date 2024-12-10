@@ -1,4 +1,4 @@
-//-------------------- * * * --------------------controlador/controladorConsultaUsuarios.php
+//-------------------- * * * --------------------
 //
 //  Archivo css que contiene los estilos de la cabecera
 //
@@ -27,6 +27,14 @@
         padding: 1rem;
     }
 
+    @include mixins.mediaQueries(900px){
+        width: 20%;
+    }
+
+    @include mixins.mediaQueries(700px){
+        width: 25%;
+    }
+
     @include mixins.mediaQueries(550px) {
         width: 100%;
         background-color: variables.$color-mas-claro;
@@ -37,6 +45,10 @@
             @include mixins.mediaQueries(550px) {
                 display: flex;
                 gap: 8rem;
+            }
+
+            @include mixins.mediaQueries(400px){
+                gap: 5rem;
             }
 
             a {
@@ -99,12 +111,12 @@
 
             &.cerrarMenuPrincipal{
                 margin-left: -100%;
-                transition: all 1s linear;
+                transition: all 0.5s linear;
             }
 
             &.abrirMenuPrincipal{
                 margin: 0;
-                transition: margin 1s linear;
+                transition: margin 0.5s linear;
             }
             
             #cerrarMenuPrincipal{
@@ -119,6 +131,10 @@
                     span{
                         font-size: 10vw;
                         cursor: pointer;
+
+                        @include mixins.mediaQueries(400px){
+                            font-size: 15vw;
+                        }
                     }
                 }
             }
@@ -142,12 +158,20 @@
                             font-size: 1.4vw;
                             color: variables.$color-blanco;
 
-                            @include mixins.mediaQueries(700px) {
-                                font-size: 1.6vw;
+                            @include mixins.mediaQueries(900px) {
+                                font-size: 2vw;
+                            }
+
+                            @include mixins.mediaQueries(700px){
+                                font-size: 2.5vw;
                             }
 
                             @include mixins.mediaQueries(550px){
                                 font-size: 5vw;
+                            }
+
+                            @include mixins.mediaQueries(400px){
+                                font-size: 7vw;
                             }
                         }
                     }
@@ -163,6 +187,10 @@
 
                         @include mixins.mediaQueries(550px){
                             font-size: 10vw;
+                        }
+
+                        @include mixins.mediaQueries(400px){
+                            font-size: 15vw;
                         }
                     }
                 }

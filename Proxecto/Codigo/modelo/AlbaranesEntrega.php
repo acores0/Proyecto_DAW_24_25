@@ -111,10 +111,54 @@ class AlbaranesEntrega{
             }
 
         } catch (PDOException $error) {
-            die("Hubo un error al guardar el albarán $error");
+            die("Hubo un error al guardar el albarán: $error");
         }
     }
 
+
+
+
+
+    /**
+     * Método que actualiza los datos de un albarán
+     *
+     * @return String
+     */
+    public function actualizarAlbaran(){
+        try {
+            if ($this->archivo['name'] == ""){
+                $sql = "update albaranes set usuario = :usuario, parcela = :parcela, grado = :grado, peso_bruto = :pesoBruto, peso_neto = :pesoNeto, cajas = :cajas where numero_albaran = :numeroAlbaran";
+
+            } else {
+                if (subirPDF($this->archivo, $this->numeroAlbaran)){
+                    $sql = "update albaranes set usuario = :usuario, parcela = :parcela, grado = :grado, peso_bruto = :pesoBruto, peso_neto = :pesoNeto, cajas = :cajas, archivo = : where numero_albaran = :numeroAlbaran";
+                    
+                    $nombreArchivo = str_replace( "/", "_", $this->numeroAlbaran) . ".pdf";
+
+                } else {
+                    return "Error al subir el archivo del albarán";
+                }
+            }
+
+            $sentencia = $this->conexionBD->prepare($sql);
+            $sentencia->bindValue(':usuario', $this->usuario);
+            $sentencia->bindValue(':parcela', $this->parcela);
+            $sentencia->bindValue(':grado', $this->grado);
+            $sentencia->bindValue(':pesoBruto', $this->pesoBruto);
+            $sentencia->bindValue(':pesoNeto', $this->pesoNeto);
+            $sentencia->bindValue(':cajas', $this->cajas);
+            $sentencia->bindValue(':numeroAlbaran', $this->numeroAlbaran);
+
+            if ($this->archivo['name'] != "") $sentencia->bindValue(':archivo', $nombreArchivo); 
+
+            $sentencia->execute();
+
+            return $sentencia->rowCount();
+
+        } catch (PDOException $error) {
+            die("Hubo un error al actualizar el albarán: $error");
+        }
+    }
 
 
     /**
@@ -202,10 +246,12 @@ class AlbaranesEntrega{
      */
     public function obtenerAlbaranes($dni, $ano){
         try {
-            $sql = "select a.*, p.nombre from albaranes a
-                join parcelas 
-                p on a.parcela = p.id
-                where a.usuario = :usuario and a.fecha_hora between concat(:ano, '-01-01') and concat(:ano, '-12-31')";
+            $sql = "select a.*, p.nombre 
+                from albaranes a
+                join parcelas p 
+                on a.parcela = p.id
+                where a.usuario = :usuario and a.fecha_hora between concat(:ano, '-01-01') and concat(:ano, '-12-31')
+                order by fecha_hora desc";
     
             $sentencia = $this->conexionBD->prepare($sql);
             $sentencia->bindValue(':usuario', $dni);
@@ -229,9 +275,12 @@ class AlbaranesEntrega{
      */
     public function obtenerDatosAlbaran($numeroAlbaran){
         try {
-            $sql = "select a.*, u.nombre, u.apellidos from albaranes a
+            $sql = "select a.*, u.nombre as nombreUsuario, u.apellidos, p.nombre as nombreParcela
+                from albaranes a
                 join usuarios u 
                 on a.usuario = u.dni
+                left join parcelas p
+                on a.parcela = p.id
                 where numero_albaran = :numeroAlbaran";
     
             $sentencia = $this->conexionBD->prepare($sql);
@@ -253,12 +302,12 @@ class AlbaranesEntrega{
      * @param INT $id ID del albarán a borrar
      * @return INT Número de registros borrados
      */
-    public function borrarAlbaran($id){
+    public function borrarAlbaran($numeroAlbaran){
         try {
-            $sql = "delete from albaranes where id = :id";
+            $sql = "delete from albaranes where numero_albaran = :numeroAlbaran";
     
             $sentencia = $this->conexionBD->prepare($sql);
-            $sentencia->bindValue(':id', $id);
+            $sentencia->bindValue(':numeroAlbaran', $numeroAlbaran);
             $sentencia->execute();
 
             return $sentencia->rowCount();
@@ -268,6 +317,26 @@ class AlbaranesEntrega{
         }
     }
 
+
+
+    /**
+     * Método que borra todos los albaranes de un usaurio
+     *
+     * @param String $dni DNI del usuario
+     * @return Boolean
+     */
+    public function borrarAlbaranesUsuario($dni){
+        try {
+            $sql = "delete from albaranes where usuario = :dni";
+    
+            $sentencia = $this->conexionBD->prepare($sql);
+            $sentencia->bindValue('dni', $dni);
+            return $sentencia->execute();
+
+        } catch (PDOException $error) {
+            die("Hubo un error al borrar los albaranes del usuario: $error");
+        }
+    }
    
 
 

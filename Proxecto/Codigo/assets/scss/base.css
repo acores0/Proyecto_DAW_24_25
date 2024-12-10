@@ -1,16 +1,19 @@
 @charset "UTF-8";
 /*-------------------- * * * --------------------
 
-  Archivo css que contiene los estilos de la aplicación
+  Archivo css que contiene las importaciones de los archivos de estilos que componen el proyecto
 
   Autor: Arancha Cores López
   Fecha: 09-10-2024
   Nombre: base.scss
 
 -------------------- * * * --------------------*/
+@import url("https://fonts.googleapis.com/css2?family=Rokkitt:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Buenard:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Varela&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Martel:wght@200;300;400;600;700;800;900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Varela&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap");
 .apple {
   display: inline-block;
   width: 1em;
@@ -347,28 +350,33 @@
   mask-size: 100% 100%;
 }
 
-.close-outline {
-  display: inline-block;
-  width: 24px;
-  height: 24px;
-  --svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='none' stroke='%23000' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M6 18L17.94 6M18 18L6.06 6'/%3E%3C/svg%3E");
-  background-color: currentColor;
-  -webkit-mask-image: var(--svg);
-  mask-image: var(--svg);
-  -webkit-mask-repeat: no-repeat;
-  mask-repeat: no-repeat;
-  -webkit-mask-size: 100% 100%;
-  mask-size: 100% 100%;
-}
+/*-------------------- * * * --------------------
 
-@-webkit-keyframes notificacionError {
-  2% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 1;
-  }
-}
+  Archivo que contiene los estilos generales de todo el proyecto
+
+  Autor: Arancha Cores López
+  Fecha: 12-10-2024
+  Nombre: _estilosGenerales.scss
+
+-------------------- * * * --------------------*/
+/*-------------------- * * * --------------------
+
+  Archivo que contiene los estilos generales de todo el proyecto
+
+  Autor: Arancha Cores López
+  Fecha: 12-10-2024
+  Nombre: _estilosGenerales.scss
+
+-------------------- * * * --------------------*/
+/*----------- Datos del archivo -----------
+
+  Archivo que contiene los mixinss del proyecto
+
+  Autor: Arancha Cores López
+  Fecha: 09-10-2024
+  Nombre: _iconos.scss
+
+-------------------- * * * --------------------*/
 @keyframes notificacionError {
   2% {
     opacity: 1;
@@ -377,24 +385,9 @@
     opacity: 1;
   }
 }
-@-webkit-keyframes moverBarraError {
-  to {
-    width: 100%;
-  }
-}
 @keyframes moverBarraError {
   to {
     width: 100%;
-  }
-}
-@-webkit-keyframes moverLogin {
-  0%, 49.99% {
-    opacity: 0;
-    z-index: 1;
-  }
-  50%, 100% {
-    opacity: 1;
-    z-index: 5;
   }
 }
 @keyframes moverLogin {
@@ -407,11 +400,28 @@
     z-index: 5;
   }
 }
+/*-------------------- * * * --------------------
+
+  Archivo que contiene los estilos generales de todo el proyecto
+
+  Autor: Arancha Cores López
+  Fecha: 12-10-2024
+  Nombre: _estilosGenerales.scss
+
+-------------------- * * * --------------------*/
+/*-------------------- * * * --------------------
+
+  Archivo css que contiene los estilos de las tablas
+
+  Autor: Arancha Cores López
+  Fecha: 21-10-2024
+  Nombre: _tablas.scss
+
+-------------------- * * * --------------------*/
 /*---------- Estilos de las tablas ----------*/
 .tabla {
   overflow: scroll;
   overscroll-behavior-x: contain;
-  -ms-scroll-snap-type: x proximity;
   scroll-snap-type: x proximity;
 }
 .tabla table {
@@ -419,9 +429,14 @@
   border-collapse: collapse;
   text-align: center;
 }
+@media screen and (max-width: 700px) {
+  .tabla table {
+    font-size: 1.5vw;
+  }
+}
 @media screen and (max-width: 550px) {
   .tabla table {
-    font-size: 3.5vw;
+    font-size: 2.5vw;
   }
 }
 .tabla table th,
@@ -455,11 +470,6 @@
   border: solid 1px #125e52;
   border-radius: 10px;
 }
-@media screen and (max-width: 900px) {
-  .tabla table tbody tr td:last-child button, .tabla table tbody tr td:last-child a {
-    border-radius: 6px;
-  }
-}
 .tabla table tbody tr td:last-child button:hover, .tabla table tbody tr td:last-child a:hover {
   background-color: #eaebd7;
 }
@@ -468,24 +478,14 @@
   color: #125e52;
   cursor: pointer;
 }
-@media screen and (max-width: 1500px) {
+@media screen and (max-width: 1300px) {
   .tabla table tbody tr td:last-child button span, .tabla table tbody tr td:last-child a span {
     font-size: 2.5vw;
   }
 }
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 800px) {
   .tabla table tbody tr td:last-child button span, .tabla table tbody tr td:last-child a span {
     font-size: 3vw;
-  }
-}
-@media screen and (max-width: 1000px) {
-  .tabla table tbody tr td:last-child button span, .tabla table tbody tr td:last-child a span {
-    font-size: 3.5vw;
-  }
-}
-@media screen and (max-width: 700px) {
-  .tabla table tbody tr td:last-child button span, .tabla table tbody tr td:last-child a span {
-    font-size: 4vw;
   }
 }
 @media screen and (max-width: 550px) {
@@ -506,6 +506,15 @@
   color: #125e52;
 }
 
+/*-------------------- * * * --------------------
+
+  Archivo que contiene los estilos generales de todo el proyecto
+
+  Autor: Arancha Cores López
+  Fecha: 12-10-2024
+  Nombre: _estilosGenerales.scss
+
+-------------------- * * * --------------------*/
 /*---------- Estilos de las ventanas modales ----------*/
 dialog {
   width: 60%;
@@ -526,64 +535,28 @@ dialog {
     width: 100%;
   }
 }
-dialog::-webkit-backdrop {
-  background-color: rgba(234, 235, 215, 0.7019607843);
+dialog h2 {
+  margin-bottom: 3rem;
 }
 dialog::backdrop {
   background-color: rgba(234, 235, 215, 0.7019607843);
 }
-dialog .tituloVentana {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  justify-content: flex-end;
-  align-items: center;
-  gap: 2rem;
-  margin-bottom: 3rem;
-}
-dialog .tituloVentana h2 {
-  width: 100%;
+dialog .close-rounded {
   color: #125e52;
-  text-align: center;
-  font-size: 3vw;
-  order: 1;
-}
-@media screen and (max-width: 550px) {
-  dialog .tituloVentana h2 {
-    font-size: 5vw;
-  }
-}
-dialog .tituloVentana p {
-  width: 10%;
-  text-align: center;
-}
-dialog .tituloVentana p .close-rounded {
-  color: #125e52;
-  font-size: 5vw;
-  border: solid 1px transparent;
   cursor: pointer;
-}
-@media screen and (max-width: 550px) {
-  dialog .tituloVentana p .close-rounded {
-    font-size: 9vw;
-  }
-}
-dialog .tituloVentana p .close-rounded:hover {
-  border: solid 1px #125e52;
-  border-radius: 10px;
 }
 dialog form {
   margin: 0 auto;
 }
 dialog .mapa {
   width: 35%;
-  height: 37vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 55vh;
+  padding: 1rem;
   border: solid 1px #125e52;
   border-radius: 10px;
-  padding: 1rem;
 }
 @media screen and (max-width: 1700px) {
   dialog .mapa {
@@ -605,6 +578,39 @@ dialog .mapa {
 }
 dialog .mapa p {
   text-align: center;
+}
+dialog .tituloVentana {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+dialog .tituloVentana h2 {
+  width: 90%;
+  color: #125e52;
+  text-align: center;
+  font-size: 3vw;
+}
+@media screen and (max-width: 550px) {
+  dialog .tituloVentana h2 {
+    font-size: 5vw;
+  }
+}
+dialog .tituloVentana p {
+  width: 10%;
+  text-align: right;
+}
+dialog .tituloVentana p span {
+  font-size: 5vw;
+  border: solid 1px transparent;
+}
+@media screen and (max-width: 550px) {
+  dialog .tituloVentana p span {
+    font-size: 9vw;
+  }
+}
+dialog .tituloVentana p span:hover {
+  border: solid 1px #125e52;
+  border-radius: 10px;
 }
 dialog .contenidoVentana {
   display: flex;
@@ -699,7 +705,7 @@ dialog#modalEngadirFacturaIngreso {
 dialog#modalEngadirFacturaIngreso .contenidoVentana {
   flex-direction: column;
 }
-dialog#modalEngadirFacturaIngreso .contenidoVentana > div:first-child fieldset {
+dialog#modalEngadirFacturaIngreso .contenidoVentana div:first-child fieldset {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -709,23 +715,23 @@ dialog#modalEngadirFacturaIngreso .contenidoVentana > div:first-child fieldset {
   border-radius: 10px;
   padding: 1rem;
 }
-@media screen and (max-width: 900px) {
-  dialog#modalEngadirFacturaIngreso .contenidoVentana > div:first-child fieldset {
+@media screen and (max-width: 800px) {
+  dialog#modalEngadirFacturaIngreso .contenidoVentana div:first-child fieldset {
     flex-wrap: wrap;
   }
 }
-dialog#modalEngadirFacturaIngreso .contenidoVentana > div:first-child fieldset div {
+dialog#modalEngadirFacturaIngreso .contenidoVentana div:first-child fieldset div {
   width: 30%;
   display: flex;
   align-items: center;
 }
-dialog#modalEngadirFacturaIngreso .contenidoVentana > div:first-child fieldset div input {
+dialog#modalEngadirFacturaIngreso .contenidoVentana div:first-child fieldset div input {
   margin-right: 1rem;
 }
-dialog#modalEngadirFacturaIngreso .contenidoVentana > div:last-of-type {
+dialog#modalEngadirFacturaIngreso .contenidoVentana div:last-of-type {
   position: relative;
 }
-dialog#modalEngadirFacturaIngreso .contenidoVentana > div:last-of-type form {
+dialog#modalEngadirFacturaIngreso .contenidoVentana div:last-of-type form {
   width: 100%;
   position: absolute;
   top: 0;
@@ -733,7 +739,7 @@ dialog#modalEngadirFacturaIngreso .contenidoVentana > div:last-of-type form {
   opacity: 0;
   transition: all 0.6s ease-in-out;
 }
-dialog#modalEngadirFacturaIngreso .contenidoVentana > div:last-of-type form.activo {
+dialog#modalEngadirFacturaIngreso .contenidoVentana div:last-of-type form.activo {
   display: flex;
   flex-direction: column;
   gap: 2rem;
@@ -861,7 +867,6 @@ dialog#modalEditarPerfil #formularioEditarPerfil > div:first-child {
   background-color: #eaebd7;
   border-radius: 10px;
   padding: 1rem;
-  flex-wrap: nowrap;
 }
 @media screen and (max-width: 800px) {
   dialog#modalEditarPerfil #formularioEditarPerfil > div:first-child {
@@ -887,12 +892,11 @@ dialog#modalEditarPerfil #formularioEditarPerfil > div:first-child figure img {
     width: 70%;
   }
 }
-dialog#modalEditarPerfil #formularioEditarPerfil > div:first-child .zonaImagen {
+dialog#modalEditarPerfil #formularioEditarPerfil > div:first-child .zonaArrastreImagen {
   width: 50%;
-  border: solid 2px #125e52;
 }
 @media screen and (max-width: 800px) {
-  dialog#modalEditarPerfil #formularioEditarPerfil > div:first-child .zonaImagen {
+  dialog#modalEditarPerfil #formularioEditarPerfil > div:first-child .zonaArrastreImagen {
     width: 100%;
   }
 }
@@ -916,6 +920,15 @@ dialog#modalEditarPrecio input {
   }
 }
 
+/*-------------------- * * * --------------------
+
+  Archivo que contiene los estilos generales de todo el proyecto
+
+  Autor: Arancha Cores López
+  Fecha: 12-10-2024
+  Nombre: _estilosGenerales.scss
+
+-------------------- * * * --------------------*/
 /*---------- Estilos de las formularios ----------*/
 form {
   display: flex;
@@ -923,52 +936,6 @@ form {
   justify-content: center;
   align-items: center;
   gap: 2.5rem;
-}
-form.formularioConsulta {
-  background-color: #fffefe;
-  border-radius: 10px;
-  padding: 2rem;
-  flex-direction: row;
-  justify-content: flex-start;
-}
-@media screen and (max-width: 1100px) {
-  form.formularioConsulta {
-    padding: 1.5rem;
-  }
-}
-@media screen and (max-width: 800px) {
-  form.formularioConsulta {
-    padding: 1rem;
-  }
-}
-@media screen and (max-width: 550px) {
-  form.formularioConsulta {
-    flex-wrap: wrap;
-    gap: 1rem;
-  }
-}
-form.formularioConsulta > div:not(:last-child) {
-  width: 20%;
-}
-@media screen and (max-width: 1400px) {
-  form.formularioConsulta > div:not(:last-child) {
-    width: 25%;
-  }
-}
-@media screen and (max-width: 1100px) {
-  form.formularioConsulta > div:not(:last-child) {
-    width: 30%;
-  }
-}
-@media screen and (max-width: 900px) {
-  form.formularioConsulta > div:not(:last-child) {
-    width: 50%;
-  }
-}
-@media screen and (max-width: 550px) {
-  form.formularioConsulta > div:not(:last-child) {
-    width: 100%;
-  }
 }
 form div {
   width: 100%;
@@ -986,21 +953,11 @@ form div:has(> select) {
   border: none;
   border-radius: 10px;
   padding: 1rem;
-  padding: 0.5rem 1.5rem;
-}
-@media screen and (max-width: 1450px) {
-  form div:has(> select) {
-    font-size: 1.3vw;
-  }
-}
-@media screen and (max-width: 1000px) {
-  form div:has(> select) {
-    font-size: 1.5vw;
-  }
+  padding: 0.5rem 1rem;
 }
 @media screen and (max-width: 800px) {
   form div:has(> select) {
-    font-size: 1.8vw;
+    font-size: 1.5vw;
   }
 }
 @media screen and (max-width: 550px) {
@@ -1013,11 +970,6 @@ form div:has(> select) {
     flex-wrap: wrap;
   }
 }
-@media screen and (max-width: 1000px) {
-  form div:has(> select) {
-    padding: 1rem;
-  }
-}
 @media screen and (max-width: 800px) {
   form div:has(> select) {
     padding: 1rem;
@@ -1027,7 +979,6 @@ form div:has(input[type=file]) {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 1rem;
   width: 100%;
   background-color: #eaebd7;
   font-size: 1vw;
@@ -1036,19 +987,9 @@ form div:has(input[type=file]) {
   border-radius: 10px;
   padding: 1rem;
 }
-@media screen and (max-width: 1450px) {
-  form div:has(input[type=file]) {
-    font-size: 1.3vw;
-  }
-}
-@media screen and (max-width: 1000px) {
-  form div:has(input[type=file]) {
-    font-size: 1.5vw;
-  }
-}
 @media screen and (max-width: 800px) {
   form div:has(input[type=file]) {
-    font-size: 1.8vw;
+    font-size: 1.5vw;
   }
 }
 @media screen and (max-width: 550px) {
@@ -1060,9 +1001,9 @@ form div:has(input[type=file]) label {
   margin-right: 1rem;
 }
 form div:has(input[type=file]) p {
-  width: 100%;
+  margin-top: 1rem;
 }
-form .zonaImagen {
+form .zonaArrastreImagen {
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
@@ -1073,28 +1014,25 @@ form .zonaImagen {
   padding: 1rem;
 }
 @media screen and (max-width: 800px) {
-  form .zonaImagen {
+  form .zonaArrastreImagen {
     gap: 0.5rem;
   }
 }
-form .zonaImagen p {
-  text-align: center;
-}
 @media screen and (max-width: 800px) {
-  form .zonaImagen p {
+  form .zonaArrastreImagen p {
     margin: 0;
   }
 }
-form .zonaImagen p span {
+form .zonaArrastreImagen p span {
   font-size: 5rem;
   color: #125e52;
 }
 @media screen and (max-width: 800px) {
-  form .zonaImagen p span {
+  form .zonaArrastreImagen p span {
     font-size: 4rem;
   }
 }
-form .zonaImagen input[type=file] {
+form .zonaArrastreImagen input[type=file] {
   width: 100%;
   height: 100%;
   position: absolute;
@@ -1102,7 +1040,7 @@ form .zonaImagen input[type=file] {
   left: 0;
   opacity: 0;
 }
-form .zonaImagen input[type=file] ~ label {
+form .zonaArrastreImagen input[type=file] ~ label {
   display: block;
   position: static;
   transform: none;
@@ -1119,7 +1057,7 @@ form fieldset {
   border-radius: 10px;
   padding: 1rem;
 }
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 800px) {
   form fieldset {
     flex-wrap: wrap;
   }
@@ -1136,19 +1074,9 @@ form input:not([type=radio]):not([type=file]):not([type=submit]) {
   border-radius: 10px;
   padding: 1rem;
 }
-@media screen and (max-width: 1450px) {
-  form input:not([type=radio]):not([type=file]):not([type=submit]) {
-    font-size: 1.3vw;
-  }
-}
-@media screen and (max-width: 1000px) {
-  form input:not([type=radio]):not([type=file]):not([type=submit]) {
-    font-size: 1.5vw;
-  }
-}
 @media screen and (max-width: 800px) {
   form input:not([type=radio]):not([type=file]):not([type=submit]) {
-    font-size: 1.8vw;
+    font-size: 1.5vw;
   }
 }
 @media screen and (max-width: 550px) {
@@ -1166,19 +1094,9 @@ form input:not([type=radio]):not([type=file]):not([type=submit]):focus ~ label, 
   padding: 0 0.5rem;
   background: linear-gradient(180deg, #fffefe 60%, #eaebd7 65%);
 }
-@media screen and (max-width: 1450px) {
-  form input:not([type=radio]):not([type=file]):not([type=submit]):focus ~ label, form input:not([type=radio]):not([type=file]):not([type=submit]):valid ~ label {
-    font-size: 1.3vw;
-  }
-}
-@media screen and (max-width: 1000px) {
-  form input:not([type=radio]):not([type=file]):not([type=submit]):focus ~ label, form input:not([type=radio]):not([type=file]):not([type=submit]):valid ~ label {
-    font-size: 1.5vw;
-  }
-}
 @media screen and (max-width: 800px) {
   form input:not([type=radio]):not([type=file]):not([type=submit]):focus ~ label, form input:not([type=radio]):not([type=file]):not([type=submit]):valid ~ label {
-    font-size: 1.8vw;
+    font-size: 1.3vw;
   }
 }
 @media screen and (max-width: 550px) {
@@ -1200,26 +1118,6 @@ form input[type=submit] {
 form input[type=file] {
   font-size: 1.2vw;
 }
-@media screen and (max-width: 1000px) {
-  form input[type=file] {
-    font-size: 1.5vw;
-  }
-}
-@media screen and (max-width: 800px) {
-  form input[type=file] {
-    font-size: 1.8vw;
-  }
-}
-@media screen and (max-width: 650px) {
-  form input[type=file] {
-    font-size: 2vw;
-  }
-}
-@media screen and (max-width: 550px) {
-  form input[type=file] {
-    font-size: 2.5vw;
-  }
-}
 form input[type=radio] {
   accent-color: #125e52;
 }
@@ -1233,19 +1131,9 @@ form input.campoInvalido ~ label {
   padding: 0 0.5rem;
   background: linear-gradient(180deg, #fffefe 60%, #eaebd7 65%);
 }
-@media screen and (max-width: 1450px) {
-  form input.campoInvalido ~ label {
-    font-size: 1.3vw;
-  }
-}
-@media screen and (max-width: 1000px) {
-  form input.campoInvalido ~ label {
-    font-size: 1.5vw;
-  }
-}
 @media screen and (max-width: 800px) {
   form input.campoInvalido ~ label {
-    font-size: 1.8vw;
+    font-size: 1.3vw;
   }
 }
 @media screen and (max-width: 550px) {
@@ -1253,7 +1141,7 @@ form input.campoInvalido ~ label {
     font-size: 2.5vw;
   }
 }
-form input:disabled ~ label.inputCubierto {
+form input:disabled ~ label {
   background: linear-gradient(180deg, #fffefe 60%, #e0e5df 65%);
 }
 form label {
@@ -1274,9 +1162,9 @@ form label:has(~ select), form label:has(~ input[type=file]) {
   position: static;
   transform: none;
 }
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1100px) {
   form label:has(~ select), form label:has(~ input[type=file]) {
-    font-size: 1.5vw;
+    font-size: 1.2vw;
   }
 }
 @media screen and (max-width: 800px) {
@@ -1296,19 +1184,9 @@ form label.inputCubierto {
   padding: 0 0.5rem;
   background: linear-gradient(180deg, #fffefe 60%, #eaebd7 65%);
 }
-@media screen and (max-width: 1450px) {
-  form label.inputCubierto {
-    font-size: 1.3vw;
-  }
-}
-@media screen and (max-width: 1000px) {
-  form label.inputCubierto {
-    font-size: 1.5vw;
-  }
-}
 @media screen and (max-width: 800px) {
   form label.inputCubierto {
-    font-size: 1.8vw;
+    font-size: 1.3vw;
   }
 }
 @media screen and (max-width: 550px) {
@@ -1323,15 +1201,10 @@ form select {
   border-radius: 10px;
   padding: 1rem;
 }
-@media screen and (max-width: 1450px) {
-  form select {
-    font-size: 1.3vw;
-  }
-}
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1100px) {
   form select {
     padding: 0;
-    font-size: 1.5vw;
+    font-size: 1.2vw;
   }
 }
 @media screen and (max-width: 800px) {
@@ -1393,8 +1266,7 @@ form .notificaciones .exito {
   align-items: center;
   gap: 2rem;
   box-shadow: 7px 7px 33px 0px rgba(0, 0, 0, 0.5);
-  -webkit-animation: notificacionError 10s ease;
-  animation: notificacionError 10s ease;
+  animation: notificacionError 5s ease;
   opacity: 0;
 }
 @media screen and (max-width: 1100px) {
@@ -1419,8 +1291,7 @@ form .notificaciones .exito::before {
   position: absolute;
   bottom: 0;
   right: 0;
-  -webkit-animation: moverBarraError 10s linear;
-  animation: moverBarraError 10s linear;
+  animation: moverBarraError 5s linear;
 }
 form .notificaciones .error div:first-child, form .notificaciones .error div:last-child,
 form .notificaciones .exito div:first-child,
@@ -1450,15 +1321,15 @@ form .notificaciones .exito div:nth-child(2) p:first-child {
     font-size: 3.2vw;
   }
 }
-form .notificaciones .error div span.close-outline,
-form .notificaciones .exito div span.close-outline {
+form .notificaciones .error div span.close-rounded,
+form .notificaciones .exito div span.close-rounded {
   color: #125e52;
-  font-size: 2vw;
+  font-size: 1.5vw;
   cursor: pointer;
 }
 @media screen and (max-width: 550px) {
-  form .notificaciones .error div span.close-outline,
-  form .notificaciones .exito div span.close-outline {
+  form .notificaciones .error div span.close-rounded,
+  form .notificaciones .exito div span.close-rounded {
     font-size: 3.5vw;
   }
 }
@@ -1483,69 +1354,6 @@ form .notificaciones .exito div span.checkmark-filled {
   color: #125e52;
 }
 
-/*---------- Estilos de las tablas ----------*/
-.normativa > div ul {
-  list-style: disc;
-  margin-left: 2rem;
-}
-.normativa article {
-  display: flex;
-  flex-direction: column;
-  gap: 0.9rem;
-}
-.normativa article h3 {
-  font-size: 1.5vw;
-  font-weight: bold;
-}
-
-.avisoLegal > div {
-  background-color: #fffefe;
-  border-radius: 10px;
-  padding: 2rem;
-}
-@media screen and (max-width: 1100px) {
-  .avisoLegal > div {
-    padding: 1.5rem;
-  }
-}
-@media screen and (max-width: 800px) {
-  .avisoLegal > div {
-    padding: 1rem;
-  }
-}
-.avisoLegal > div:first-child ul {
-  margin-top: 1rem;
-}
-.avisoLegal > div:last-child {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-.politicaPrivacidad > div {
-  background-color: #fffefe;
-  border-radius: 10px;
-  padding: 2rem;
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-@media screen and (max-width: 1100px) {
-  .politicaPrivacidad > div {
-    padding: 1.5rem;
-  }
-}
-@media screen and (max-width: 800px) {
-  .politicaPrivacidad > div {
-    padding: 1rem;
-  }
-}
-.politicaPrivacidad > div div {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-
 /*-------------------- Estilos generales ---------------------*/
 * {
   margin: 0;
@@ -1565,11 +1373,6 @@ body {
 @media screen and (max-width: 1300px) {
   body {
     font-size: 1.3vw;
-  }
-}
-@media screen and (max-width: 1000px) {
-  body {
-    font-size: 1.7vw;
   }
 }
 @media screen and (max-width: 800px) {
@@ -1606,7 +1409,7 @@ h3 {
 }
 @media screen and (max-width: 800px) {
   h3 {
-    font-size: 4vw;
+    font-size: 3dvw;
   }
 }
 @media screen and (max-width: 550px) {
@@ -1617,10 +1420,6 @@ h3 {
 
 a {
   text-decoration: none;
-  color: #5e121e;
-}
-a:hover {
-  font-weight: 900;
 }
 
 ul {
@@ -1726,6 +1525,15 @@ button {
   cursor: pointer;
 }
 
+/*-------------------- * * * --------------------
+
+  Archivo que contiene los estilos generales de todo el proyecto
+
+  Autor: Arancha Cores López
+  Fecha: 12-10-2024
+  Nombre: _estilosGenerales.scss
+
+-------------------- * * * --------------------*/
 /*---------- Estilos de login ----------*/
 #login {
   position: relative;
@@ -1738,24 +1546,6 @@ button {
 }
 #login .notificaciones {
   width: 60%;
-}
-#login .botonLogin {
-  font-size: 1.2vw;
-}
-@media screen and (max-width: 1200px) {
-  #login .botonLogin {
-    font-size: 1.5vw;
-  }
-}
-@media screen and (max-width: 800px) {
-  #login .botonLogin {
-    font-size: 2.5vw;
-  }
-}
-@media screen and (max-width: 550px) {
-  #login .botonLogin {
-    font-size: 3vw;
-  }
 }
 #login > div {
   display: none;
@@ -1778,7 +1568,7 @@ button {
   height: 100vh;
   transition: all 0.6s ease-in-out;
 }
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 700px) {
   #login section {
     width: 100%;
     height: 60%;
@@ -1828,7 +1618,7 @@ button {
 #login section.form-login > div {
   border-radius: 50px 0 0 50px;
 }
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 700px) {
   #login section.form-login > div {
     border-radius: 0 0 50px 50px;
   }
@@ -1846,7 +1636,7 @@ button {
   align-items: center;
   gap: 3rem;
 }
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 700px) {
   #login section.form-login ul {
     margin: 1rem 0 3rem;
   }
@@ -1876,7 +1666,7 @@ button {
     font-size: 2vw;
   }
 }
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 700px) {
   #login section.form-login ul li span {
     font-size: 4vw;
   }
@@ -1884,7 +1674,7 @@ button {
 #login section.form-passwd {
   opacity: 0;
 }
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 700px) {
   #login section.form-passwd {
     transform: translateX(100%);
   }
@@ -1898,7 +1688,7 @@ button {
   justify-content: space-evenly;
   border-radius: 0 50px 50px 0;
 }
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 700px) {
   #login section.form-passwd > div {
     border-radius: 0 0 50px 50px;
   }
@@ -1922,6 +1712,9 @@ button {
   text-transform: capitalize;
   text-align: center;
   font-size: 4rem;
+  /*@include mixins.mediaQueries(){
+
+  }*/
 }
 @media screen and (max-width: 1280px) {
   #login section h2 {
@@ -1969,7 +1762,7 @@ button {
     width: 96%;
   }
 }
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 700px) {
   #login section > div {
     width: 90%;
     height: 90%;
@@ -2015,19 +1808,9 @@ button {
   padding: 0 0.5rem;
   background: linear-gradient(180deg, #fffefe 60%, #eaebd7 65%);
 }
-@media screen and (max-width: 1450px) {
-  #login section form div:not([class=notificaciones]) input:focus ~ label, #login section form div:not([class=notificaciones]) input:valid ~ label {
-    font-size: 1.3vw;
-  }
-}
-@media screen and (max-width: 1000px) {
-  #login section form div:not([class=notificaciones]) input:focus ~ label, #login section form div:not([class=notificaciones]) input:valid ~ label {
-    font-size: 1.5vw;
-  }
-}
 @media screen and (max-width: 800px) {
   #login section form div:not([class=notificaciones]) input:focus ~ label, #login section form div:not([class=notificaciones]) input:valid ~ label {
-    font-size: 1.8vw;
+    font-size: 1.3vw;
   }
 }
 @media screen and (max-width: 550px) {
@@ -2037,6 +1820,16 @@ button {
 }
 #login section form div:not([class=notificaciones]) input:focus ~ label span, #login section form div:not([class=notificaciones]) input:valid ~ label span {
   display: none;
+}
+#login section form div:not([class=notificaciones]) label {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 3%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  transition: 0.3s;
 }
 #login section form div:not([class=notificaciones]) label span {
   font-size: 1.5vw;
@@ -2089,7 +1882,7 @@ button {
   left: 50%;
   transition: all 0.6s ease-in-out;
 }
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 700px) {
   #login section.toggle {
     width: 100%;
     height: 40%;
@@ -2131,23 +1924,23 @@ button {
   left: 0;
   z-index: 1;
 }
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 700px) {
   #login section.toggle > div div.toggle-login {
     border-radius: 50px 50px 0 0;
   }
 }
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 700px) {
   #login section.toggle > div div.toggle-login figure {
     width: 100%;
     text-align: center;
   }
 }
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 700px) {
   #login section.toggle > div div.toggle-login figure img {
     width: 60%;
   }
 }
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 700px) {
   #login section.toggle > div div.toggle-login h2 {
     font-size: 2.3rem;
   }
@@ -2157,7 +1950,7 @@ button {
   border-radius: 50px 0 0 50px;
   opacity: 0;
 }
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 700px) {
   #login section.toggle > div div.toggle-passwd {
     border-radius: 50px 50px 0 0;
   }
@@ -2178,10 +1971,9 @@ button {
   transform: translateX(100%);
   opacity: 1;
   z-index: 1;
-  -webkit-animation: moverLogin 0.6s;
   animation: moverLogin 0.6s;
 }
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 700px) {
   #login.cambiarContrasinal .form-passwd {
     transform: translateX(0);
   }
@@ -2192,7 +1984,7 @@ button {
 #login.cambiarContrasinal .toggle {
   transform: translateX(-100%);
 }
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 700px) {
   #login.cambiarContrasinal .toggle {
     transform: none;
   }
@@ -2210,7 +2002,7 @@ button {
     transform: translateX(25%);
   }
 }
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 700px) {
   #login.cambiarContrasinal .toggle > div {
     transform: none;
   }
@@ -2219,7 +2011,7 @@ button {
   z-index: 0;
   opacity: 0;
 }
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 700px) {
   #login.cambiarContrasinal .toggle > div .toggle-login {
     transform: translateX(100%);
   }
@@ -2230,6 +2022,15 @@ button {
   transform: translateX(-100%);
 }
 
+/*-------------------- * * * --------------------
+
+  Archivo que contiene los estilos generales de todo el proyecto
+
+  Autor: Arancha Cores López
+  Fecha: 12-10-2024
+  Nombre: _estilosGenerales.scss
+
+-------------------- * * * --------------------*/
 /*---------- Estilos de la cabecera ----------*/
 #cabeceraPrincipal {
   width: 15%;
@@ -2247,16 +2048,6 @@ button {
     padding: 1rem;
   }
 }
-@media screen and (max-width: 900px) {
-  #cabeceraPrincipal {
-    width: 20%;
-  }
-}
-@media screen and (max-width: 700px) {
-  #cabeceraPrincipal {
-    width: 25%;
-  }
-}
 @media screen and (max-width: 550px) {
   #cabeceraPrincipal {
     width: 100%;
@@ -2267,11 +2058,6 @@ button {
   #cabeceraPrincipal > div:first-child {
     display: flex;
     gap: 8rem;
-  }
-}
-@media screen and (max-width: 400px) {
-  #cabeceraPrincipal > div:first-child {
-    gap: 5rem;
   }
 }
 @media screen and (max-width: 550px) {
@@ -2336,11 +2122,11 @@ button {
 }
 #cabeceraPrincipal > div#menuPrincipal.cerrarMenuPrincipal {
   margin-left: -100%;
-  transition: all 0.5s linear;
+  transition: all 1s linear;
 }
 #cabeceraPrincipal > div#menuPrincipal.abrirMenuPrincipal {
   margin: 0;
-  transition: margin 0.5s linear;
+  transition: margin 1s linear;
 }
 #cabeceraPrincipal > div#menuPrincipal #cerrarMenuPrincipal {
   display: none;
@@ -2354,11 +2140,6 @@ button {
 #cabeceraPrincipal > div#menuPrincipal #cerrarMenuPrincipal p span {
   font-size: 10vw;
   cursor: pointer;
-}
-@media screen and (max-width: 400px) {
-  #cabeceraPrincipal > div#menuPrincipal #cerrarMenuPrincipal p span {
-    font-size: 15vw;
-  }
 }
 @media screen and (max-width: 550px) {
   #cabeceraPrincipal > div#menuPrincipal nav {
@@ -2380,24 +2161,14 @@ button {
   font-size: 1.4vw;
   color: #fffefe;
 }
-@media screen and (max-width: 900px) {
-  #cabeceraPrincipal > div#menuPrincipal nav ul li a {
-    font-size: 2vw;
-  }
-}
 @media screen and (max-width: 700px) {
   #cabeceraPrincipal > div#menuPrincipal nav ul li a {
-    font-size: 2.5vw;
+    font-size: 1.6vw;
   }
 }
 @media screen and (max-width: 550px) {
   #cabeceraPrincipal > div#menuPrincipal nav ul li a {
     font-size: 5vw;
-  }
-}
-@media screen and (max-width: 400px) {
-  #cabeceraPrincipal > div#menuPrincipal nav ul li a {
-    font-size: 7vw;
   }
 }
 #cabeceraPrincipal > div#menuPrincipal p a {
@@ -2411,12 +2182,25 @@ button {
     font-size: 10vw;
   }
 }
-@media screen and (max-width: 400px) {
-  #cabeceraPrincipal > div#menuPrincipal p a span {
-    font-size: 15vw;
-  }
-}
 
+/*-------------------- * * * --------------------
+
+  Archivo que contiene los estilos generales de todo el proyecto
+
+  Autor: Arancha Cores López
+  Fecha: 12-10-2024
+  Nombre: _estilosGenerales.scss
+
+-------------------- * * * --------------------*/
+/*-------------------- * * * --------------------
+
+  Archivo que contiene los estilos generales de todo el proyecto
+
+  Autor: Arancha Cores López
+  Fecha: 12-10-2024
+  Nombre: _estilosGenerales.scss
+
+-------------------- * * * --------------------*/
 /*---------- Estilos del dashboard ----------*/
 .dashboard {
   display: flex;
@@ -2477,13 +2261,8 @@ button {
   justify-content: center;
   align-items: center;
   background-color: #eaebd7;
-  border-radius: 10px;
   padding: 1rem;
-}
-@media screen and (max-width: 1500px) {
-  .dashboard section article > p {
-    padding: 0.5rem;
-  }
+  border-radius: 10px;
 }
 @media screen and (max-width: 800px) {
   .dashboard section article > p {
@@ -2494,19 +2273,14 @@ button {
   font-size: 2vw;
   color: #125e52;
 }
-@media screen and (max-width: 1500px) {
-  .dashboard section article > p span {
-    font-size: 2.5vw;
-  }
-}
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 800px) {
   .dashboard section article > p span {
     font-size: 3vw;
   }
 }
 @media screen and (max-width: 550px) {
   .dashboard section article > p span {
-    font-size: 8vw;
+    font-size: 4vw;
   }
 }
 .dashboard section article div {
@@ -2518,7 +2292,7 @@ button {
 }
 .dashboard section article div p:first-child {
   color: #125e52;
-  font-size: 1.6vw;
+  font-size: 2vw;
 }
 @media screen and (max-width: 700px) {
   .dashboard section article div p:first-child {
@@ -2626,7 +2400,7 @@ button {
   }
 }
 #dashboardAdmin > div:first-of-type .tabla {
-  height: 27vh;
+  height: 20vh;
   flex-grow: 1;
 }
 #dashboardAdmin .botones {
@@ -2681,6 +2455,15 @@ button {
   margin-bottom: 1rem;
 }
 
+/*-------------------- * * * --------------------
+
+  Archivo que contiene los estilos generales de todo el proyecto
+
+  Autor: Arancha Cores López
+  Fecha: 12-10-2024
+  Nombre: _estilosGenerales.scss
+
+-------------------- * * * --------------------*/
 /*-------------------- CSS Mi perfil -------------------*/
 .datosPerfil {
   display: flex;
@@ -2902,6 +2685,15 @@ button {
   }
 }
 
+/*-------------------- * * * --------------------
+
+  Archivo que contiene los estilos generales de todo el proyecto
+
+  Autor: Arancha Cores López
+  Fecha: 12-10-2024
+  Nombre: _estilosGenerales.scss
+
+-------------------- * * * --------------------*/
 /*---------- Estilos de la página de alta de usuario ----------*/
 .altaUsuario > form {
   display: flex;
@@ -2967,11 +2759,6 @@ button {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-}
-@media screen and (max-width: 550px) {
-  .altaUsuario > form > div:nth-child(2) {
-    width: 100%;
-  }
 }
 .altaUsuario > form > div:nth-child(2) div:has(select) {
   display: flex;
@@ -3062,14 +2849,62 @@ button {
   }
 }
 
+/*-------------------- * * * --------------------
+
+  Archivo que contiene los estilos generales de todo el proyecto
+
+  Autor: Arancha Cores López
+  Fecha: 12-10-2024
+  Nombre: _estilosGenerales.scss
+
+-------------------- * * * --------------------*/
 /*---------- Estilos de la página de consulta de usuarios ----------*/
 .consultaUsuarios {
   justify-content: space-between;
 }
+.consultaUsuarios #formularioConsultaUsuarios {
+  background-color: #fffefe;
+  border-radius: 10px;
+  padding: 2rem;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+@media screen and (max-width: 1100px) {
+  .consultaUsuarios #formularioConsultaUsuarios {
+    padding: 1.5rem;
+  }
+}
+@media screen and (max-width: 800px) {
+  .consultaUsuarios #formularioConsultaUsuarios {
+    padding: 1rem;
+  }
+}
+.consultaUsuarios #formularioConsultaUsuarios div:not(.notificaciones):not(.error) {
+  width: 20%;
+}
+@media screen and (max-width: 1100px) {
+  .consultaUsuarios #formularioConsultaUsuarios div:not(.notificaciones):not(.error) {
+    width: 30%;
+  }
+}
+@media screen and (max-width: 550px) {
+  .consultaUsuarios #formularioConsultaUsuarios div:not(.notificaciones):not(.error) {
+    width: 100%;
+  }
+}
 .consultaUsuarios .datosPerfil .tabla {
-  height: 10vh;
+  height: 35vh;
 }
 
+/*-------------------- * * * --------------------
+
+  Archivo que contiene los estilos generales de todo el proyecto
+
+  Autor: Arancha Cores López
+  Fecha: 12-10-2024
+  Nombre: _estilosGenerales.scss
+
+-------------------- * * * --------------------*/
 /*---------- Estilos de la página ----------*/
 .menuSecciones {
   margin-bottom: 1rem;
@@ -3079,22 +2914,17 @@ button {
   justify-content: flex-start;
   gap: 1.5rem;
 }
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 700px) {
   .menuSecciones ul {
-    gap: 1rem;
+    gap: 0;
     justify-content: space-between;
-    align-items: center;
-  }
-}
-@media screen and (max-width: 800px) {
-  .menuSecciones ul {
-    flex-wrap: wrap;
   }
 }
 @media screen and (max-width: 550px) {
   .menuSecciones ul {
     gap: 0.5rem;
     justify-content: center;
+    flex-wrap: wrap;
   }
 }
 .menuSecciones ul li {
@@ -3107,31 +2937,19 @@ button {
 }
 @media screen and (max-width: 1000px) {
   .menuSecciones ul li {
-    width: 25%;
-    padding: 1.5rem;
+    padding: 1rem 3rem;
   }
 }
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 700px) {
   .menuSecciones ul li {
-    width: 48%;
     font-size: 2.3vw;
-  }
-}
-@media screen and (max-width: 600px) {
-  .menuSecciones ul li {
-    font-size: 3vw;
   }
 }
 @media screen and (max-width: 550px) {
   .menuSecciones ul li {
+    width: 49%;
     font-weight: 900;
     font-size: 5vw;
-    padding: 0.9rem;
-  }
-}
-@media screen and (max-width: 450px) {
-  .menuSecciones ul li {
-    width: 100%;
   }
 }
 .menuSecciones ul li.activo {
@@ -3140,16 +2958,17 @@ button {
 .menuSecciones ul li:last-child {
   margin-right: 0;
 }
+@media screen and (max-width: 550px) {
+  .menuSecciones ul li:last-child {
+    width: 100%;
+  }
+}
 
 .secciones {
   position: relative;
   flex-grow: 1;
+  overflow-y: scroll;
   overflow-x: hidden;
-}
-@media screen and (max-width: 550px) {
-  .secciones {
-    height: 47vh;
-  }
 }
 .secciones section {
   width: 100%;
@@ -3207,149 +3026,94 @@ button {
 }
 .secciones section#facturas .tabla, .secciones section#ingresos .tabla {
   flex-grow: 1;
-  height: 30vh;
+  height: 55vh;
 }
-.secciones section#facturas #btnBorrarIngresos, .secciones section#facturas #btnBorrarFacturas, .secciones section#ingresos #btnBorrarIngresos, .secciones section#ingresos #btnBorrarFacturas {
-  width: 20%;
+
+.consultaDocumentos form {
+  background-color: #fffefe;
+  border-radius: 10px;
+  padding: 2rem;
+  flex-direction: row;
+  justify-content: flex-start;
 }
-@media screen and (max-width: 1300px) {
-  .secciones section#facturas #btnBorrarIngresos, .secciones section#facturas #btnBorrarFacturas, .secciones section#ingresos #btnBorrarIngresos, .secciones section#ingresos #btnBorrarFacturas {
-    width: 30%;
+@media screen and (max-width: 1100px) {
+  .consultaDocumentos form {
+    padding: 1.5rem;
   }
 }
 @media screen and (max-width: 800px) {
-  .secciones section#facturas #btnBorrarIngresos, .secciones section#facturas #btnBorrarFacturas, .secciones section#ingresos #btnBorrarIngresos, .secciones section#ingresos #btnBorrarFacturas {
-    width: 40%;
+  .consultaDocumentos form {
+    padding: 1rem;
   }
 }
-@media screen and (max-width: 550px) {
-  .secciones section#facturas #btnBorrarIngresos, .secciones section#facturas #btnBorrarFacturas, .secciones section#ingresos #btnBorrarIngresos, .secciones section#ingresos #btnBorrarFacturas {
-    width: 100%;
-  }
+.consultaDocumentos form > div:not(.notificaciones) {
+  width: 20%;
 }
-
 .consultaDocumentos #mostrarDocumentos {
   display: none;
   flex-direction: column;
   flex-grow: 1;
+  overflow-y: scroll;
 }
 .consultaDocumentos #mostrarDocumentos .tabla {
   flex-grow: 1;
   height: 38vh;
 }
 
+/*-------------------- * * * --------------------
+
+  Archivo que contiene los estilos generales de todo el proyecto
+
+  Autor: Arancha Cores López
+  Fecha: 12-10-2024
+  Nombre: _estilosGenerales.scss
+
+-------------------- * * * --------------------*/
 /*---------- Estilos de la página vendimia ----------*/
 #contenido.vendimia .secciones section#normativa {
   background-color: transparent;
   padding: 0;
 }
-#contenido.vendimia .secciones section#normativa > div {
+#contenido.vendimia .secciones section#normativa div {
+  max-height: 50vh;
+  overflow-y: scroll;
+}
+#contenido.vendimia .secciones section#normativa .tabla {
+  border-radius: 10px;
+}
+#contenido.vendimia .secciones section#normativa .tabla table tr:first-child {
+  background-color: #93ad8b;
+}
+#contenido.vendimia .secciones section#normativa .tabla table tr:last-child {
+  background-color: #fffefe;
+}
+#contenido.vendimia .secciones section#normativa > div:last-child {
   background-color: #fffefe;
   border-radius: 10px;
   padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 @media screen and (max-width: 1100px) {
-  #contenido.vendimia .secciones section#normativa > div {
+  #contenido.vendimia .secciones section#normativa > div:last-child {
     padding: 1.5rem;
   }
 }
 @media screen and (max-width: 800px) {
-  #contenido.vendimia .secciones section#normativa > div {
+  #contenido.vendimia .secciones section#normativa > div:last-child {
     padding: 1rem;
   }
-}
-#contenido.vendimia .secciones section#normativa > div#fechasVendimia {
-  display: flex;
-  border-radius: 10px;
-}
-@media screen and (max-width: 700px) {
-  #contenido.vendimia .secciones section#normativa > div#fechasVendimia {
-    flex-wrap: wrap;
-    gap: 2rem;
-  }
-}
-#contenido.vendimia .secciones section#normativa > div#fechasVendimia > div {
-  display: flex;
-}
-@media screen and (max-width: 1000px) {
-  #contenido.vendimia .secciones section#normativa > div#fechasVendimia > div {
-    width: 45%;
-  }
-}
-@media screen and (max-width: 700px) {
-  #contenido.vendimia .secciones section#normativa > div#fechasVendimia > div {
-    width: 100%;
-    flex-wrap: wrap;
-  }
-}
-#contenido.vendimia .secciones section#normativa > div#fechasVendimia > div p {
-  font-size: 1.3vw;
-  padding: 1.5rem;
-}
-@media screen and (max-width: 1000px) {
-  #contenido.vendimia .secciones section#normativa > div#fechasVendimia > div p {
-    width: 50%;
-  }
-}
-@media screen and (max-width: 700px) {
-  #contenido.vendimia .secciones section#normativa > div#fechasVendimia > div p {
-    width: 100%;
-    font-size: 2.5vw;
-    text-align: center;
-  }
-}
-#contenido.vendimia .secciones section#normativa > div#fechasVendimia > div p:first-child {
-  background-color: #125e52;
-  color: #fffefe;
-  border-radius: 10px 0 0 10px;
-}
-@media screen and (max-width: 700px) {
-  #contenido.vendimia .secciones section#normativa > div#fechasVendimia > div p:first-child {
-    border-radius: 10px 10px 0 0;
-  }
-}
-#contenido.vendimia .secciones section#normativa > div#fechasVendimia > div p:last-child {
-  background-color: #dee1c2;
-  color: #333;
-  border-radius: 0 10px 10px 0;
-}
-@media screen and (max-width: 700px) {
-  #contenido.vendimia .secciones section#normativa > div#fechasVendimia > div p:last-child {
-    border-radius: 0 0 10px 10px;
-  }
-}
-#contenido.vendimia .secciones section#normativa > div#mostrarDatosVendimia {
-  padding-bottom: 0;
-}
-#contenido.vendimia .secciones section#normativa > div#mostrarDatosVendimia table tr:first-child {
-  background-color: #93ad8b;
-}
-#contenido.vendimia .secciones section#normativa > div#mostrarDatosVendimia table tr:last-child {
-  background-color: #fffefe;
-}
-#contenido.vendimia .secciones section#normativa > div:last-child {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
 }
 #contenido.vendimia .secciones section#normativa > div:last-child div {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  max-height: 50vh;
-  overflow-y: scroll;
-}
-@media screen and (max-width: 700px) {
-  #contenido.vendimia .secciones section#normativa > div:last-child div {
-    font-size: 2.5vw;
-  }
 }
 #contenido.vendimia .secciones section#normativa > div:last-child div ul {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  margin-left: 1.5rem;
-  list-style: disc;
 }
 #contenido.vendimia .secciones section#mostrarAlbaranes {
   background-color: transparent;
@@ -3389,13 +3153,48 @@ button {
   border-radius: 0;
   padding: 0;
 }
+#contenido.vendimia .secciones section#consultaAlbaranes > div:first-child {
+  background-color: #fffefe;
+  border-radius: 10px;
+  padding: 2rem;
+}
+@media screen and (max-width: 1100px) {
+  #contenido.vendimia .secciones section#consultaAlbaranes > div:first-child {
+    padding: 1.5rem;
+  }
+}
+@media screen and (max-width: 800px) {
+  #contenido.vendimia .secciones section#consultaAlbaranes > div:first-child {
+    padding: 1rem;
+  }
+}
+@media screen and (max-width: 550px) {
+  #contenido.vendimia .secciones section#consultaAlbaranes > div:first-child {
+    flex-wrap: wrap;
+  }
+}
+#contenido.vendimia .secciones section#consultaAlbaranes > div:first-child #formularioConsultaAlbaranes {
+  flex-direction: row;
+}
+@media screen and (max-width: 550px) {
+  #contenido.vendimia .secciones section#consultaAlbaranes > div:first-child #formularioConsultaAlbaranes {
+    order: 1;
+  }
+}
+#contenido.vendimia .secciones section#consultaAlbaranes > div:first-child button {
+  order: 0;
+  width: 20%;
+}
+@media screen and (max-width: 550px) {
+  #contenido.vendimia .secciones section#consultaAlbaranes > div:first-child button {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+}
 #contenido.vendimia .secciones section#consultaAlbaranes > div#mostrarAlbaranes {
   display: none;
   flex-direction: column;
   gap: 2rem;
-}
-#contenido.vendimia .secciones section#consultaAlbaranes > div#mostrarAlbaranes h3 {
-  width: 80%;
 }
 #contenido.vendimia .secciones section#consultaAlbaranes > div#mostrarAlbaranes > div {
   background-color: #fffefe;
@@ -3415,7 +3214,7 @@ button {
 #contenido.vendimia .secciones section#consultaAlbaranes > div#mostrarAlbaranes > div:first-child {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1rem;
 }
 #contenido.vendimia .secciones section#consultaAlbaranes > div#mostrarAlbaranes > div:first-child > div:first-child {
   display: flex;
@@ -3439,117 +3238,15 @@ button {
     width: 100%;
   }
 }
-#contenido.vendimia .secciones section#consultaAlbaranes > div#mostrarAlbaranes > div#resumenVendimia {
-  padding-bottom: 0;
-}
-#contenido.vendimia .secciones section#consultaDiasVendimia {
-  background-color: transparent;
-  padding: 0;
-}
-#contenido.vendimia .secciones section#consultaDiasVendimia > div {
-  background-color: #fffefe;
-  border-radius: 10px;
-  padding: 2rem;
-}
-@media screen and (max-width: 1100px) {
-  #contenido.vendimia .secciones section#consultaDiasVendimia > div {
-    padding: 1.5rem;
-  }
-}
-@media screen and (max-width: 800px) {
-  #contenido.vendimia .secciones section#consultaDiasVendimia > div {
-    padding: 1rem;
-  }
-}
-#contenido.vendimia .secciones section#consultaDiasVendimia > div#mostrarDiasVendimia {
-  display: none;
-  flex-direction: column;
-  gap: 2rem;
-}
-#contenido.vendimia .secciones section#consultaDiasVendimia > div#mostrarDiasVendimia > div {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-#contenido.vendimia .secciones section#consultaDiasVendimia > div#mostrarDiasVendimia > div #tablaDiasVendimia {
-  height: 37vh;
-}
 #contenido.vendimia .secciones section#consultaRecolectas .botones {
   display: flex;
   gap: 1rem;
-}
-#contenido.vendimia .secciones section#consultaDiasVendimia > div:first-child, #contenido.vendimia .secciones section#consultaAlbaranes > div:first-child {
-  background-color: #fffefe;
-  border-radius: 10px;
-  padding: 2rem;
-}
-@media screen and (max-width: 1100px) {
-  #contenido.vendimia .secciones section#consultaDiasVendimia > div:first-child, #contenido.vendimia .secciones section#consultaAlbaranes > div:first-child {
-    padding: 1.5rem;
-  }
-}
-@media screen and (max-width: 800px) {
-  #contenido.vendimia .secciones section#consultaDiasVendimia > div:first-child, #contenido.vendimia .secciones section#consultaAlbaranes > div:first-child {
-    padding: 1rem;
-  }
-}
-@media screen and (max-width: 800px) {
-  #contenido.vendimia .secciones section#consultaDiasVendimia > div:first-child, #contenido.vendimia .secciones section#consultaAlbaranes > div:first-child {
-    flex-wrap: wrap;
-    gap: 1rem;
-  }
-}
-@media screen and (max-width: 550px) {
-  #contenido.vendimia .secciones section#consultaDiasVendimia > div:first-child, #contenido.vendimia .secciones section#consultaAlbaranes > div:first-child {
-    gap: 1.5rem;
-  }
-}
-#contenido.vendimia .secciones section#consultaDiasVendimia > div:first-child form, #contenido.vendimia .secciones section#consultaAlbaranes > div:first-child form {
-  background-color: #fffefe;
-  border-radius: 10px;
-  width: 80%;
-  padding: 0;
-}
-@media screen and (max-width: 800px) {
-  #contenido.vendimia .secciones section#consultaDiasVendimia > div:first-child form, #contenido.vendimia .secciones section#consultaAlbaranes > div:first-child form {
-    width: 100%;
-    order: 1;
-  }
-}
-#contenido.vendimia .secciones section#consultaDiasVendimia > div:first-child form div:not(:last-child), #contenido.vendimia .secciones section#consultaAlbaranes > div:first-child form div:not(:last-child) {
-  width: 40%;
-}
-@media screen and (max-width: 800px) {
-  #contenido.vendimia .secciones section#consultaDiasVendimia > div:first-child form div:not(:last-child), #contenido.vendimia .secciones section#consultaAlbaranes > div:first-child form div:not(:last-child) {
-    width: 50%;
-  }
-}
-@media screen and (max-width: 550px) {
-  #contenido.vendimia .secciones section#consultaDiasVendimia > div:first-child form div:not(:last-child), #contenido.vendimia .secciones section#consultaAlbaranes > div:first-child form div:not(:last-child) {
-    width: 100%;
-  }
-}
-#contenido.vendimia .secciones section#consultaDiasVendimia > div:first-child button, #contenido.vendimia .secciones section#consultaAlbaranes > div:first-child button {
-  order: 0;
-  width: 25%;
-}
-@media screen and (max-width: 1200px) {
-  #contenido.vendimia .secciones section#consultaDiasVendimia > div:first-child button, #contenido.vendimia .secciones section#consultaAlbaranes > div:first-child button {
-    width: 30%;
-  }
-}
-@media screen and (max-width: 800px) {
-  #contenido.vendimia .secciones section#consultaDiasVendimia > div:first-child button, #contenido.vendimia .secciones section#consultaAlbaranes > div:first-child button {
-    width: 100%;
-  }
 }
 
 /*---------- Estilos del main ----------*/
 main {
   width: 100%;
-  height: 100vh;
   overflow: hidden;
-  overflow-y: scroll;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -3567,11 +3264,6 @@ main {
     padding: 2rem;
   }
 }
-@media screen and (max-width: 400px) {
-  main {
-    padding: 1rem;
-  }
-}
 @media screen and (max-width: 1000px) {
   main .tituloPagina p {
     font-size: 2vw;
@@ -3584,7 +3276,7 @@ main {
 }
 main #contenido {
   width: 100%;
-  flex-grow: 1;
+  height: 100%;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
@@ -3595,7 +3287,25 @@ main #contenido {
   }
 }
 
-/*---------- Estilos del pié de página ----------*/
+/*-------------------- * * * --------------------
+
+  Archivo que contiene los estilos generales de todo el proyecto
+
+  Autor: Arancha Cores López
+  Fecha: 12-10-2024
+  Nombre: _estilosGenerales.scss
+
+-------------------- * * * --------------------*/
+/*-------------------- * * * --------------------
+
+  Archivo css que contiene los estilos del pie de página
+
+  Autor: Arancha Cores López
+  Fecha: 19-10-2024
+  Nombre: _piePagina.scss
+
+-------------------- * * * --------------------*/
+/*---------- Estilos de la cabecera ----------*/
 footer {
   background-color: #fffefe;
   display: flex;
@@ -3604,18 +3314,6 @@ footer {
   border-radius: 10px;
   padding: 1.5rem;
 }
-@media screen and (max-width: 400px) {
-  footer {
-    flex-wrap: wrap;
-    gap: 0.5rem;
-  }
-}
-@media screen and (max-width: 400px) {
-  footer p {
-    width: 100%;
-    text-align: center;
-  }
-}
 footer ul {
   display: flex;
 }
@@ -3623,12 +3321,6 @@ footer ul {
   footer ul {
     flex-direction: column;
     gap: 0.5rem;
-  }
-}
-@media screen and (max-width: 400px) {
-  footer ul {
-    width: 100%;
-    text-align: center;
   }
 }
 footer ul li {

@@ -1,17 +1,22 @@
 //--------- Funciónes de las ventanas modales ---------
-    /**
-     * Función para abrir las ventanas modales
-     */
-    export function abrirVentanaModal(ventanaModal){
-        ventanaModal[0].showModal();
-    }
+/**
+ * Función para abrir las ventanas modales
+ * @param {*} ventanaModal Ventana modal a abrir
+ */
+export function abrirVentanaModal(ventanaModal){
+    ventanaModal[0].showModal();
+    
+}
 
-    /**
-     * Función que cierra las ventanas modales
-     */
-    export function cerrarVentanaModal(ventanaModal){
-        ventanaModal.close();
-    }
+/**
+ * Función que cierra las ventanas modales
+ * @param {*} ventanaModal Ventana modal a cerrar
+ */
+export function cerrarVentanaModal(ventanaModal){
+    ventanaModal[0].close();
+}
+
+
 
 
 
@@ -19,6 +24,7 @@
 //-------------------- Funciones para validar los formularios --------------------
 /**
  * Función para validar los formularios
+ * @param {String} idFormulario ID del formulario a validar
  * @returns Boolean
  */
 export function validarFormulario(idFormulario){
@@ -41,8 +47,9 @@ export function validarFormulario(idFormulario){
 /**
  * Función que valida los inputs de los formularios
  * 
- * @param {} Input para validar
- * @returns String Mensaje de error
+ * @param {String} claseInput clase del input a validar
+ * @param {String} idInput ID del input a validar
+ * @returns String Mensaje de error o ""
  */
 export function validarCamposFormulario(claseInput, idInput){
     let tipoInput = claseInput.split(' ')[0];
@@ -54,6 +61,10 @@ export function validarCamposFormulario(claseInput, idInput){
 
         case "texto":
             return validarCamposTexto(idInput);
+            break;
+
+        case "contrasinal":
+            return validarContrasinal(idInput);
             break;
 
         case "codigoPostal":
@@ -102,7 +113,8 @@ export function validarCamposFormulario(claseInput, idInput){
 
 /**
  * Función que comprueba si una imagen se añadió al input y la previsualiza
- * @param {*} e 
+ * @param {*} e Evento asociado
+ * @param {String} imagenActual Ruta de la imagen actual en el servidor
  */
 export function previsualizarImagen(e, imagenActual){  
     let imagen = e.target.files[0];
@@ -130,7 +142,8 @@ export function previsualizarImagen(e, imagenActual){
 
 /**
  * Función que valida un dni
- * @returns String Mensaje de error
+ * @param {String} ID del input DNI
+ * @returns String Mensaje de error o ""
  */
 function validarDNI(idInput){
     let letrasDni = ["T", "R", "W", "A", "G", "M", "Y", "F ", "P", "D", "X", "B", "N", "J", "Z", "S", "Q", "V", "H", "L", "C", "K", "E"];
@@ -151,7 +164,7 @@ function validarDNI(idInput){
 
     //Si el dni coincide con el patrón comprobamos si la letra introducida es correcta
     } else if(patronDni.test(dni)){
-        letra = dni.substring(8);
+        letra = dni.substring(8).toUpperCase();
         resto = Math.trunc(parseInt(dni.substring(0, 8)) % 23);
         return letrasDni[resto] == letra ? "" : "La letra es incorrecta para el DNI introducido";
 
@@ -164,8 +177,8 @@ function validarDNI(idInput){
 
 /**
  * Función que valida un campo de texto
- * @param {String} campo Id del input a validar
- * @returns String Mensaje de error
+ * @param {String} idINput Id del input a validar
+ * @returns String Mensaje de error o ""
  */
 function validarContrasinal(idInput){
     let patronContrasinal = /^(?=.*[A-z])(?=.*[A-Z])(?=.*[0-9])\S{6,}$/;
@@ -173,10 +186,8 @@ function validarContrasinal(idInput){
 
     if (contrasinal == ""){
         return "Introduce la contraseña";
-    } else if (contrasinal.length < 6){
-        return "La contraseña debe tener como mínimo 6 dígitos";
     } else if (!patronContrasinal.test(contrasinal)){
-        return "La contraseña introducida no cumple los requisitos: Mínimo 6 caracteres, 1 mayúscula, 1 minúscula y 1 número";
+        return "La contraseña introducida no cumple los requisitos: mínimo 6 caracteres, 1 mayúscula, 1 minúscula y 1 número";
     } else {
         return "";
     }
@@ -186,8 +197,8 @@ function validarContrasinal(idInput){
 
 /**
  * Función que valida un campo de una contraseña
- * @param {String} campo Id del input a validar
- * @returns String Mensaje de error
+ * @param {String} idInput Id del input a validar
+ * @returns String Mensaje de error o ""
  */
 function validarCamposTexto(idInput){
     let texto =  $(`#${idInput}`).val();
@@ -199,7 +210,8 @@ function validarCamposTexto(idInput){
 
 /**
  * Función que valida el código postal
- * @returns String Mensaje de error
+ * @param {String} idInput Id del input a validar
+ * @returns String Mensaje de error o ""
  */
 function validarCodigoPostal(idInput){
     let patronCP = /^\d{5}$/;
@@ -220,8 +232,8 @@ function validarCodigoPostal(idInput){
 
 /**
  * Función que valida un correo electrónico
- * 
- * @returns String Mensaje con el error
+ * @param {String} idInput Id del input a validar
+ * @returns String Mensaje con el error o ""
  */
 function validarCorreoElectronico(idInput){
     let patronCorreo = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -238,7 +250,8 @@ function validarCorreoElectronico(idInput){
 
 /**
  * Función que valida un teléfono
- * @returns String Mensaje con el error
+ * @param {String} idInput Id del input a validar
+ * @returns String Mensaje con el error o ""
  */
 function validarTelefono(idInput){
     let patronTelefono = /^\d{9}$/;
@@ -256,9 +269,8 @@ function validarTelefono(idInput){
 
 /**
  * Función que valida un campo que debe contener números
- * @param {String} valorInput Valor introducido en el input
- * @param {String} nombreCampo Nombre del campo
- * @returns String Mensaje con el error
+ * @param {String} idInput Id del input a validar
+ * @returns String Mensaje con el error o ""
  */
 function validarCampoNumero(idInput){
     let numero = $(`#${idInput}`).val();
@@ -289,7 +301,9 @@ function validarCampoNumero(idInput){
 function validarSelect(idSelect){
     let valorSelect = $(`#${idSelect}`).val();
 
-    if (idSelect.includes("formaPago")){
+    idSelect = idSelect.toLowerCase();
+
+    if (idSelect.includes("formapago")){
         if (valorSelect == "predeterminado"){
             return "Selecciona una forma de pago";
 
@@ -312,7 +326,13 @@ function validarSelect(idSelect){
         }
 
     } else if (idSelect.includes("parcelas")){
-        return (valorSelect == "predeterminado") ? "Selecciona una parcela" : "";      
+        return (valorSelect == "predeterminado") ? "Selecciona una parcela" : "";
+
+    } else if (idSelect.includes("estado")){
+        return (valorSelect == "predeterminado") ? "Selecciona un estado" : "";  
+
+    } else if (idSelect.includes("pagada")){
+        return (valorSelect == "predeterminado") ? "Selecciona el estado de la factura" : "";  
     }
 }
 
@@ -349,7 +369,7 @@ function validarCuentaBancaria(idInput){
 /**
  * Función que valida que esté seleccionado un archivo
  * @param {String} idInput ID del input file
- * @returns String Mensaje de error
+ * @returns String Mensaje de error o ""
  */
 function validarArchivo(idInput){
     return ($(`#${idInput}`).files != "") ? "" : "Sube el archivo de la factura";
@@ -361,7 +381,7 @@ function validarArchivo(idInput){
 /**
  * Función que valida si una fecha es correcta
  * @param {String} idInput ID del input fecha
- * @returns Mensaje de errr
+ * @returns Mensaje de error o ""
  */
 function validarFecha(idInput){
     //Recibe yyyy-mm-dd
@@ -400,7 +420,7 @@ export function calcularNumero(idInput){
 
 /**
  * Función que muestra la fecha de hoy en un input
- * @param {String} claseInput Nombre de la clase de los inputs
+ * @param {*} input Input donde se va a mostrar la fecha
  */
 export function calcularFecha(input){
     let fecha = new Date();
@@ -416,9 +436,9 @@ export function calcularFecha(input){
 //-------------------- Funciones para obtener el municipio y provincia --------------------
 
 /**
- * Función que obtiene el municipio dado un código postal
+ * Función que obtiene el municipio a partir de un código postal
  * @param {String} codigoPostal 
- * 
+ * @param {String} idFormulario ID del formulario donde se encuentra el código postal
  * @returns Boolean True: si encuentra el municipio. False: si no encuentra el municipio
  */
 export function obtenerMunicipio(codigoPostal, idFormulario){ 
@@ -461,7 +481,8 @@ export function obtenerMunicipio(codigoPostal, idFormulario){
 
 /**
  * Función que obtiene la provincia a la que pertenece un código postal
- * @param {String} codigoPostal 
+ * @param {String} codigoPostal
+ * @param {String} idProvincia ID del input donde se va a mostrar el nombre de la provincia
  */
 function obtenerProvincia(codigoPostal, idProvincia){
     let codigo = codigoPostal.substring(0, 2);
@@ -494,18 +515,10 @@ function obtenerProvincia(codigoPostal, idProvincia){
  */
 export function comprobarDireccion(idFormulario){
 
+    let idMinusculas = idFormulario.toLowerCase();
+
     //Comprobamos si hay que mostrar un mapa
-    let padreFormulario = "", mapa;
-    if ($(`#${idFormulario}`).parent().attr("id")){
-        padreFormulario = $(`#${idFormulario}`).parent().attr("id");
-        mapa = $(`#${padreFormulario} .mapa`).length;
-
-    } else if ($(`#${idFormulario}`).parent().attr("class")){
-        padreFormulario = $(`#${idFormulario}`).parent().attr("class")
-        mapa = $(`.${padreFormulario} .mapa`).length;
-    }
-
-    if (mapa){
+    if (idMinusculas.includes("parcela")){
 
         let inputsFormulario = $(`#${idFormulario} input`);
 
@@ -525,8 +538,7 @@ export function comprobarDireccion(idFormulario){
         }
 
         if (provincia != "" && municipio != "" && direccion != ""){
-            //mostrarMapa(padreFormulario, direccion, municipio, provincia);
-            mostrarMapa(padreFormulario, coordenadasMapa(direccion, municipio, provincia));
+            mostrarMapa(idFormulario, direccion, municipio, provincia);
         }
     }
 }
@@ -540,7 +552,7 @@ export function comprobarDireccion(idFormulario){
  * @param {String} municipio Municipio al que pertenece la dirección
  * @param {String} provincia Provincia a la que pertenece la dirección
  */
-export function mostrarMapa(idContenedor, direccion, municipio, provincia){
+export function mostrarMapa(contenedor, direccion, municipio, provincia){
     $.ajax({ 
         url: "../controlador/funcionesAJAX.php", 
         type: 'POST',
@@ -554,43 +566,29 @@ export function mostrarMapa(idContenedor, direccion, municipio, provincia){
 
         success: (respuesta) => {
             respuesta = JSON.parse(respuesta);
-            //!Comprobar mapa alta parcela
-            let contenedorMapa1 = $(`.${idContenedor} .mapa`).attr("id");
-            let contenedorMapa = $(`#${idContenedor} .mapa`).attr("id");
-            console.log(contenedorMapa + "   ----->     " + contenedorMapa1);
-            
-            $(`#${contenedorMapa}`).empty();
-            
-            
-            let map = new ol.Map({
-                layers: [new ol.layer.Tile({source: new ol.source.OSM()})],
-                target: `${contenedorMapa}`,
-                view: new ol.View({
-                //projection: 'EPSG:4326',
-                projection: 'EPSG:3857',
-                //center:[respuesta.latitud, respuesta.longitud],
-                center: ol.proj.fromLonLat([respuesta.longitud, respuesta.latitud]),
-                zoom: 16
-                })
-            });    
-            
-            // Crear un marcador
-            const marker = new ol.Feature({
-                geometry: new ol.geom.Point(ol.proj.fromLonLat([respuesta.longitud, respuesta.latitud])) // Convertir a EPSG:3857
-            });
+            if (!respuesta.longitud){
+                mostrarNotificacionError(contenedor, respuesta);
 
-            // Crear una capa vectorial para el marcador
-            const vectorSource = new ol.source.Vector({
-                features: [marker]
-            });
-
-            const markerLayer = new ol.layer.Vector({
-                source: vectorSource
-            });
-
-            // Añadir la capa de marcador al mapa
-            map.addLayer(markerLayer);
-            $(`#${contenedorMapa}`).css("padding", "0.1rem");
+            } else {
+                let longitud = parseFloat(respuesta.longitud);
+                let latitud = parseFloat(respuesta.latitud);
+                
+                let contenedorMapa = $(`#${contenedor}`) ? $(`#${contenedor}`).next(".mapa").attr("id") : $(`.${contenedor}`).next(".mapa").attr("id");      
+                $(`#${contenedorMapa}`).empty();
+                
+                
+                let map = new ol.Map({
+                    layers: [new ol.layer.Tile({source: new ol.source.OSM()})],
+                    target: `${contenedorMapa}`,
+                    view: new ol.View({
+                    projection: 'EPSG:4326',
+                    center:[longitud, latitud],
+                    zoom: 19
+                    })
+                });
+                
+                $(`#${contenedorMapa}`).css("padding", "0.1rem");
+            }
         }
     });
 }
@@ -617,14 +615,14 @@ export function mostrarNotificacionError(contenedor, textoError){
                 <p>${textoError}</p>
             </div>
             <div>
-                <p><span class="close-rounded"></span></p>
+                <p><span class="close-outline"></span></p>
             </div>
         </div> 
     `);
     
     setTimeout(() => {
         $(".notificaciones .error:first-child").remove();
-    }, 5000);
+    }, 10000);
 }
 
 
@@ -646,14 +644,14 @@ export function mostrarNotificacionExito(contenedor, textoExito){
                 <p>${textoExito}</p>
             </div>
             <div>
-                <p><span class="close-rounded"></span></p>
+                <p><span class="close-outline"></span></p>
             </div>
         </div> 
     `);
     
     setTimeout(() => {
         $(".notificaciones .error:first-child").remove();
-    }, 5000);
+    }, 10000);
 }
 
 
@@ -663,8 +661,9 @@ export function mostrarNotificacionExito(contenedor, textoExito){
 
 /**
  * Función que muestra los datos de la tabla facturas
- * @param {String} contenedor Id del contenedor donde se va a mostrar la tabla
- * @param {Array} datos Datos a mostrar
+ * @param {String} idContenedor Id de la tabla donde se va a mostrar los datos
+ * @param {Array} datos Array con los datos a mostrar
+ * @param {String} rolUsuario Rol del usuario
  */
 export function mostrarTablaFacturas(idContenedor, datos, rolUsuario){
     let contenedor = $(`#${idContenedor} tbody`);
@@ -679,17 +678,20 @@ export function mostrarTablaFacturas(idContenedor, datos, rolUsuario){
         contenidoTabla += "<tr>";
         
         if (rolUsuario == "administrador"){
-            contenidoTabla += "<td>" +
-                    `<label for='${factura['numero_factura']}'><span class='checkbox-blank-outline'></span></label>` +
-                    `<input type='checkbox' id='${factura['numero_factura']}' name='borrarFactura' value='${factura['numero_factura']}']` + 
-                    "</td>";
+            contenidoTabla += 
+                `<td><input type='checkbox' id='${factura['numero_factura']}' name='borrarMovimiento' value='${factura['numero_factura']}'></td>` +
+                `<td><label for='${factura['numero_factura']}'>${factura['numero_factura']}</label></td>`;
+        } else {
+            contenidoTabla += `<td>${factura['numero_factura']} </td>`;
         }
-        contenidoTabla += `<td>${factura['numero_factura']} </td>`;
-        contenidoTabla += `<td>${factura['fecha']}</td>`;
-        contenidoTabla += `<td>${factura['concepto']}</td>`;
-        contenidoTabla += `<td>${factura['base_imponible']}€</td>`;
-        contenidoTabla += `<td>${factura['iva']}%</td>`;
-        contenidoTabla += `<td>${factura['total']}€</td>`;
+
+        contenidoTabla += 
+            `<td>${cambiarFormatoFecha(factura['fecha'])}</td>` + 
+            `<td>${factura['concepto']}</td>` + 
+            `<td>${factura['base_imponible']}€</td>` +
+            `<td>${factura['iva']}%</td>` +
+            `<td>${factura['total']}€</td>`;
+            
         contenidoTabla += factura['pagada'] ? "<td>SI</td>" : "<td>NO</td>";
         contenidoTabla += "<td>" + 
                 `<a target="_blank" href="../documentosUsuarios/archivosFacturas/${factura['archivo']}"><span class="download-rounded" title="Descargar factura"></span></a>` +
@@ -697,7 +699,7 @@ export function mostrarTablaFacturas(idContenedor, datos, rolUsuario){
 
         if (rolUsuario == "administrador"){
             contenidoTabla += 
-                `<button id="${factura['numero_factura']}" class="editarMovimiento"><span class="edit" title="Editar factura"></span></button>`+
+                `<button id="${factura['numero_factura']}" class="editar editarMovimiento"><span class="edit" title="Editar factura"></span></button>`+
                 `<button id="${factura['numero_factura']}" class="eliminarMovimiento"><span class="close-rounded" title="Eliminar factura"></span></button>`;
         }
 
@@ -712,8 +714,9 @@ export function mostrarTablaFacturas(idContenedor, datos, rolUsuario){
 
 /**
  * Función que muestra los datos de la tabla ingresos
- * @param {Array} datos 
- * @param {Array} datos Datos a mostrar
+ * @param {String} idContenedor ID de la tabla donde se van mostrar los datos
+ * @param {Array} datos Array con los datos a mostrar
+ * @param {String} rolUsuario Rol del usuario 
  */
 export function mostrarTablaIngresos(idContenedor, datos, rolUsuario){
     let contenedor = $(`#${idContenedor} tbody`);
@@ -728,34 +731,87 @@ export function mostrarTablaIngresos(idContenedor, datos, rolUsuario){
         contenidoTabla += "<tr>";
         
         if (rolUsuario == "administrador"){
-            contenidoTabla += "<td>"+
-                    `<label for='${ingreso['numero_ingreso']}'><span class='checkbox-blank-outline'></span></label>` +
-                    `<input type='checkbox' id='${ingreso['numero_ingreso']}' name='borrarIngreso' value='${ingreso['numero_ingreso']}']` + 
-                    "</td>";
+            contenidoTabla += 
+                `<td><input type='checkbox' id='${ingreso['numero_ingreso']}' name='borrarMovimiento' value='${ingreso['numero_ingreso']}']</td>` + 
+                `<td><label for='${ingreso['numero_ingreso']}'>${ingreso['numero_ingreso']}</label>`;
+        } else {
+            contenidoTabla += `<td>${ingreso['numero_ingreso']} </td>`;
         }
-        contenidoTabla += `<td>${ingreso['numero_ingreso']} </td>`;
-        contenidoTabla += `<td>${ingreso['fecha']}</td>`;
-        contenidoTabla += `<td>${ingreso['concepto']}</td>`;
-        contenidoTabla += `<td>${ingreso['ingreso_bruto']}€</td>`;
-        contenidoTabla += `<td>${ingreso['porcentaje_retencion']}%</td>`;
-        contenidoTabla += `<td>${ingreso['retencion']}€</td>`;
-        contenidoTabla += `<td>${ingreso['total']}€</td>`;
-        contenidoTabla += `<td>${ingreso['estado']}</td>`;
-
 
         contenidoTabla += 
+            `<td>${cambiarFormatoFecha(ingreso['fecha'])}</td>` +
+            `<td>${ingreso['concepto']}</td>` +
+            `<td>${ingreso['ingreso_bruto']}€</td>` +
+            `<td>${ingreso['porcentaje_retencion']}%</td>` +
+            `<td>${ingreso['retencion']}€</td>` +
+            `<td>${ingreso['total']}€</td>` +
+            `<td>${ingreso['estado']}</td>` +
             "<td>" + 
-            `<a target="_blank" href="../documentosUsuarios/archivosIngresos/${ingreso['archivo']}"><span class="download-rounded" title="Descargar ingreso"></span></a>`+
-            `<button id="${ingreso['numero_ingreso']}" class="verMovimiento"><span class="eye" title="Ver ingreso"></span></button>`;
+                `<a target="_blank" href="../documentosUsuarios/archivosIngresos/${ingreso['archivo']}"><span class="download-rounded" title="Descargar ingreso"></span></a>`+
+                `<button id="${ingreso['numero_ingreso']}" class="verMovimiento"><span class="eye" title="Ver ingreso"></span></button>`;
 
         if (rolUsuario == "administrador"){
             contenidoTabla += 
-                `<button id="${ingreso['numero_ingreso']}" class="editarMovimiento"><span class="edit" title="Editar ingreso"></span></button>`+
+                `<button id="${ingreso['numero_ingreso']}" class="editar editarMovimiento"><span class="edit" title="Editar ingreso"></span></button>`+
                 `<button id="${ingreso['numero_ingreso']}" class="eliminarMovimiento"><span class="close-rounded" title="Eliminar ingreso"></span></button>`;
         }
 
-        contenidoTabla += "</td>";
-        contenedor.append("</tr>");
+        contenidoTabla += "</td></tr>";
+    }
+
+    contenedor.append(contenidoTabla);
+}
+
+
+
+/**
+ * Funicón que muestra los datos de la tabla últimos movimientos
+ * @param {String} idContenedor ID de la tabla donde se van a mostrar los datos
+ * @param {Array} datos Array con los datos a mostrar
+ * @param {String} rolUsuario Rol del usuario
+ */
+export function mostrarTablaUltimosMovimientos(idContenedor, datos, rolUsuario){
+    let contenedor = $(`#${idContenedor} tbody`);
+    
+    //Borramos los hijos que tiene el contenedor
+    contenedor.empty();
+
+    let contenidoTabla = "";
+
+    //Llenamos el contenedor
+    for(let movimiento of datos){
+        contenidoTabla += "<tr>";
+
+        if (rolUsuario == "administrador"){
+            contenidoTabla +=
+                `<td><input id="movimiento${movimiento['numero_ingreso']}" type="checkbox" name="borrarMovimiento" value="${movimiento['numero_ingreso']}"></td>` +
+                `<td><label for="movimiento${movimiento['numero_ingreso']}">${movimiento['usuario']}</label></td>`;
+        } 
+
+        contenidoTabla += 
+            `<td>${movimiento['tipo']}</td>` +
+            `<td>${movimiento['numero_ingreso']}</td>` +
+            `<td>${cambiarFormatoFecha(movimiento['fecha'])}</td>` +
+            `<td>${movimiento['concepto']}</td>` +
+            `<td>${movimiento['total']}€</td>`;
+
+        contenidoTabla += "<td>";
+            if (movimiento['tipo'] == "Ingreso"){
+                contenidoTabla += `<a target="_blank" href="../documentosUsuarios/archivosIngresos/${movimiento['archivo']}"><span class="download-rounded" title="Descargar ingreso"></span></a>`;
+            } else {
+                contenidoTabla += `<a target="_blank" href="../documentosUsuarios/archivosFacturas/${movimiento['archivo']}"><span class="download-rounded" title="Descargar factura"></span></a>`;
+            }
+
+        contenidoTabla += `<button id="${movimiento['numero_ingreso']}" class="verMovimiento"><span class="eye" title="Ver movimiento"></span></button>`;
+                
+        if (rolUsuario == "administrador"){
+            contenidoTabla += 
+                `<button id="${movimiento['numero_ingreso']}" class="editar editarMovimiento"><span class="edit" title="Editar movimiento"></span></button>`+ 
+                `<button id="${movimiento['numero_ingreso']}" class="eliminarMovimiento"><span class="close-rounded" title="Eliminar movimiento"></span></button>`;
+        }
+        
+        contenidoTabla += "</td></tr>";
+
     }
 
     contenedor.append(contenidoTabla);
@@ -765,8 +821,9 @@ export function mostrarTablaIngresos(idContenedor, datos, rolUsuario){
 
 /**
  * Función que muestra los datos de la tabla albaranes
- * @param {String} idContenedor ID del contenedor donde se va a mostrar la tabla
+ * @param {String} idContenedor ID de la tabla donde se van a mostrar los datos
  * @param {Array} datos Array con los datos a mostrar
+ * @param {String} rolUsuario Rol del usuario
  */
 export function mostrarTablaAlbaranes(idContenedor, datos, rolUsuario){
     let contenedor = $(`#${idContenedor} tbody`);
@@ -780,32 +837,32 @@ export function mostrarTablaAlbaranes(idContenedor, datos, rolUsuario){
         contenidoTabla += "<tr>";
         
         if (rolUsuario == "administrador"){
-            contenidoTabla += "<td>" +
-                    `<label for='${albaran['id']}'><span class='checkbox-blank-outline'></span></label>` +
-                    `<input type='checkbox' id='${albaran['id']}' name='borrarAlbaran' value='${albaran['numero_albaran']}']` + 
-                    "</td>";
+            contenidoTabla += 
+                `<td><input type='checkbox' id='${albaran['numero_albaran']}' name='borrarAlbaran' value='${albaran['numero_albaran']}'></td>` +
+                `<td><label for='${albaran['numero_albaran']}'>${albaran['numero_albaran']}</label></td>`;
+        } else {
+            contenidoTabla += `<td>${albaran['numero_albaran']} </td>`;
         }
-        contenidoTabla += `<td>${albaran['numero_albaran']} </td>`;
-        contenidoTabla += `<td>${albaran['fecha_hora']}</td>`;
-        contenidoTabla += `<td>${albaran['nombre']}</td>`;
-        contenidoTabla += `<td>${albaran['cajas']}</td>`;
-        contenidoTabla += `<td>${albaran['peso_bruto']}</td>`;
-        contenidoTabla += `<td>${albaran['tara']}</td>`;
-        contenidoTabla += `<td>${albaran['peso_neto']}</td>`;
-        contenidoTabla += `<td>${albaran['grado']}</td>`;
 
-        contenidoTabla += "<td>";
-        contenidoTabla += `<a target="_blank" href="../documentosUsuarios/archivosAlbaranes/${albaran['archivo']}"><span class="download-rounded" title="Descargar albarán"></span></a>`;
-        contenidoTabla += `<button id="${albaran['numero_albaran']}" class="verAlbaran"><span class="eye" title="Ver albaran"></span></button>`;
+        contenidoTabla += 
+            `<td>${cambiarFormatoFecha(albaran['fecha_hora'])}</td>` +
+            `<td>${albaran['nombre']}</td>` +
+            `<td>${albaran['cajas']}</td>` +
+            `<td>${albaran['peso_bruto']}</td>` +
+            `<td>${albaran['tara']}</td>` +
+            `<td>${albaran['peso_neto']}</td>` +
+            `<td>${albaran['grado']}</td>` +
+            "<td>" +
+            `<a target="_blank" href="../documentosUsuarios/archivosAlbaranes/${albaran['archivo']}"><span class="download-rounded" title="Descargar albarán"></span></a>` +
+            `<button id="${albaran['numero_albaran']}" class="verAlbaran"><span class="eye" title="Ver albaran"></span></button>`;
                         
 
         if (rolUsuario == "administrador"){
-            contenidoTabla += `<button id="${albaran['numero_albaran']}" class="editarAlbaran"><span class="edit" title="Editar albaran"></span></button>`;
+            contenidoTabla += `<button id="${albaran['numero_albaran']}" class="editar editarAlbaran"><span class="edit" title="Editar albaran"></span></button>`;
             contenidoTabla += `<button id="${albaran['numero_albaran']}" class="eliminarAlbaran"><span class="close-rounded" title="Eliminar albaran"></span></button>`;
         }
-        contenidoTabla += "</td>";
-        
-        contenidoTabla += "</tr>";
+
+        contenidoTabla += "</td></tr>";
     }
 
     contenedor.append(contenidoTabla);
@@ -815,8 +872,8 @@ export function mostrarTablaAlbaranes(idContenedor, datos, rolUsuario){
 
 /**
  * Función que muestra la tabla resumen de la vendimia
- * @param {} idContenedor 
- * @param {Array} datos 
+ * @param {String} idContenedor ID de la tabla donde se van a mostrar los datos
+ * @param {Array} datos Array con los datos a mostrar
  */
 export function mostrarTablaResumenVendimia(idContenedor, datos){
     let contenedor = $(`#${idContenedor} tbody`);
@@ -827,14 +884,15 @@ export function mostrarTablaResumenVendimia(idContenedor, datos){
     let contenidoTabla = "";
     
     for (let vendimia of datos){
-        contenidoTabla += "<tr>";
-        contenidoTabla += `<td>${vendimia['kg']}</td>`;
-        contenidoTabla += `<td>${vendimia['graduacion']}</td>`;
-        contenidoTabla += `<td>${vendimia['precio']}</td>`;
-        contenidoTabla += `<td>${vendimia['base_imponible']}</td>`;
-        contenidoTabla += `<td>${vendimia['retencion']}</td>`;
-        contenidoTabla += `<td>${vendimia['total']}</td>`;
-        contenidoTabla += "</tr>";
+        contenidoTabla += 
+        "<tr>" +
+            `<td>${vendimia['kg']}</td>` + 
+            `<td>${vendimia['graduacion']}</td>` + 
+            `<td>${vendimia['precio']}</td>` + 
+            `<td>${vendimia['base_imponible']}</td>` + 
+            `<td>${vendimia['retencion']}</td>` + 
+            `<td>${vendimia['total']}</td>` + 
+        "</tr>";
     }    
 
     contenedor.append(contenidoTabla);
@@ -844,8 +902,8 @@ export function mostrarTablaResumenVendimia(idContenedor, datos){
 
 /**
  * Función que añade una fila a la tabla de parcelas al añadir una nueva parcela
- * @param {String} idContenedor Contenedor que va a mostrar los datos
- * @param {Array} datos Datos a mostrar
+ * @param {String} idContenedor ID de la tabla donde se van a mostrar los datos
+ * @param {Array} datos Array con los datos a mostrar
  */
 export function mostrarTablaParcelasNuevaParcela(idContenedor, dni){
     $.ajax({ 
@@ -859,30 +917,87 @@ export function mostrarTablaParcelasNuevaParcela(idContenedor, dni){
 
             let contenidoTabla = "";
             for (let parcela of JSON.parse(respuesta)){
-                contenidoTabla += "<tr>";
-                contenidoTabla += "<td>" + 
-                    `<label for="parcela${parcela['id']}"></label>` +
-                    `<input type="checkbox" id="parcela${parcela['id']}" name="borrarParcela" value="${parcela['id']}">`+
-                    "</td>";
-
-                contenidoTabla += `<td>${parcela['nombre']}</td>`;
-                contenidoTabla += `<td>${parcela['direccion']}</td>`;
-                contenidoTabla += `<td>${parcela['municipio']}</td>`;
-                contenidoTabla += `<td>${parcela['provincia']}</td>`;
-                contenidoTabla += `<td>${parcela['m2']}</td>`;
-                contenidoTabla += `<td>${parcela['cupo']}</td>`;
-                contenidoTabla += `<td>${parcela['variedad_uva']}</td>`;
-                contenidoTabla += "<td>"  +
-                    `<button id="${parcela['id']}" class="verParcela"><span class="eye" title="Ver parcela"></span></button>` +
-                    `<button id="${parcela['id']}" class="editarDatos"><span class="edit" title="Editar parcela"></span></button>` +
-                    `<button id="${parcela['id']}" class="eliminarDatos"><span class="close-rounded" title="Eliminar parcela"></span></button>` +
-                    "</td>";
-                contenidoTabla += "</tr>";
+                contenidoTabla += 
+                "<tr>" + 
+                    `<td><input type="checkbox" id="parcela${parcela['id']}" name="borrarParcela" value="${parcela['id']}"></td>`+
+                    `<td><label for="parcela${parcela['id']}">${parcela['nombre']}</label></td>` +
+                    `<td>${parcela['direccion']}</td>` + 
+                    `<td>${parcela['municipio']}</td>` + 
+                    `<td>${parcela['provincia']}</td>` + 
+                    `<td>${parcela['m2']}</td>` + 
+                    `<td>${parcela['cupo']}</td>` + 
+                    `<td>${parcela['variedad_uva']}</td>`+ 
+                    "<td>"  +
+                        `<button id="${parcela['id']}" class="verParcela"><span class="eye" title="Ver parcela"></span></button>` +
+                        `<button id="${parcela['id']}" class="editar editarParcela"><span class="edit" title="Editar parcela"></span></button>` +
+                        `<button id="${parcela['id']}" class="eliminarParcela"><span class="close-rounded" title="Eliminar parcela"></span></button>` +
+                    "</td>" +
+                "</tr>";
             }         
 
             contenedor.append(contenidoTabla);
         }
     });
+}
+
+
+
+/**
+ * Función que muestra los datos de la tabla de días de vendimia
+ * @param {String} idContenedor ID de la tabla donde se van a mostrar los datos
+ * @param {String} dni DNi del usuario
+ */
+export function mostrarTablaDiasVendimia(idContenedor, dni){
+    $.ajax({ 
+        url: "../controlador/funcionesAJAX.php", 
+        type: 'POST',
+        async: true, 
+        data: {"diasVendimia": "datosVendimia", "dni": dni},
+        success: (respuesta) => {
+            let contenedor = $(`#${idContenedor} tbody`);
+            
+            //Borramos los hijos que tiene el contenedor
+            contenedor.empty();
+
+            let contenidoTabla = "";
+            
+            for (let diasVendimia of JSON.parse(respuesta)){
+                contenidoTabla += 
+                    "<tr>" + 
+                        `<td><input type="checkbox" id="${diasVendimia['id']}" name="borrarDiasVendimia" value="${diasVendimia['id']}"></td>`+
+                        `<td><label for="${diasVendimia['id']}">${cambiarFormatoFecha(diasVendimia['fecha'])}</label></td>`+
+                        `<td>${diasVendimia['cajas']}</td>`+
+                        "<td>" +
+                            `<button id="${diasVendimia['id']}" class="editar diasVendimia"><span class="edit" title="Editar días vendimia"></span></button>` +
+                            `<button id="${diasVendimia['id']}" class="eliminarDiasVendimia"><span class="close-rounded" title="Eliminar días vendimia"></span></button>` +
+                        "</td>" +
+                    "</tr>";
+            }
+
+            contenedor.append(contenidoTabla);    
+        }
+    })
+}
+
+
+
+/**
+ * Función que cambia el formato de una fecha almacenada en una base de datos al formato: dd/mm/aaaa (hh:mm:ss)
+ * @param {String} fecha Fecha a cambiar
+ * @returns String Fecha cambiada
+ */
+function cambiarFormatoFecha(fecha){
+    let ano = fecha.substring(0,4);
+    let mes = fecha.substring(5,7);
+    let dia = fecha.substring(8, 10);
+
+    if (fecha.length == 10){
+        return dia + "/" + mes + "/" + ano;
+
+    } else {
+        let hora = fecha.substring(10);
+        return dia + "/" + mes + "/" + ano + hora;
+    }
 }
 
 
@@ -1043,19 +1158,24 @@ export function mostrarGraficoCircular(){
             
             let opcion = {
                 tooltip: {
-                    trigger: 'item'
+                    trigger: 'item',
                 },
 
                 legend: {
                     right: 'center',
                     bottom: '0%',
-                    orient: 'vertical'
+                    orient: 'vertical',
+                    textStyle: {
+                        fontSize: 30
+                    }
                 },
 
                 series: [{
                     type: 'pie',
                     radius: ['40%', '70%'],
                     avoidLabelOverlap: false,
+                    selectedMode: 'single',
+
                     itemStyle: {
                         borderRadius: 10,
                         borderColor: '#fff',

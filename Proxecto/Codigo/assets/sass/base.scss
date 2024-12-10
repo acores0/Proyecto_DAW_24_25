@@ -1,12 +1,15 @@
 /*-------------------- * * * --------------------
 
-  Archivo css que contiene las importaciones de los archivos de estilos que componen el proyecto
+  Archivo css que contiene los estilos de la aplicación
   
   Autor: Arancha Cores López
   Fecha: 09-10-2024
   Nombre: base.scss
 
 -------------------- * * * --------------------*/
+
+//Archivo de las importaciones de otros archivos
+@use 'importaciones';
 
 //Archivo de los iconos
 @use 'iconos';
@@ -25,14 +28,4 @@
 
 //Archivo que contiene el pié de página
 @use 'piePagina';
-
-
-//Archivos de fuentes
-@import url('https://fonts.googleapis.com/css2?family=Rokkitt:ital,wght@0,100..900;1,100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Buenard:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Varela&display=swap');
-
-@import url('https://fonts.googleapis.com/css2?family=Martel:wght@200;300;400;600;700;800;900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap');
 
