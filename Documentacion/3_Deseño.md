@@ -4,14 +4,6 @@
   - [1- Diagrama da arquitectura](#1--diagrama-da-arquitectura)
   - [2- Casos de uso](#2--casos-de-uso)
   - [3- Diagrama de Base de Datos](#3--diagrama-de-base-de-datos)
-  - [**Documentación base de datos:**](#documentación-base-de-datos)
-  - [**Tabla albaranes**](#tabla-albaranes)
-  - [**Tabla dias\_vendimia**](#tabla-dias_vendimia)
-  - [**Tabla facturas**](#tabla-facturas)
-  - [**Tabla ingresos**](#tabla-ingresos)
-  - [**Tabla parcelas**](#tabla-parcelas)
-  - [**Tabla recolecta**](#tabla-recolecta)
-  - [**Tabla usuarios**](#tabla-usuarios)
   - [4- Deseño de interface de usuarios](#4--deseño-de-interface-de-usuarios)
 
 Este documento inclúe os diferentes diagramas, esquemas e deseños que axuden a describir mellor o BaseInfoDB3 detallando os seus compoñentes, funcionalidades, bases de datos e interface.
@@ -19,18 +11,19 @@ Este documento inclúe os diferentes diagramas, esquemas e deseños que axuden a
 ## 1- Diagrama da arquitectura
 ![Diagrama de arquitectura](img/Diagrama%20de%20arquitectura.png)
 
-## 2- Casos de uso
 
+
+## 2- Casos de uso
 ![Diagrama de casos de uso](img/Diagrama%20casos%20de%20uso.png)
+
+
 
 ## 3- Diagrama de Base de Datos
 ![Diagrama de base de datos](img/Diagrama%20BD.png)
 
 **<u>Documentación base de datos:</u>**  
----
 
 **Tabla albaranes**  
----
 Tabla que almacena los albaranes de uva
 
 |Idx |Name |Data Type |Description |
@@ -66,7 +59,6 @@ ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4\_0900\_ai\_ci
 
 
 **Tabla dias_vendimia**  
----
 Tabla que almacena los días de la vendimia
 
 |Idx |Name |Data Type |Description |
@@ -94,7 +86,6 @@ ENGINE=InnoDB AUTO\_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4\_0900\_a
 
 
 **Tabla facturas**
----
 Tabla que almacena las facturas.
 
 |Idx |Name |Data Type |Description |
@@ -127,7 +118,6 @@ ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4\_0900\_ai\_ci
 
 
 **Tabla ingresos**
----
 Tabla que almacena los ingresos
 
 |Idx |Name |Data Type |Description |
@@ -136,7 +126,7 @@ Tabla que almacena los ingresos
 | * | fecha| DATE  DEFAULT curdate() | Campo que almacena la fecha del ingreso. |
 | * | concepto| VARCHAR(100)  | Campo que almacena el concepto del ingreso. |
 | * | ingreso\_bruto| DECIMAL(10,2)  | Campo que almacena el ingreso bruto. |
-| * | retencion| DECIMAL(10,0)  | Campo que almacena la retención. |
+| * | retencion| DECIMAL(10,2)  | Campo que almacena la retención. |
 | * | porcentaje\_retencion| DECIMAL(5,2)  | Campo que almacena el porcentaje de la retención. |
 | * | total| DECIMAL(10,2)  | Campo que almacena el total del ingreso. |
 | * | estado| ENUM('cobrado','pendiente de cobro')  | Campo que almacena el estado del ingreso: cobrado o pendiente de cobro. |
@@ -161,7 +151,6 @@ ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4\_0900\_ai\_ci
 
 
 **Tabla parcelas**
----
 Tabla que almacena las parcelas de los usuarios.
 
 |Idx |Name |Data Type |Description |
@@ -195,7 +184,6 @@ ENGINE=InnoDB AUTO\_INCREMENT=27 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4\_0900\_
 
 
 **Tabla recolecta**
----
 Tabla que almacena los datos de la campaña de uva.
 
 |Idx |Name |Data Type |Description |
@@ -230,7 +218,6 @@ ENGINE=InnoDB AUTO\_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4\_0900\_a
 
 
 **Tabla usuarios**
----
 Tabla que almacena los datos de los usuarios
 
 |Idx |Name |Data Type |Description |
@@ -262,4 +249,4 @@ ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4\_0900\_ai\_ci
 
 
 ## 4- Deseño de interface de usuarios
- [Arquivo que contén o deseño da interface dos usuarios](arquivos/BaseInfoDB3.fig)
+ [Arquivo que contén o deseño da interface dos usuarios](arquivos/BaseInfoDB3.fig).
